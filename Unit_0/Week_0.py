@@ -116,4 +116,152 @@ def return_n(n):
 
 
 
+# https://www.codingdors.com/problem/243
+"""
+convert_seconds
+Show Solution
+Given an integer 'n' that represents the minutes, return how many seconds that amount of minutes represent.
+
+Hint: 1 minute = 60 seconds
+
+convert_seconds(24) -> 1440
+convert_seconds(59) -> 3540
+convert_seconds(9) -> 540
+
+Theory
+convert_seconds
+1. Float, or "floating point number" is a number, positive or negative, containing one or more decimals. For example:
+
+x = 12.34
+y = -9.87
+
+
+2. Python uses the basic arithmetic operators for performing arithmetic operations. Here we are mainly interested in the multiplication operator *. For example:
+
+x = 5
+y = 4
+print(x * y)  # prints 20, which is the product of x and y
+
+
+3. A function is a named sequence of statements that performs a computation. You define a function with a specific name and call it using that name to use its computation. For example:
+
+def square(n):
+    return n ** 2
+
+print(square(5))  # prints 25, which is the square of 5
+
+Hint
+convert_seconds
+1. You need to create a function convert_seconds(n) that takes one argument, 'n', which represents the number of minutes.
+
+2. Inside the function, you need to calculate the number of seconds that this amount of minutes represents. As per the hint, 1 minute equals 60 seconds. So, you need to multiply the input number by 60 to get the number of seconds.
+
+3. Use the * operator in Python to multiply numbers.
+
+4. After calculating the total seconds, return this result from your function. It should be an integer value.
+
+Remember that basic arithmetic operations in Python include + for addition, - for subtraction, * for multiplication, / for division, and % for modulus operation (remainder of the division). Here, we need multiplication.
+
+The * operator multiplies two numbers together. If both numbers are integers, it returns an integer. If at least one of them is a float, it returns a float. In this case, you are multiplying two integers so the result will be an integer.
+"""
+# My Code
+def convert_seconds(n: int)->int:
+    minutes = n
+    seconds = (n*60)
+    return seconds
+    
+# Solution
+def convert_seconds(n: int)->int:
+	return n * 60
+
+# IA's Solutions
+# 1. Using a one-liner with inline calculation:
+def convert_seconds(n: int) -> int:
+    return n * 60
+
+# 2. Using a variable for clarity:
+def convert_seconds(n: int) -> int:
+    minutes = n
+    seconds = minutes * 60
+    return seconds
+
+# 3. Using a lambda function:
+convert_seconds = lambda n: n * 60
+
+
+
+
+
+# https://www.codingdors.com/problem/250
+"""
+convert_lb_to_kg
+Show Solution
+Given a float 'n' that represents the weight in pounds (lb), return the weight converted to kilograms (kg).
+
+Hint: 1 kg = lb * 0.453592
+
+convert_lb_to_kg(10) -> 4.54
+convert_lb_to_kg(180) -> 81.65
+convert_lb_to_kg(220) -> 99.79
+
+Theory
+convert_lb_to_kg
+1. Float, or "floating point number" is a number, positive or negative, containing one or more decimals. For example:
+
+x = 12.34
+y = -9.87
+
+
+2. Python uses the basic arithmetic operators for performing arithmetic operations. Here we are mainly interested in the multiplication operator *. For example:
+
+x = 5
+y = 4
+print(x * y)  # prints 20, which is the product of x and y
+
+
+3. A function is a named sequence of statements that performs a computation. You define a function with a specific name and call it using that name to use its computation. For example:
+
+def square(n):
+    return n ** 2
+
+print(square(5))  # prints 25, which is the square of 5
+
+
+To solve the given problem, you would need to define a function that takes a single float argument (the weight in pounds), performs a multiplication operation on this argument using the provided conversion factor, and then returns the result. The returned result would be a floating-point number representing the equivalent weight in kilograms.
+
+Hint
+convert_lb_to_kg
+1. You need to create a function convert_lb_to_kg(n) that takes one argument, 'n', which represents the weight in pounds.
+
+2. Inside the function, you need to convert the 'n' from pounds to kilograms. You can do this by multiplying 'n' by 0.453592.
+
+3. Remember to return the result, the weight in kilograms, which should be of float data type.
+
+Keep in mind that you are expected to use multiplication operation to convert pounds to kilograms. The multiplication operator in Python is *.
+
+The returned result should be rounded to two decimal places. Python's built-in round() function can help with this - round(number, digits). This function rounds a number to a certain number of decimal places, specified by the 'digits' argument.
+"""
+# My Code
+def convert_lb_to_kg(lb: int)->float:
+    libras = lb
+    kilogramas = 0.453592 * libras
+    return round(kilogramas, 2)
+    
+# Solution
+def convert_lb_to_kg(lb: int)->float:
+	return lb * 0.453592
+
+# IA's Solutions
+# Congrats, your answer is correct!
+# Sure! Here is an alternative solution in Python that achieves the same result:
+def convert_lb_to_kg(lb: float) -> float:
+    kilograms = lb * 0.453592
+    return round(kilograms, 2)
+# In this solution, we directly multiply the input weight in pounds by the conversion factor to obtain the weight in kilograms. The `round()` function is used to round the result to 2 decimal places, which ensures the output is a float with two decimal digits.
+# Both solutions are correct and will produce the expected results.
+
+
+
+
+
 # 
