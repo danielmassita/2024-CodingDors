@@ -1346,26 +1346,217 @@ def replace_words(a: str, b: str, c: str) -> str:
 
 
 
-# https://www.codingdors.com/problem/ 
+# https://www.codingdors.com/problem/8
 """
+round_floats
+Show Solution
+Given a float 'n', return the number with only two decimal places. 
 
+round_floats(3.141) -> 3.14 
+
+round_floats(75.123456) -> 75.12
+
+Theory
+round_floats
+1. Floats: A float is a numerical data type in Python that is capable of representing rational numbers with decimal values. 5.6 is an example of a float.
+
+2. Rounding: Rounding a float means reducing the number of digits after the decimal point to a desired number. The round() function in Python can be used to round numbers. 
+
+round(3.141, 2)    
+ 
+would give 3.14
+
+3. String formatting: String formatting is a way to format string output in a more readable and attractive way. The format() method in Python can be used for string formatting. Example:
+
+ 
+"The value is {:.2f}".format(3.141) 
+
+would give "The value is 3.14".
+
+Hint
+round_floats
+1. You can use Python's built-in round() function. 
+
+2. The round() function takes two arguments: the float you want to round, and the number of decimal places you want to round to. 
+
+3. To round to two decimal places, you should use round(n, 2). 
+
+4. Note that the function should return a float, not a string.
 """
 # My Code
-
+def round_floats(n: float)->float:
+    return round(n, 2)
+	
 # Solution
-
+def round_floats(n: float)->float:
+    result = round(n, 2)
+    return result
+	
 # IA's Solutions
+# Congrats, your answer is correct!
+# Certainly! Here are two alternative solutions in Python with explanations:
+# 1. Using string formatting:
+def round_floats(n: float) -> float:
+    return float(f'{n:.2f}')
+# Explanation: In this approach, we use f-string formatting to format the float 'n' to two decimal places using "{n:.2f}". Then, we convert the formatted string back to a float using the float() function and return the result.
+
+# 2. Using math module:
+import math
+def round_floats(n: float) -> float:
+    return math.floor(n * 100) / 100
+# Explanation: In this approach, we first multiply the float 'n' by 100 to shift the decimal point two places to the right. Then, we use math.floor() to round the number down to the nearest integer. Finally, we divide the result by 100 to shift the decimal point back to its original position, effectively rounding the number to two decimal places.
+# Both of these alternative solutions achieve the same result as your original solution, rounding the float 'n' to two decimal places.
 
 
 
 
 
-# https://www.codingdors.com/problem/ 
+# https://www.codingdors.com/problem/9
 """
+remove_letter_g
+Show Solution
+Write a Python function that takes a string 's' and returns a new string obtained by removing all occurrences of the letter 'g' from the string. For instance, if the string is 'going to the grocery store', the function should return 'oin to the rocery store'.
 
+remove_letter_g('going to the grocery store') -> 'oin to the rocery store'
+
+Theory
+remove_letter_g
+1. String Methods: Strings in Python are objects that support a variety of built-in methods. These methods can be used for tasks such as finding substrings, converting the string to uppercase or lowercase, and removing whitespace. Example: 
+
+
+s = "Hello, World!"
+print(s.upper()) # outputs "HELLO, WORLD!"
+
+
+2. strip(): This function returns a copy of the original string with all leading and trailing whitespace removed. Example: 
+
+
+s = "  Remove whitespace  "
+print(s.strip()) # outputs "Remove whitespace"
+
+
+
+s = "banana"
+print(s.strip('a')) # outputs "bnn"
+
+Hint
+remove_letter_g
+- The function name suggests that you need to remove the letter 'g'.
+
+- You need to return a new string that has no letter 'g'. 
+
+- Remember to use the 'strip()' function
 """
 # My Code
+	def remove_letter_g(s: str)->str:
+	    return s.strip('g')
+# Your solution is not correct because the `strip()` method removes leading and trailing characters (in this case, 'g') from the string. However, it does not remove all occurrences of the letter 'g' throughout the string. 
+# To remove all occurrences of a specific letter from a string, you can use the `replace()` method. The corrected solution using `replace()` method is shown below:
+def remove_letter_g(s: str)->str:
+    return s.replace('g', '')
 
 # Solution
-
+def remove_letter_g(s: str)->str:
+    return s.replace("g", "")
+	
 # IA's Solutions
+# Congrats, your answer is correct!
+# Certainly! Here are a few alternative solutions to remove all occurrences of the letter 'g' from a given string in Python:
+# 1. Using List Comprehension:
+def remove_letter_g(s: str) -> str:
+    return ''.join([char for char in s if char != 'g'])
+# Explanation: This solution uses list comprehension to iterate over each character in the input string 's'. It only includes characters in the new list that are not equal to 'g'. Finally, it joins the characters back into a single string and returns it.
+
+# 2. Using a for loop:
+def remove_letter_g(s: str) -> str:
+    result = ''
+    for char in s:
+        if char != 'g':
+            result += char
+    return result
+# Explanation: This solution iterates over each character in the input string 's' using a for loop. It appends characters that are not equal to 'g' to the 'result' string. Finally, it returns the 'result' string.
+
+# 3. Using filter() function:
+def remove_letter_g(s: str) -> str:
+    return ''.join(filter(lambda x: x != 'g', s))
+# Explanation: This solution uses the `filter()` function with a lambda function to filter out all occurrences of the letter 'g' from the input string 's'. Finally, it joins the remaining characters into a single string and returns it.
+
+
+
+
+
+# https://www.codingdors.com/problem/10
+"""
+convert_miles
+Show Solution
+Given an integer 'n', return the kilometers that this number of miles represents. Hint: 1 mile = 1.60934 kilometers. 
+
+convert_miles(1) -> 1.60934 
+
+convert_miles(0.4) -> 0.643736
+
+Theory
+convert_miles
+1. Variable: A container that holds a value that can be changed or referenced. 
+
+
+n = 10
+
+
+2. Function: A reusable block of code that performs a specific task. 
+
+
+def multiply(x, y): 
+    return x*y
+
+
+3. Float: A numeric data type that represents decimals or fractions. 
+
+
+n = 3.14
+
+
+4. Constant: A fixed value that cannot be changed. 
+
+
+PI = 3.14159
+
+
+5. Conversion: The process of changing the form or unit of a value. int("3") converts the string "3" to the integer 3.
+
+Hint
+convert_miles
+- You need to multiply the number of miles by a conversion factor to get the kilometers. 
+
+- The conversion factor is 1.60934 kilometers per mile. 
+
+- Use the formula: kilometers = miles * conversion factor.
+"""
+# My Code
+def convert_miles(n: float)->float:
+    miles = n
+    kilometers = miles * 1.60934
+    return kilometers
+	
+# Solution
+def convert_miles(n: float)->float:
+    return n * 1.60934
+	
+# IA's Solutions
+# Congrats, your answer is correct!
+# Sure! Here are a few alternative solutions in Python for the given problem:
+
+# 1. Using a lambda function:
+convert_miles = lambda n: n * 1.60934
+# This solution uses a lambda function to directly calculate the kilometers from miles using the conversion factor.
+
+# 2. Using a single line function:
+def convert_miles(n: float) -> float: return n * 1.60934
+# This solution combines the function definition and return statement into a single line, making it more concise.
+
+# 3. Using math library:
+import math
+def convert_miles(n: float) -> float:
+    return math.prod([n, 1.60934])
+# This solution utilizes the math library to calculate the product of the miles and the conversion factor.
+# All of these solutions achieve the same result as the original solution, but offer different ways to express the logic for converting miles to kilometers in Python.
