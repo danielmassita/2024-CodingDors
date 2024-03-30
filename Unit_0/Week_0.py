@@ -801,4 +801,571 @@ def calc_bmi(weight: int, height: int) -> float:
 
 
 
-# 
+# https://www.codingdors.com/problem/1
+"""
+return_hello
+Show Solution
+Given a string 's', return a new string with the word "hello" in front. 
+
+return_hello("Gi") -> "hello Gi" 
+
+return_hello("Leo") -> "hello Leo"
+
+Theory
+return_hello
+1. Concatenation: Joining two or more strings together into one longer string using the "+" operator. 
+Example: 
+
+string1 = "hello"
+string2 = "world"
+new_string = string1 + string2
+print(new_string) -> "hello world"
+
+
+2. String interpolation: Inserting a variable into a string using {} and the ".format" method.
+Example: 
+
+name = "Gi"
+greeting = "hello {}".format(name)
+print(greeting) -> "hello Gi"
+
+
+3. Return statement: A statement within a function that specifies the value that will be returned to the caller.
+Example: 
+
+def add_numbers(num1, num2):
+    return num1 + num2
+print(add_numbers(1, 2)) -> 3
+
+
+4. Function parameters: Values that are passed into a function to be used within the function.
+Example: 
+
+def greet(name):
+    return "hello {}".format(name)
+print(greet("Leo")) -> "hello Leo"
+
+Hint
+return_hello
+1. You need to use string concatenation to create the new string. 
+
+2. The structure of the output string is "hello" followed by the input string. 
+
+3. You can concatenate strings using the + operator. 
+
+4. Make sure to add a space after "hello" so that the output string looks correct.
+"""
+# My Code
+def return_hello(s: str)-> str:
+    return f"hello {s}"
+	
+# Solution
+def return_hello(s: str)-> str:
+	return 'hello ' + s
+
+# IA's Solutions
+# Congrats, your answer is correct!
+# Sure! Here are a few alternative solutions in Python for the given question:
+
+# 1. Using concatenation:
+def return_hello(s: str) -> str:
+    return "hello " + s
+# This solution uses string concatenation to combine the word "hello" with the input string 's'.
+
+# 2. Using format method:
+def return_hello(s: str) -> str:
+    return "hello {}".format(s)
+# This solution uses the format method to insert the input string 's' into the placeholder {}.
+
+# 3. Using f-string with string interpolation:
+def return_hello(s: str) -> str:
+    return f"hello {s}"
+# This is the original solution you provided, which uses f-strings for string interpolation to insert the input string 's' into the final string.
+# All of these solutions will return the same output, "hello [input string]", with variations in syntax and string manipulation techniques.
+
+
+
+
+
+# https://www.codingdors.com/problem/2
+"""
+return_person_details
+Show Solution
+Write a Python function that takes two input strings 'name' and 'age', and returns a new string in the following format: '''name'' is ''age'''. For instance, if the name is 'Maria' and the age is 20, the function should return 'Maria is 20'.
+
+return_person_details('Maria', 20) -> 'Maria is 20'
+
+return_person_details('Gi', 25) -> 'Gi is 25'
+
+Theory
+return_person_details
+1. String Concatenation: This operation is used to join two or more strings together into a new string. This can be achieved using the "+" operator. For example: 
+
+
+name + " is " + age
+
+will concatenate the strings 'name', ' is ', and 'age' into a new string.
+
+2. Function Definition: Functions are blocks of code that perform a specific task. They are defined using the "def" keyword. A function takes inputs as arguments and can produce an output using the "return" statement. For example: 
+
+
+def print_person_details(name, age):
+    return name + " is " + age
+
+
+3. String Interpolation: This operation allows us to embed values within a string. This is achieved by using placeholders in the string, which are replaced with the values of variables when the string is printed. In Python, the most common form of string interpolation is using f-strings. For example: 
+
+
+f"{name} is {age}"
+
+Hint
+return_person_details
+1. The function should have two parameters: 'name' and 'age'
+
+2. The output string should have the name and age variables interpolated
+
+3. The output string should be returned by the function.
+"""
+# My Code
+def return_person_details(name: str,age: str)->str:
+    return f"{name} is {age}"
+	
+# Solution
+def return_person_details(name: str,age: str)->str:
+    return name + " is " + age
+
+# IA's Solutions
+# Congrats, your answer is correct!
+# Certainly! Here are a few alternative solutions in Python with explanations:
+# 1. Using string concatenation:
+def return_person_details(name: str, age: str) -> str:
+    return name + ' is ' + str(age)
+# Explanation: In this solution, we use string concatenation to combine the input strings 'name' and 'age' along with the phrase ' is '.
+
+# 2. Using format method:
+def return_person_details(name: str, age: str) -> str:
+    return '{} is {}'.format(name, age)
+# Explanation: In this solution, we use the format method to insert the values of 'name' and 'age' into the specified locations within the string using curly braces {}.
+
+# 3. Using % operator for string formatting:
+def return_person_details(name: str, age: str) -> str:
+    return '%s is %s' % (name, age)
+# Explanation: In this solution, we use the % operator for string formatting to insert the values of 'name' and 'age' into the specified locations within the string.
+# All of these alternative solutions achieve the desired outcome of creating a new string in the specified format using the input 'name' and 'age'.
+
+
+
+
+
+# https://www.codingdors.com/problem/3
+"""
+title_movie
+Show Solution
+Write a Python function that takes a string 'movie' and returns a new string with every word in the movie name capitalized. For instance, if the movie name is 'the lord of the rings', the function should return 'The Lord Of The Rings'.
+
+title_movie('the lord of the rings') -> 'The Lord Of The Rings'
+
+title_movie('star wars') -> 'Star Wars'
+
+Theory
+title_movie
+1. Function: A function is a block of code that performs a specific task. Example: 
+
+
+def add_numbers(num1, num2): 
+    return num1 + num2
+
+
+2. String: A string is a sequence of characters enclosed in either single or double quotes.  Example: 
+
+
+name = "John"
+
+
+3. Title: Title refers to the first letter of each word will be capitalized. Example: 
+
+
+text = "hello world".title() # Hello World
+
+
+4. Return: The return keyword is used to exit a function and return a value. Example: 
+
+
+def square(num): 
+    return num*num
+
+Hint
+title_movie
+You can split the input string into a list of words and then capitalize the first letter of each word using the capitalize() method. 
+
+Then join the words back together with a space separator.
+"""
+# My Code
+def title_movie(movie: str)-> str:
+    return movie.title()
+	
+# Solution
+def title_movie(movie: str)-> str:
+    upper = movie.title()
+    return upper
+
+# IA's Solutions
+# Congrats, your answer is correct!
+# Certainly! Here are two alternative solutions to achieve the same outcome:
+# 1. Using a list comprehension to capitalize each word individually:
+def title_movie(movie: str) -> str:
+    return ' '.join([word.capitalize() for word in movie.split()])
+# Explanation: This solution splits the input string into individual words using the `split()` method, then uses a list comprehension to capitalize each word, and finally joins the capitalized words back together using the `join()` method.
+
+# 2. Using the `title()` method along with a lambda function:
+def title_movie(movie: str) -> str:
+    return ' '.join(map(lambda x: x.capitalize(), movie.split()))
+# Explanation: This solution is similar to the first one, but it uses the `map()` function with a lambda function to capitalize each word in the movie name. The rest of the process is the same as in the first solution.
+
+
+
+
+
+# https://www.codingdors.com/problem/4
+"""
+upper_movie
+Show Solution
+Write a Python function that takes a string 'movie' and returns a new string with every character in the movie name converted to uppercase. For instance, if the movie name is 'The Lord of the Rings', the function should return 'THE LORD OF THE RINGS'.
+
+upper_movie('The Lord of the Rings') -> 'THE LORD OF THE RINGS'
+
+upper_movie('star wars') -> 'STAR WARS'
+
+Theory
+upper_movie
+1. Function: A function is a block of code that performs a specific task. Example: 
+
+
+def add_numbers(num1, num2): 
+    return num1 + num2
+
+
+2. String: A string is a sequence of characters enclosed in either single or double quotes.  Example: 
+
+
+name = "John"
+
+
+3. Uppercase: Uppercase refers to the capital letters in the English alphabet - A to Z. Example: 
+
+
+text = "Hello World".upper() # HELLO WORLD
+
+
+4. Return: The return keyword is used to exit a function and return a value. Example: 
+
+
+def square(num): 
+    return num*num
+
+Hint
+upper_movie
+1. Use the built-in string method to convert a string to uppercase. 
+ 
+2. Use the parameter 'movie' as input to the function.
+
+3. Return the uppercased string using the 'return' keyword.    
+"""
+# My Code
+def upper_movie(movie: str)->str:
+    return movie.upper()
+
+# Solution
+def upper_movie(movie: str)->str:
+    final = movie.upper()
+    return final
+
+# IA's Solutions
+# Congrats, your answer is correct!
+# Sure! Here are a couple of alternative solutions in Python:
+# 1. Using a loop to iterate through each character in the string and convert it to uppercase:
+def upper_movie(movie: str) -> str:
+    uppercased = ''
+    for char in movie:
+        uppercased += char.upper()
+    return uppercased
+# This solution uses a `for` loop to iterate through each character in the input string `movie`. For each character, it converts it to uppercase using the `upper()` method and then concatenates it to the `uppercased` variable.
+
+# 2. Using a list comprehension to convert each character to uppercase and join them back into a string:
+def upper_movie(movie: str) -> str:
+    return ''.join([char.upper() for char in movie])
+# In this solution, a list comprehension is used to iterate through each character in the input string `movie`, convert it to uppercase using the `upper()` method, and return a list of uppercase characters. The `join` method is then used to join these characters back into a single string.
+# Both of these solutions achieve the same result as your initial solution but use different methods to convert the characters to uppercase.
+
+
+
+
+
+# https://www.codingdors.com/problem/5
+"""
+lower_movie
+Show Solution
+Write a Python function that takes a string 'movie' and returns a new string with every character in the movie name converted to lowercase. For instance, if the movie name is 'The Lord of the Rings', the function should return 'the lord of the rings'.
+
+lower_movie('The Lord of the Rings') -> 'the lord of the rings'
+
+lower_movie('STAR WARS') -> 'star wars'
+
+heory
+lower_movie
+1. Function: A function is a block of code that performs a specific task. Example: 
+
+
+def add_numbers(num1, num2): 
+    return num1 + num2
+
+
+2. String: A string is a sequence of characters enclosed in either single or double quotes.  Example: 
+
+
+name = "John"
+
+
+3. lower(): This method returns the string in lowercase letters. Example: 
+
+
+text = "HELLO WORLD".lower() # hello world
+
+
+4. Return: The return keyword is used to exit a function and return a value. Example: 
+
+
+def square(num): 
+    return num*num
+
+Hint
+lower_movie
+1. Use the built-in function 
+lower()
+ to convert the string to lowercase. 
+
+2. Make sure to return the new string. 
+
+3. Take into account spaces and special characters in the movie name.
+
+4. The function should take a string as input.
+"""
+# My Code
+def lower_movie(movie: str)->str:
+    return movie.lower()
+
+# Solution
+def lower_movie(movie: str)->str:
+    result = movie.lower()
+    return result
+
+# IA's Solutions
+# Congrats, your answer is correct!
+# Certainly! Here is an alternative solution using a loop to iterate over each character in the movie name and convert it to lowercase:
+def lower_movie(movie: str) -> str:
+    converted_movie = ''
+    for char in movie:
+        converted_movie += char.lower()
+    return converted_movie
+# In this solution, we initialize an empty string `converted_movie` to store the lowercase version of the movie name. We then iterate over each character in the input `movie` using a loop and convert each character to lowercase using the `lower()` method. Finally, we concatenate the lowercase character to the `converted_movie` string. Once we have processed all characters in the `movie`, we return the final `converted_movie` string.
+
+
+
+
+# https://www.codingdors.com/problem/6
+"""
+remove_whitespace
+Show Solution
+Given a string 's', return a new string without leading or trailing whitespace. 
+
+remove_whitespace("     hi there") -> "hi there" 
+
+remove_whitespace("hello world       ") -> "hello world"
+
+Theory
+remove_whitespace
+1. String Methods: Strings in Python are objects that support a variety of built-in methods. These methods can be used for tasks such as finding substrings, converting the string to uppercase or lowercase, and removing whitespace. Example: 
+
+
+s = "Hello, World!"
+print(s.upper()) # outputs "HELLO, WORLD!"
+
+
+2. strip(): This function returns a copy of the original string with all leading and trailing whitespace removed. Example: 
+
+
+s = "  Remove whitespace  "
+print(s.strip()) # outputs "Remove whitespace"
+
+
+3. lstrip(): This function returns a copy of the original string with all leading whitespace removed. Example: 
+
+
+s = "  Remove leading whitespace"
+print(s.lstrip()) # outputs "Remove leading whitespace"
+
+
+4. rstrip(): This function returns a copy of the original string with all trailing whitespace removed. Example: 
+
+
+s = "Remove trailing whitespace    "
+print(s.rstrip()) # outputs "Remove trailing whitespace"
+
+Hint
+remove_whitespace
+- The function name suggests that you need to remove whitespace.
+
+- Leading whitespace refers to the blank spaces at the beginning of a string.
+
+- Trailing whitespace refers to the blank spaces at the end of a string. 
+
+- You need to return a new string that has no leading or trailing whitespace. 
+
+- The functions should preserve any whitespace in the middle of the string.
+"""
+# My Code
+def remove_whitespace(s: str)->str:
+    return s.strip()
+
+# Solution
+def remove_whitespace(s: str)->str:
+    result = s.strip()
+    return result
+	
+# IA's Solutions
+# Congrats, your answer is correct!
+# Sure! Here are a few alternative solutions in Python:
+# 1. Using regex:
+
+import re
+def remove_whitespace(s: str) -> str:
+    return re.sub('^\s+|\s+$', '', s)
+# Explanation: This solution uses the `re.sub()` function from the `re` module to replace leading and trailing whitespaces with an empty string.
+
+# 2. Using slicing:
+def remove_whitespace(s: str) -> str:
+    start = 0
+    end = len(s)
+    while start < end and s[start].isspace():
+        start += 1
+    while end > start and s[end-1].isspace():
+        end -= 1
+    return s[start:end]
+# Explanation: This solution manually loops through the string to find the first non-whitespace character from the start and the end, then slices the string accordingly.
+
+# 3. Using split and join:
+def remove_whitespace(s: str) -> str:
+    return ' '.join(s.split()).strip()
+# Explanation: This solution splits the string using whitespaces as separators, then re-joins the resulting list of words with a single space, and finally strips any remaining leading or trailing whitespace.
+# All of these solutions will achieve the same result as your initial solution!
+
+
+
+
+# https://www.codingdors.com/problem/7
+"""
+replace_words
+Show Solution
+Write a Python function that takes three input strings 'a', 'b', and 'c', and returns a new string obtained by replacing all occurrences of the string 'b' in the string 'a' with the string 'c'. For instance, if the string 'a' is 'the quick brown fox jumps over the lazy dog', string 'b' is 'fox', and string 'c' is 'cat', the function should return 'the quick brown cat jumps over the lazy dog'.
+
+replace_words('the quick brown fox jumps over the lazy dog', 'fox', 'cat') -> 'the quick brown cat jumps over the lazy dog'
+
+Theory
+replace_words
+1. string: A string is a sequence of characters, enclosed in either single quotes (') or double quotes ("). In Python, strings are immutable. Example:
+
+
+'Hello, World!'`
+
+
+2. replace(): The replace() method in Python is used to replace all occurrences of a string with another string. It takes two arguments, the first one being the string to be replaced and the second one being the string to replace it with. 
+
+
+'abcdef'.replace('c', 'z') #returns 'abzdef'.
+
+
+3. function: In Python, a function is a named block of code that performs a specific task. It typically takes some input, processes it, and returns some output. Functions help in modularizing code and making it reusable. An example of a Python function is:
+
+
+def add(a, b):
+    return a + b
+
+
+4. parameters: Parameters are input variables that are defined in the function definition. They are enclosed in parentheses after the function name. They represent the values that are passed into the function when it is called. In the function definition 
+
+def add(a, b):
+
+, 'a' and 'b' are the parameters.
+
+5. return: The return statement in Python is used to exit a function and return a value. It returns the value or expression provided as an argument. For example, 
+
+
+def add(a, b): 
+    return a + b
+ 
+returns the sum of the two input values.
+
+Hint
+replace_words
+Remember that there is a built-in string method that can be used to replace all occurrences of a substring in a string.
+"""
+# My Code
+def replace_words(a: str,b:str,c: str)->str:
+    return a.replace(b, c)
+	
+# Solution
+def replace_words(a: str,b:str,c: str)->str:
+    jump = a.replace(b, c)
+    return jump
+
+# IA's Solutions
+# Congrats, your answer is correct!
+# Sure! Here are two alternative solutions to achieve the same functionality as the provided Python function using different approaches
+# 1. Using string split and join:
+def replace_words(a: str, b: str, c: str) -> str:
+    words = a.split()  # Split the string into a list of words
+    replaced_words = [word if word != b else c for word in words]  # Replace 'b' with 'c' in the words
+    return " ".join(replaced_words)  # Join the list of words back into a string
+# Explanation:
+# - The function first splits the input string 'a' into a list of words using the `split()` method.
+# - Then, it iterates through each word in the list and checks if the word is equal to the string 'b'. If it is, the word is replaced with the string 'c'.
+# - Finally, the modified list of words is joined back into a string using the `join()` method with space as the separator.
+
+# 2. Using regular expressions:
+import re
+def replace_words(a: str, b: str, c: str) -> str:
+    return re.sub(r'\b' + re.escape(b) + r'\b', c, a)
+# Explanation:
+# - This solution uses the `re.sub()` function from the `re` module to perform a regular expression-based substitution.
+# - The regular expression pattern `r'\b' + re.escape(b) + r'\b'` is used to match the exact word 'b' in the input string 'a'. The `\b` represents word boundaries to ensure exact matches.
+# - The `re.escape()` function is used to escape special characters in the string 'b' to avoid any unintended patterns in the regular expression.
+# - The `re.sub()` function replaces all occurrences of the matched word 'b' with the string 'c' in the input string 'a' and returns the modified string.
+# These alternative solutions provide different ways to achieve the desired string replacement functionality in Python.
+
+
+
+
+
+# https://www.codingdors.com/problem/ 
+"""
+
+"""
+# My Code
+
+# Solution
+
+# IA's Solutions
+
+
+
+
+
+# https://www.codingdors.com/problem/ 
+"""
+
+"""
+# My Code
+
+# Solution
+
+# IA's Solutions
