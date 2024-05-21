@@ -637,6 +637,442 @@ def uppercase_first(s: str) -> str:
 
 
 
+# https://www.codingdors.com/problem/127
+"""
+lowercase_first
+Show Solution
+Write a function that returns the given string with its first character in lowercase.
+
+lowercase_first('Hello') -> 'hello'
+
+lowercase_first('CODING') -> 'cODING'
+
+lowercase_first('LeO') -> 'leO'
+
+Theory
+lowercase_first
+1. str.lower() method: This method returns a string in lowercase. Example: 
+'Hello World'.lower()
+ Output: 'hello world'
+
+2. String indexing: This is a way of accessing individual characters within a string using their position. Example: 
+'coding'[1]  #'o'
+
+3. String slicing: This is a way of creating a substring from a string by specifying a range of indices. Example: 
+'Hello World'[2:6]  #'llo '
+
+4. String concatenation: This is a way of joining two or more strings together. Example: 
+'Hello' + ' World' #'Hello World'
+
+Hint
+lowercase_first
+- The function should start by getting the first character of the string.
+
+- Check if the first character is already lowercase.
+
+- If the first character is already lowercase, return the original string.
+
+- If the first character is uppercase, convert it to lowercase.
+
+- Combine the lowercase first character with the rest of the original string and return it.
+"""
+# My Code
+def lowercase_first(s: str) -> str:
+    return s[0].lower() + s[1:]
+	
+# Solution
+def lowercase_first(s: str) -> str:
+	first = s[0].lower()
+	others = s[1:]
+	return first + others
+	
+# IA's Solutions
+### Alternative 1: Using String Slicing and Built-in Functions
+# This method is quite similar to your approach but makes use of a different style of slicing.
+def lowercase_first(s: str) -> str:
+    return s[:1].lower() + s[1:]
+# **Explanation:**
+# - `s[:1]` gets the first character of the string.
+# - `.lower()` converts this character to lowercase.
+# - `s[1:]` gets the rest of the string.
+# - Concatenating these two pieces gives the desired result.
+
+### Alternative 2: Using the `replace` Method
+# This method uses the `replace` function to replace the first character with its lowercase counterpart.
+def lowercase_first(s: str) -> str:
+    return s.replace(s[0], s[0].lower(), 1)
+# **Explanation:**
+# - `s.replace(s[0], s[0].lower(), 1)` replaces the first occurrence of the first character (`s[0]`) with its lowercase version.
+# - The third argument `1` ensures that only the first occurrence is replaced.
+
+### Alternative 3: Using Custom Function without String Slicing
+# This method employs a more verbose approach without direct slicing.
+def lowercase_first(s: str) -> str:
+    if len(s) == 0:
+        return s  # Handle the edge case where the string is empty
+    first = s[0].lower()
+    rest = s[1:]
+    return first + rest
+# **Explanation:**
+# - This method first checks if the string is empty, returning it if it is.
+# - Then it assigns `first` to the lowercase version of the first character.
+# - `rest` is assigned the remainder of the string.
+# - Finally, it concatenates `first` and `rest`.
+
+### Alternative 4: Using `map` and `str.join`
+# This method is a bit unconventional and uses `map` along with `str.join`.
+def lowercase_first(s: str) -> str:
+    if not s:
+        return s  # Handle the edge case where the string is empty
+    return ''.join(map(lambda x: x.lower() if i == 0 else x, s))
+
+# Each string character is iterated upon using `map`. The lambda function applies `lower()` to the first character only.
+
+def lowercase_first(s: str) -> str:
+    if not s:
+        return s  # Handle the edge case where the string is empty
+    return ''.join(map(lambda x: x.lower() if idx == 0 else x, enumerate(s)))
+# **Explanation:**
+# - `enumerate(s)` is used to pair each character with its index.
+# - The lambda function checks if the index is zero and applies `.lower()` to that character.
+# - `str.join` concatenates the result into a single string.
+
+
+
+
+
+# https://www.codingdors.com/problem/130
+"""
+replace_char
+Show Solution
+Write a function that replaces all occurrences of a specified character in a given string with another character.
+
+replace_char('hello', 'l', 'w') -> 'hewwo'
+
+replace_char('APPLE', 'P', 'Z') -> 'AZZLE'
+
+replace_char('banana', 'a', '4') -> 'b4n4n4'
+
+Theory
+replace_char
+1. String: A sequence of characters enclosed in quotation marks. 
+'hello'
+
+2. replace(): A built-in string method used to replace occurrences of a specified character or substring within a string with a given replacement string. 
+'hello'.replace('l', 'w') #'hewwo'
+
+3. for loop: A loop structure used for iterating through sequences, such as strings, where each element in the sequence is processed in turn. "hello"
+
+# Example solution:
+
+def replace_char(string, old_char, new_char):
+    new_string = ''
+    for char in string:
+        if char == old_char:
+            new_string += new_char
+        else:
+            new_string += char
+    return new_string
+
+    Hint
+replace_char
+1. You will need to use a loop to iterate through each character in the string.
+
+2. Use an if statement to check if the current character is the specified character that needs to be replaced.
+
+3. If it is, replace that character with the new specified character.
+
+4. If it's not, leave it as is.
+
+5. Build a new string with the modified characters and return it.
+"""
+# My Code
+def replace_char(s: str, old_char: str, new_char: str) -> str:
+    return s.replace(old_char, new_char)
+	
+# Solution
+def replace_char(s: str, old_char: str, new_char: str) -> str:
+	return s.replace(old_char, new_char)
+	
+# IA's Solutions
+### 1. Using List Comprehension
+# You can use a list comprehension to iterate through each character in the string, and replace the specified character when found. Finally, join the list back into a string.
+def replace_char(s: str, old_char: str, new_char: str) -> str:
+    return ''.join([new_char if char == old_char else char for char in s])
+### Explanation:
+# 1. Iterate through each character in the string `s`.
+# 2. If the character equals `old_char`, replace it with `new_char`.
+# 3. Join the list of characters back into a single string using `join`.
+
+### 2. Using a For Loop
+# You can achieve the same result using a simple for loop and string concatenation.
+def replace_char(s: str, old_char: str, new_char: str) -> str:
+    result = ''
+    for char in s:
+        if char == old_char:
+            result += new_char
+        else:
+            result += char
+    return result
+### Explanation:
+# 1. Initialize an empty string `result`.
+# 2. Iterate through each character in the string `s`.
+# 3. If the character equals `old_char`, append `new_char` to `result`; otherwise, append the original character.
+# 4. Return the concatenated result.
+
+### 3. Using `str.translate` and `str.maketrans`
+# Python provides a `translate` method that can be used together with `maketrans` to carry out character replacements.
+def replace_char(s: str, old_char: str, new_char: str) -> str:
+    translation_table = str.maketrans(old_char, new_char)
+    return s.translate(translation_table)
+### Explanation:
+# 1. Create a translation table using `str.maketrans` that maps `old_char` to `new_char`.
+# 2. Use `translate` method to apply the translation table to string `s`.
+
+### 4. Using Regular Expressions (if multiple characters need to be replaced)
+# This method can be overkill for single character substitutions but is useful when dealing with patterns.
+import re
+def replace_char(s: str, old_char: str, new_char: str) -> str:
+    # re.escape ensures that special characters are treated as literals
+    return re.sub(re.escape(old_char), new_char, s)
+### Explanation:
+# 1. Use `re.sub` from the `re` module to replace all occurrences of `old_char` with `new_char`.
+# 2. `re.escape` is used to handle special characters by treating them as literals.
+
+### Comparison:
+# - The `replace` method is the most straightforward for simple character replacements.
+# - List comprehension and for loop methods provide more control and can be more readable.
+# - The `translate` method is efficient for single substitutions and can be extended easily for multiple substitutions.
+# - The regular expression method is powerful but might be unnecessary for simple single-character replacements.
+
+
+
+
+
+# https://www.codingdors.com/problem/131
+"""
+remove_char
+Show Solution
+Write a function that removes all occurrences of a specified character in a given string.
+
+remove_char('hello', 'l') -> 'heo'
+
+remove_char('apple', 'e') -> 'appl'
+
+remove_char('BANANA', 'A') -> 'BNN'
+
+Theory
+remove_char
+1. Strings: A string is a sequence of characters. In Python, strings are enclosed in either single or double-quotes. 
+my_string = "Hello, world!"
+
+2. Function Definition: A function is a block of reusable code used to perform a specific task. It takes some input, performs some operations, and returns an output. 
+def remove_char(input_str, char_to_remove):
+
+3. Iteration: Iteration refers to the process of repeating a set of instructions a specified number of times or until a condition is met. For instance, we can use a for loop to iterate over a string character by character. 
+for char in my_string:
+
+4. Conditional Statements: A conditional statement is used to perform different actions based on different conditions. For example, we might use an if statement to check if a given character matches the one we are trying to remove. 
+if char != char_to_remove:
+
+5. String Concatenation: String concatenation refers to the process of combining two or more strings into a single string. In Python, we can use the + operator to concatenate strings. 
+new_string += char
+
+6. Output: In Python, we can use the 'return' statement to specify the output of a function. 
+return new_string
+
+Hint
+remove_char
+- Think about iterating through the string and building a new string with the characters that don't match the specified character.
+
+- You can use the built-in function replace()
+
+- You can replace the char by an empty string ("")
+"""
+# My Code
+def remove_char(s: str, char_to_remove: str) -> str:
+    return s.replace(char_to_remove, "")
+
+# Solution
+def remove_char(s: str, char_to_remove: str) -> str:
+	return s.replace(char_to_remove, "")
+	
+# IA's Solutions
+### 1. Using List Comprehension
+# You can use list comprehension to filter out unwanted characters and then join the list back into a string.
+def remove_char(s: str, char_to_remove: str) -> str:
+    return ''.join([c for c in s if c != char_to_remove])
+# **Explanation:**
+# - `[c for c in s if c != char_to_remove]` creates a list of characters from `s` that are not equal to `char_to_remove`.
+# - `''.join(...)` combines the list of characters back into a single string.
+
+### 2. Using the `filter()` Function with a Lambda
+# You can use the `filter()` function in combination with a lambda function to achieve the same result.
+def remove_char(s: str, char_to_remove: str) -> str:
+    return ''.join(filter(lambda c: c != char_to_remove, s))
+# **Explanation:**
+# - `filter(lambda c: c != char_to_remove, s)` filters out the characters where the condition is not met (`c != char_to_remove`).
+# - `''.join(...)` combines the filtered list of characters back into a single string.
+
+### 3. Using a For Loop
+# You can use a for loop to iterate over the string and build the result manually.
+def remove_char(s: str, char_to_remove: str) -> str:
+    result = []
+    for c in s:
+        if c != char_to_remove:
+            result.append(c)
+    return ''.join(result)
+# **Explanation:**
+# - `result = []` initializes an empty list to store the characters that are not removed.
+# - The for loop iterates over each character `c` in `s`.
+# - If `c` is not equal to `char_to_remove`, it is added to the `result` list.
+# - `''.join(result)` combines the list back into a single string.
+
+### 4. Using Recursion
+# Here's a recursive approach to remove the specified character:
+def remove_char(s: str, char_to_remove: str) -> str:
+    if s == "":
+        return s
+    if s[0] == char_to_remove:
+        return remove_char(s[1:], char_to_remove)
+    return s[0] + remove_char(s[1:], char_to_remove)
+# **Explanation:**
+# - The base case checks if the string is empty (`s == ""`), in which case it returns the empty string.
+# - If the first character of the string `s[0]` is equal to `char_to_remove`, it skips this character and calls the function recursively with the rest of the string `s[1:]`.
+# - If the first character is not equal to `char_to_remove`, it concatenates the first character `s[0]` with the result of the recursive call on the rest of the string `s[1:]`.
+
+### 5. Using String Translation
+# You can use the `str.translate` method, which can be very efficient as it is implemented in C.
+def remove_char(s: str, char_to_remove: str) -> str:
+    return s.translate(str.maketrans('', '', char_to_remove))
+# **Explanation:**
+# - `str.maketrans('', '', char_to_remove)` creates a translation table that maps each character in `char_to_remove` to `None`.
+# - `s.translate(...)` removes all characters in `char_to_remove` as specified by the translation table.
+
+
+
+
+
+# https://www.codingdors.com/problem/134
+"""
+string_length
+Show Solution
+Write a function that returns the length of a given string.
+
+string_length('hello') -> 5
+
+string_length('code') -> 4
+
+string_length('CodingDors') -> 10
+
+Theory
+string_length
+1. Function: A function is a block of code that performs a specific task. In Python, we define functions using the 'def' keyword followed by the function name, parentheses, and a colon. Any code to be executed by the function is then indented. Example: 
+
+def add_numbers(x, y):
+    result = x + y
+    return result
+
+2. Strings: Strings are a sequence of characters enclosed in quotes. In Python, strings can be enclosed either in single quotes (' ') or double quotes (" "). Example: 
+
+greeting = "Hello, world!"
+
+3. Length: Length is a property of a string or a list that indicates the number of characters or items it contains. In Python, we can determine the length of a string or list using the 'len()' function. Example: 
+
+my_list = [1, 3, 5, 7, 9]
+list_length = len(my_list)  # list_length = 5
+
+4. Return: The 'return' keyword is used to indicate the value that a function should return to its caller. A function can have multiple return statements, but once a return statement is executed, the function stops executing. Example: 
+
+def is_even(number):
+    if number % 2 == 0:
+        return True
+    else:
+        return False
+
+5. Argument: An argument is a value passed to a function when it's called. In Python, we can define functions that take any number of arguments using the '*args' and '**kwargs' syntax. Example: 
+
+def greet(name):
+    print("Hello, " + name + "!")
+    
+greet("Alice")  # prints "Hello, Alice!"
+
+6. Method: A method is a function that is associated with an object and can be called on that object. In Python, we call methods using the dot notation. Example: 
+
+my_sentence = "The quick brown fox jumps over the lazy dog."
+sentence_length = my_sentence.count(" ")  # sentence_length = 9
+
+Hint
+string_length
+1. Determine the data type of the input.
+
+2. Use the appropriate built-in function to find the length of the string.
+
+3. Return the length as an output.
+"""
+# My Code
+def string_length(s: str) -> int:
+    return len(s)
+	
+# Solution
+def string_length(s: str) -> int:
+	return len(s)
+	
+# IA's Solutions
+### 1. Iterative Approach Using a Loop
+# You can manually iterate through each character in the string and count them.
+def string_length(s: str) -> int:
+    length = 0
+    for char in s:
+        length += 1
+    return length
+# **Explanation:** 
+# - Initialize a counter variable `length` to 0.
+# - Loop through each character (`char`) in the string `s`.
+# - For each character, increment the `length` counter by 1.
+# - Finally, return the `length` counter.
+
+### 2. Using a Recursive Function
+# You can use a recursive approach to count the characters in the string.
+def string_length(s: str) -> int:
+    if s == "":
+        return 0
+    else:
+        return 1 + string_length(s[1:])
+# **Explanation:** 
+# - If the string `s` is empty (`""`), return 0.
+# - Otherwise, return 1 plus the result of calling `string_length` on the remaining substring `s[1:]` (which is `s` without its first character).
+# - This approach uses the principle of recursion to go through each character.
+
+### 3. Using Built-in `sum` and `map`
+# You can use the `sum` function and `map` to create a list of ones and sum them up.
+def string_length(s: str) -> int:
+    return sum(map(lambda x: 1, s))
+# **Explanation:** 
+# - `map(lambda x: 1, s)` creates an iterable where each character in string `s` is mapped to the number 1.
+# - `sum` then adds up all the ones to get the total length of the string.
+
+### 4. Using List Comprehension and `len`
+# You can use list comprehension to create a list of ones and then calculate its length.
+def string_length(s: str) -> int:
+    return len([1 for char in s])
+# **Explanation:**
+# - `[1 for char in s]` creates a list with a `1` for each character in the string `s`.
+# - `len` then calculates the length of this list, which is the same as the length of the string.
+
+### 5. Using `collections.Counter`
+# Although more complex than necessary, you can use `collections.Counter` to count the occurrences of each character.
+from collections import Counter
+def string_length(s: str) -> int:
+    return sum(Counter(s).values())
+# **Explanation:**
+# - `Counter(s)` creates a dictionary-like object where keys are characters and values are their counts in the string.
+# - `sum(Counter(s).values())` sums up all the values, giving the total number of characters.
+	
+
+
+
+
 # https://www.codingdors.com/problem/
 """
 
@@ -646,7 +1082,133 @@ def uppercase_first(s: str) -> str:
 # Solution
 
 # IA's Solutions
+	
 
+
+
+
+# https://www.codingdors.com/problem/
+"""
+
+"""
+# My Code
+
+# Solution
+
+# IA's Solutions
+	
+
+
+
+
+# https://www.codingdors.com/problem/
+"""
+
+"""
+# My Code
+
+# Solution
+
+# IA's Solutions
+	
+
+
+
+
+# https://www.codingdors.com/problem/
+"""
+
+"""
+# My Code
+
+# Solution
+
+# IA's Solutions
+	
+
+
+
+
+# https://www.codingdors.com/problem/
+"""
+
+"""
+# My Code
+
+# Solution
+
+# IA's Solutions
+	
+
+
+
+
+# https://www.codingdors.com/problem/
+"""
+
+"""
+# My Code
+
+# Solution
+
+# IA's Solutions
+	
+
+
+
+
+# https://www.codingdors.com/problem/
+"""
+
+"""
+# My Code
+
+# Solution
+
+# IA's Solutions
+	
+
+
+
+
+# https://www.codingdors.com/problem/
+"""
+
+"""
+# My Code
+
+# Solution
+
+# IA's Solutions
+	
+
+
+
+
+# https://www.codingdors.com/problem/
+"""
+
+"""
+# My Code
+
+# Solution
+
+# IA's Solutions
+	
+
+
+
+
+# https://www.codingdors.com/problem/
+"""
+
+"""
+# My Code
+
+# Solution
+
+# IA's Solutions
+	
 
 
 
