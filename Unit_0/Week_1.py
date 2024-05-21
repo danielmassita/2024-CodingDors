@@ -523,15 +523,115 @@ def repeat_string(s: str, n: int) -> str:
 
 
 
-# https://www.codingdors.com/problem/
-"""
 
+# https://www.codingdors.com/problem/126
+"""
+uppercase_first
+Show Solution
+Write a function that returns the given string with its first character in uppercase.
+
+uppercase_first('hello') -> 'Hello'
+
+uppercase_first('coding') -> 'Coding'
+
+uppercase_first('leo') -> 'Leo'
+
+Theory
+uppercase_first
+1. Strings: A string is a sequence of characters enclosed in quotes. It can be manipulated using different string methods or operators. 
+'hello'
+
+2. Indexing: Indexing is used to access individual characters or a range of characters from a sequence. In Python, indexing begins at 0 and goes on until the length of the sequence decrementing by 1. Indexing is done using square brackets. 
+'hello'[0] -> 'h'
+
+3. Slicing: Slicing is used to get a range of characters from a sequence and returns a new sequence. The syntax is 
+seq[start:stop:step]
+By default, start=0, stop=end of sequence, and step=1. 
+'hello'[1:3]
+ Output: 'el'
+
+4. String concatenation: Concatenation is used to join two or more strings together. This is done using the + operator. 
+'hello' + 'world'
+ Output: 'helloworld'
+
+5. String methods: There are many built-in string methods to manipulate strings. One of which is the capitalize() method that returns a copy of the string with its first character capitalized. 
+'hello'.capitalize()
+ Output: 'Hello'
+
+ Hint
+uppercase_first
+1. You can access the first character of a string using the index 0. 
+
+2. You can use the string method upper() to convert a character to uppercase. 
+
+3. You can concatenate strings using the + operator.
 """
 # My Code
+def uppercase_first(s: str) -> str:
+    return s.capitalize()
 
 # Solution
+def uppercase_first(s: str) -> str:
+	first = s[0].upper()
+	others = s[1:]
+	return first + others
 
 # IA's Solutions
+### Method 1: Using String Slicing and `upper()`
+def uppercase_first(s: str) -> str:
+    if not s:  # Check if the string is empty
+        return s
+    return s[0].upper() + s[1:]
+# **Explanation:**
+# - `s[0]` accesses the first character of the string.
+# - `s[0].upper()` converts the first character to uppercase.
+# - `s[1:]` gets the rest of the string starting from the second character.
+# - Concatenate the uppercase first character with the rest of the string.
+
+### Method 2: Using f-string (formatted string literals)
+def uppercase_first(s: str) -> str:
+    if not s:  # Check if the string is empty
+        return s
+    return f"{s[0].upper()}{s[1:]}"
+# **Explanation:**
+# - Use an f-string to format the string.
+# - `{s[0].upper()}` converts the first character to uppercase inside the f-string.
+# - `{s[1:]}` appends the rest of the string.
+
+### Method 3: Using `str.replace()` Method (less efficient, but an interesting approach)
+def uppercase_first(s: str) -> str:
+    if not s:  # Check if the string is empty
+        return s
+    first_char_upper = s[0].upper()
+    return s.replace(s[0], first_char_upper, 1)
+# **Explanation:**
+# - Convert the first character to uppercase using `s[0].upper()`.
+# - Use `str.replace(old, new, count)` to replace the first occurrence of the first character with its uppercase version.
+
+### Method 4: Using Regular Expressions (regex)
+import re
+def uppercase_first(s: str) -> str:
+    return re.sub(r"^\w", lambda match: match.group(0).upper(), s)
+# **Explanation:**
+# - Use the `re.sub` function to substitute the first word character (`^\w`).
+# - The lambda function converts the matched character (first character of the string) to uppercase.
+
+### Method 5: Using `str.title()` and Pre/Post Processing
+def uppercase_first(s: str) -> str:
+    if not s:  # Check if the string is empty
+        return s
+    return s[:1].title() + s[1:]
+# **Explanation:**
+# - `s[:1]` gets the first character of the string (`s[0]`).
+# - `s[:1].title()` converts the first character to uppercase.
+# - Concatenate with the rest of the string `s[1:]`.
+
+### Method 6: Using conditional ternary for Python version prior to 3.8 (ternary operator)
+def uppercase_first(s: str) -> str:
+    return (s[0].upper() + s[1:]) if s else s
+# **Explanation:**
+# - Use a ternary operator to check if the string is empty.
+# - If not empty, convert the first character to uppercase and concatenate with the rest of the string.
 
 
 
