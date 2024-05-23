@@ -1073,13 +1073,268 @@ def string_length(s: str) -> int:
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/135
 """
+substring
+Show Solution
+Write a function that returns a substring of a given string, starting from the specified start index and ending with the specified end index.
+
+substring('hello', 1, 2) -> 'el'
+
+substring('CodingDors', 6, 9) -> 'Dors'
+
+substring('applebananaorange', 5, 10) -> 'banana'
+
+Theory
+substring
+1. String: A string is a sequence of characters enclosed within quotes. A string can be created using single quotes ('), double quotes ("), or triple quotes (" " "). Strings are immutable, meaning the original string cannot be changed, but a new string can be created from the original.
+"Hello World"
+
+2. Substring: A substring is a portion of a string, defined by a start index and an end index. The start index specifies where the substring begins, and the end index specifies where it ends. The resulting substring includes all characters from the start index up to, but not including, the end index.
+s = "Hello World"
+ 
+substring = s[6:11]
+
+3. Function:
+A function is a block of code that performs a specific task. Functions can take inputs (arguments) and return outputs. Functions can also be reused and called multiple times throughout a program.
+
+def add(num1, num2):
+    return num1 + num2
+
+4. Return:
+Return is a keyword used in functions to indicate the value returned by the function. When the return statement is executed, the function stops executing and returns the value specified.
+
+def multiply(num1, num2):
+    return num1 * num2
+
+5. Index:
+An index is the position of a character within a string or a list. In Python, indexing starts at 0, meaning the first character of a string or list has an index of 0.
+s = "Hello World"
+
+index = s[6]
+ # index is 'W'
+
+Hint
+substring
+1. Consider using string slicing to retrieve the substring based on the start and end indices.
+
+2. The start index should be included in the substring, while the end index should be excluded.
+
+3. Make sure to check for edge cases such as empty strings, invalid indices, and indices that are out of range for the given string.
 
 """
 # My Code
-
+def substring(s: str, start: int, end: int) -> str:
+    return s[start:end+1]
+	
 # Solution
+def substring(s: str, start: int, end: int) -> str:
+	sub = s[start:end+1]
+	return sub
+	
+# IA's Solutions
+	
+
+
+
+
+# https://www.codingdors.com/problem/137
+"""
+remove_whitespace_str
+Show Solution
+Write a function that removes all leading and trailing whitespace from a given string.
+
+remove_whitespace_str('     hello') -> 'hello'
+
+remove_whitespace_str('apple     ') -> 'apple'
+
+remove_whitespace_str('      CodingDors      ') -> 'CodingDors'
+
+Theory
+remove_whitespace_str
+1. strip() method: The strip() method removes whitespace from both ends of a string. Example: 
+
+text = "   Hello   "
+text_strip = text.strip()
+print(text_strip) # "Hello"
+
+2. lstrip() method: The lstrip() method removes whitespace from the beginning of a string. Example: 
+
+text = "   Hello   "
+text_lstrip = text.lstrip()
+print(text_lstrip) # "Hello   "
+
+3. rstrip() method: The rstrip() method removes whitespace from the end of a string. Example: 
+
+text = "   Hello   "
+text_rstrip = text.rstrip()
+print(text_rstrip) # "   Hello"
+
+Hint
+remove_whitespace_str
+1. Look up how to remove leading and trailing whitespace in Python.
+
+2. You will need to define a function that takes a string as input.
+
+3. Use the appropriate Python method to remove both leading and trailing whitespace.
+
+4. Return the modified string.
+"""
+# My Code
+def remove_whitespace_str(s: str) -> str:
+    return s.strip()
+	
+# Solution
+def remove_whitespace_str(s: str) -> str:
+	return s.replace(" ", "")
+	
+# IA's Solutions
+
+
+
+
+
+# https://www.codingdors.com/problem/251
+"""
+birthdate
+Show Solution
+Given two strings 'day' and 'month', return a new string with the birth date. 
+
+Hint: birth date should be in the format 'month/day'
+
+birthdate('03', '07') -> '07/03'
+
+birthdate('29', '06') -> '06/29'
+
+birthdate('01', '05') -> '05/01'
+
+Theory
+birthdate
+1. String Concatenation: The ability to combine multiple strings into a single string. Example:
+
+month = '07'
+day = '03'
+birth_date = month + '/' + day
+print(birth_date)  # Output: '07/03'
+
+
+2. String Formatting: The ability to create formatted strings by inserting values into specific placeholders. Example:
+
+month = '07'
+day = '03'
+birth_date = '{}{}'.format(month, '/' + day)
+print(birth_date)  # Output: '07/03'
+
+month = '06'
+day = '29'
+birth_date = '{}/{}'.format(month, day)
+print(birth_date)  # Output: '06/29'
+
+
+3. String Operations: Performing operations on strings to manipulate or extract information. Example:
+
+month = '05'
+day = '01'
+birth_date = month + '/' + day
+print(birth_date)  # Output: '05/01'
+
+month = '03'
+day = '07'
+birth_date = f'{month}/{day}'
+print(birth_date)  # Output: '03/07'
+
+
+These concepts will be useful in combining the month and day values into a single string with the desired format. By utilizing these techniques, you can implement the birthdate function to solve the problem.
+
+Hint
+birthdate
+1. Use string concatenation to combine the 'month' and 'day' values.
+
+2. Separate the 'month' and 'day' values with a forward slash (/) to form the desired format.
+
+3. Return the combined string as the birth date.
+"""
+# My Code
+def birthdate(day: str, month: str) -> str:
+    return f"{month}/{day}"
+	
+# Solution
+def birthdate(day: str, month: str) -> str:
+	return month + "/" + day
+	
+# IA's Solutions
+	
+
+
+
+
+# https://www.codingdors.com/problem/252
+"""
+formatted_time
+Show Solution
+Given two strings 'hour' and 'minute', return a new string with the formatted time.
+
+Hint: the time should be in the format 'hour:minute'
+
+formatted_time('10', '15') -> '10:15'
+
+formatted_time('05', '30') -> '05:30'
+
+formatted_time('20', '00') -> '20:00'
+
+Theory
+formatted_time
+1. String Concatenation: The ability to combine multiple strings into a single string. Example:
+
+year = '2022'
+day = '364'
+result = year + '-' + day
+print(result)  # Output: '2022-364'
+
+
+2. String Formatting: The ability to create formatted strings by inserting values into specific placeholders. Example:
+
+year = '2022'
+day = '364'
+result = '{}-{}'.format(year, day)
+print(result)  # Output: '2022-364'
+
+year = '2030'
+day = '1'
+result = '{0}-{1}'.format(year, day)
+print(result)  # Output: '2030-1'
+
+
+3. String Operations: Performing operations on strings to manipulate or extract information. Example:
+
+year = '2022'
+day = '364'
+result = year + '-' + day
+print(result)  # Output: '2022-364'
+
+year = '2030'
+day = '1'
+result = f'{year}-{day}'
+print(result)  # Output: '2030-1'
+
+
+These concepts will be useful in combining the hour and minute values into a single string with the desired format. By utilizing these techniques, you can implement the formatted_time function to solve the problem.
+
+Hint
+formatted_time
+1. Use string concatenation to combine the 'hour' and 'minute' values.
+
+2. Separate the 'hour' and 'minute' values with a colon (:) to form the desired format.
+
+3. Return the combined string as the formatted time.
+"""
+# My Code
+def formatted_time(hour: str, minute: str) -> str:
+    return f"{hour}:{minute}"
+	
+# Solution
+def formatted_time(hour: str, minute: str) -> str:
+	return hour + ":" + minute
 
 # IA's Solutions
 	
@@ -1087,107 +1342,356 @@ def string_length(s: str) -> int:
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/253
 """
+full_name
+Show Solution
+Given two strings 'firstName' and 'lastName', return a new string with the full name.
 
+Hint: the full name should be in the format 'firstName lastName'
+
+full_name('John', 'Doe') -> 'John Doe'
+
+full_name('Emma', 'Watson') -> 'Emma Watson'
+
+full_name('Elon', 'Musk') -> 'Elon Musk'
+
+Theory
+full_name
+1. String Indexing: The ability to access individual characters within a string using their positions (indices). Example:
+
+name = 'John'
+first_letter = name[0]
+print(first_letter)  # Output: 'J'
+
+
+2. String Concatenation: The ability to combine multiple strings into a single string. Example:
+
+first_name = 'John'
+last_name = 'Doe'
+full_name = first_name + last_name
+print(full_name)  # Output: 'JohnDoe'
+
+
+3. String Formatting: The ability to create formatted strings by inserting values into specific placeholders. Example:
+
+first_name = 'John'
+last_name = 'Doe'
+formatted_name = '{}.{}'.format(first_name[0], last_name[0])
+print(formatted_name)  # Output: 'J.D.'
+
+first_name = 'Emma'
+last_name = 'Watson'
+formatted_name = '{0}.{1}'.format(first_name[0], last_name[0])
+print(formatted_name)  # Output: 'E.W.'
+
+
+4. String Operations: Performing operations on strings to manipulate or extract information. Example:
+
+first_name = 'Elon'
+last_name = 'Musk'
+initials = first_name[0] + '.' + last_name[0] + '.'
+print(initials)  # Output: 'E.M.'
+
+first_name = 'John'
+last_name = 'Doe'
+initials = f'{first_name[0]}.{last_name[0]}.'
+print(initials)  # Output: 'J.D.'
+
+
+These concepts will be useful in combining the first name and last name into a single string with the desired format. By utilizing these techniques, you can implement the full_name function to solve the problem.
+
+Hint
+full_name
+1. Use string concatenation to combine the 'firstName' and 'lastName' values.
+
+2. Separate the 'firstName' and 'lastName' values with a space to form the desired format.
+
+3. Return the combined string as the full name.
 """
 # My Code
-
+def full_name(firstName: str, lastName: str) -> str:
+    return f"{firstName} {lastName}"
+	
 # Solution
-
+def full_name(firstName: str, lastName: str) -> str:
+	return firstName + " " + lastName
+	
 # IA's Solutions
 	
 
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/254
 """
+year_day
+Show Solution
+Given two strings 'day' and 'year', return a new string with the year and day of the year.
 
+Hint: the output should be in the format 'year-day'
+
+year_day('364', '2022') -> '2022-364'
+
+year_day('1', '2030') -> '2030-1'
+
+year_day('123', '2021') -> '2021-123'
+
+Theory
+year_day
+1. String Concatenation: The ability to combine multiple strings into a single string. Example:
+
+year = '2022'
+day = '364'
+result = year + '-' + day
+print(result)  # Output: '2022-364'
+
+
+2. String Formatting: The ability to create formatted strings by inserting values into specific placeholders. Example:
+
+year = '2022'
+day = '364'
+result = '{}-{}'.format(year, day)
+print(result)  # Output: '2022-364'
+
+year = '2030'
+day = '1'
+result = '{0}-{1}'.format(year, day)
+print(result)  # Output: '2030-1'
+
+
+3. String Operations: Performing operations on strings to manipulate or extract information. Example:
+
+year = '2022'
+day = '364'
+result = year + '-' + day
+print(result)  # Output: '2022-364'
+
+year = '2030'
+day = '1'
+result = f'{year}-{day}'
+print(result)  # Output: '2030-1'
+
+
+These concepts will be useful in combining the year and day values into a single string with the desired format. By utilizing these techniques, you can implement the year_day function to solve the problem.
+
+Hint
+year_day
+1. Use string concatenation to combine the 'year' and 'day' values.
+
+2. Separate the 'year' and 'day' values with a hyphen (-) to form the desired format.
+
+3. Return the combined string as the year and day of the year.
 """
 # My Code
-
+def year_day(day: str, year: str) -> str:
+    return f"{year}-{day}"
+	
 # Solution
-
+def year_day(day: str, year: str) -> str:
+	return year + "-" + day
+	
 # IA's Solutions
 	
 
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/255
 """
+initials
+Show Solution
+Write a function that takes two string parameters, 'firstName' and 'lastName'. The function should return a string that displays the initial of the first and last name.
 
+Hint: The output should be in the format 'F.L.' where F is the first letter of firstName and L is the first letter of lastName.
+
+initials('John', 'Doe') -> 'J.D.'
+
+initials('Emma', 'Watson') -> 'E.W.'
+
+initials('Elon', 'Musk') -> 'E.M.'
+
+Theory
+initials
+1. String Indexing: The ability to access individual characters within a string using their positions (indices). Example:
+
+name = 'John'
+first_letter = name[0]
+print(first_letter)  # Output: 'J'
+
+
+2. String Concatenation: The ability to combine multiple strings into a single string. Example:
+
+first_name = 'John'
+last_name = 'Doe'
+full_name = first_name + last_name
+print(full_name)  # Output: 'JohnDoe'
+
+
+3. String Formatting: The ability to create formatted strings by inserting values into specific placeholders. Example:
+
+first_name = 'John'
+last_name = 'Doe'
+formatted_name = '{}.{}'.format(first_name[0], last_name[0])
+print(formatted_name)  # Output: 'J.D.'
+
+first_name = 'Emma'
+last_name = 'Watson'
+formatted_name = '{0}.{1}'.format(first_name[0], last_name[0])
+print(formatted_name)  # Output: 'E.W.'
+
+
+4. String Operations: Performing operations on strings to manipulate or extract information. Example:
+
+first_name = 'Elon'
+last_name = 'Musk'
+initials = first_name[0] + '.' + last_name[0] + '.'
+print(initials)  # Output: 'E.M.'
+
+first_name = 'John'
+last_name = 'Doe'
+initials = f'{first_name[0]}.{last_name[0]}.'
+print(initials)  # Output: 'J.D.'
+
+
+These concepts will be useful in extracting the first letters of the first name and last name, and combining them to form the initials. By leveraging these techniques, you can implement the initials function to solve the problem.
+
+Hint
+initials
+1. Access the first letter of the 'firstName' and 'lastName' strings.
+
+2. Combine the first letters using string concatenation.
+
+3. Separate the initials with a period (.) to form the desired format.
+
+4. Return the combined string as the initials.
 """
 # My Code
-
+def initials(firstName: str, lastName: str) -> str:
+    return f"{firstName[0]}.{lastName[0]}."
+	
 # Solution
-
+def initials(firstName: str, lastName: str) -> str:
+	initialFirst = firstName[0]
+	initialLast = lastName[0]
+	return initialFirst + '.' + initialLast + '.'
+	
 # IA's Solutions
 	
 
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/256
 """
+get_extension
+Show Solution
+Write a function get_extension() that accepts a file name as a string and returns the file extension. The file name will always have an extension and will not contain any spaces.
 
+Hint: all the extensions will end with a dot (.) and 3 letters.
+
+get_extension('image.jpg') -> 'jpg'
+
+get_extension('document.pdf') -> 'pdf'
+
+get_extension('hello.txt') -> 'txt'
+
+Theory
+get_extension
+1. The ability to extract a portion of a string using start and end indices. Example:
+
+file_name = 'image.jpg'
+extension = file_name[6:9]
+print(extension)  # Output: 'jpg'
+
+file_name = 'document.pdf'
+name = file_name[:8]
+print(name)  # Output: 'document'
+
+
+2. Performing operations on strings to modify, concatenate, or extract information. Example:
+
+file_name = 'hello.txt'
+uppercase_name = file_name.upper()
+print(uppercase_name)  # Output: 'HELLO.TXT'
+
+file_name = 'image.jpg'
+parts = file_name.split('.')
+extension = parts[-1]  # Get the last item in the parts list
+print(extension)  # Output: 'jpg'
+
+
+These concepts will be useful in extracting the file extension from the given file name. By combining these techniques, you can solve the problem by implementing the get_extension function.
+
+Hint
+get_extension
+1. Find the position of the dot (.) character in the file name.
+
+2. Extract the substring from the position of the dot (.) character to the end of the file name.
+
+3. Remove the dot (.) from the extracted substring to get the file extension.
+
+4. Return the file extension as the result.
 """
 # My Code
-
+def get_extension(file: str) -> str:
+    return file[-3:]
+	
 # Solution
-
+def get_extension(file: str) -> str:
+	extension = file[len(file)-3:]
+	return extension
+	
 # IA's Solutions
 	
 
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/18
 """
+missing_chars
+Show Solution
+Write a Python function that takes a string 's' and two integers 'a' and 'b', and returns a new string where the character at index 'a' and the character at index 'b' have been removed.  For example, if the string 's' is 'hello' and 'a' is 1 and 'b' is 3, the function should return the string 'hlo', where the characters at indices 1 and 3 (i.e. 'e' and 'l') have been removed.
 
-"""
-# My Code
+missing_chars('hello', 1, 3) -> 'hlo'
 
-# Solution
+missing_chars('coding', 0, 4) -> 'odig'
 
-# IA's Solutions
-	
+Theory
+missing_chars
+1. Strings in Python are arrays of bytes representing Unicode characters. Strings are immutable, meaning they cannot be changed once they are created. Example: 
 
-
-
-
-# https://www.codingdors.com/problem/
-"""
-
-"""
-# My Code
-
-# Solution
-
-# IA's Solutions
-	
+string = "hello"
 
 
+2. Indexing in Python starts from 0. We can access an element in a string using its index. Example: 
+
+print(string[1])
 
 
-# https://www.codingdors.com/problem/
-"""
+3. Slicing in Python refers to extracting a specific part of a string. We can extract a substring from a string using slicing. Example: 
 
-"""
-# My Code
-
-# Solution
-
-# IA's Solutions
-	
+print(string[1:4])
 
 
+4. Concatenation in Python is the process of joining two or more strings together to create a new string. Example: 
+
+string1 = "world"
+new_string = string + " " + string1
 
 
-# https://www.codingdors.com/problem/
-"""
+5. To remove a character from a string, we can create a new string without the character by concatenating the parts of the original string before and after the character. Example: 
 
+new_string = string[:index] + string[index+1:]
+
+Hint
+missing_chars
+1. You can use string slicing to remove the characters at the given indices. 
+
+2. Remember that Python starts counting the index from 0.
+
+3. You can concatenate the left and right parts of the string.
 """
 # My Code
 
