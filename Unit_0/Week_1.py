@@ -1694,22 +1694,92 @@ missing_chars
 3. You can concatenate the left and right parts of the string.
 """
 # My Code
-
+def missing_chars(s: str,a: int,b: int)-> str:
+    first = s[:a] 
+    mid = s[a+1:b]
+    end = s[b+1:]
+    return first+mid+end
+	
 # Solution
-
+def missing_chars(s: str,a: int,b: int)-> str:
+    first = s[0:a]
+    middle = s[a+1:b]
+    last = s[b+1:]
+    return first + middle + last
+	
 # IA's Solutions
 	
 
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/19
 """
+front_back
+Show Solution
+Given a string 's', return a new string where the first and last chars have been exchanged.
 
+front_back('code') → 'eodc'
+
+front_back('a') → 'a'
+
+Theory
+front_back
+1. String slicing: A string can be sliced using square brackets to select a specific subset of characters. 
+s[0:3]
+ returns the characters starting from the first index up to, but not including, the third index. 
+s[-3:]
+ returns the last three characters in the string.
+
+2. String concatenation: Two strings can be concatenated using the + operator. 
+"hello " + "world"
+ returns the string "hello world".
+
+3. String indexing: The individual characters of a string can be accessed using their indices. 
+s[2]
+ returns the third character in the string.
+
+4. String length: The length of a string can be calculated using the len() function. 
+len(s)
+ returns the number of characters in the string.
+
+Example:
+
+
+s = "hello world"
+first_char = s[0]
+last_char = s[-1]
+new_string = last_char + s[1:-1] + first_char
+print(new_string)
+
+
+Output:
+
+
+dello worlh
+
+Hint
+front_back
+1. The length of the string should be checked first. 
+
+2. If the length is one or less, return the original string. 
+
+3. Otherwise, swap the first and last characters of the string.
 """
 # My Code
+def front_back(s: str)-> str:
+    tamanho = len(s)
+    first = s[0]
+    mid = s[1:-1]
+    end = s[-1]
+    return end+mid+first
 
 # Solution
+def front_back(s: str)-> str:
+    first = s[0]
+    last = s[-1]
+    middle = s[1:-1]
+    return last + middle + first
 
 # IA's Solutions
 	
