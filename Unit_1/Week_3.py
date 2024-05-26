@@ -43,36 +43,36 @@ should_take_umbrella
 Think about the conditions for when we should take an umbrella.
 """
 # My Code
-def should_take_umbrella(is_raining: bool, is_sunny: bool)->bool:
-	# is_raining ? true / false
-	# is_sunny ? true / false
-	# take_umbrella ? if not sunny OR if is raining
-  if is_raining == True:
-    return True
-  elif is_sunny == False:
-    return True
-  else:
-    return False
+	def should_take_umbrella(is_raining: bool, is_sunny: bool)->bool:
+		# is_raining ? true / false
+		# is_sunny ? true / false
+		# take_umbrella ? if not sunny OR if is raining
+	  if is_raining == True:
+	    return True
+	  elif is_sunny == False:
+	    return True
+	  else:
+	    return False
     
 # Solution
-def should_take_umbrella(is_raining: bool, is_sunny: bool)->bool:
-    if is_raining == True or is_sunny == False:
-        return True
-    else:
-        return False
+	def should_take_umbrella(is_raining: bool, is_sunny: bool)->bool:
+	    if is_raining == True or is_sunny == False:
+	        return True
+	    else:
+	        return False
 
 # IA's Solutions
-def should_take_umbrella(is_raining: bool, is_sunny: bool) -> bool:
-  return not is_sunny or is_raining
-
-def should_take_umbrella(is_raining: bool, is_sunny: bool) -> bool:
-  if is_raining or not is_sunny:
-      return True
-  else:
-      return False
-
-def should_take_umbrella(is_raining: bool, is_sunny: bool) -> bool:
-  return True if not is_sunny or is_raining else False
+	def should_take_umbrella(is_raining: bool, is_sunny: bool) -> bool:
+	  return not is_sunny or is_raining
+	
+	def should_take_umbrella(is_raining: bool, is_sunny: bool) -> bool:
+	  if is_raining or not is_sunny:
+	      return True
+	  else:
+	      return False
+	
+	def should_take_umbrella(is_raining: bool, is_sunny: bool) -> bool:
+	  return True if not is_sunny or is_raining else False
 
 
 
@@ -117,19 +117,19 @@ team_trouble
 4. Think about the input parameters and how they can be used in the function to determine if we are in trouble or not.
 """
 # My Code
-def team_trouble(employee_a: bool, employee_b: bool)-> bool:
-	# True trouble IF True emp_a AND True emp_b
-	# IF A == B (tru, true) or (false, false) .:. True Trouble
-	return True if employee_a == employee_b else False
+	def team_trouble(employee_a: bool, employee_b: bool)-> bool:
+		# True trouble IF True emp_a AND True emp_b
+		# IF A == B (tru, true) or (false, false) .:. True Trouble
+		return True if employee_a == employee_b else False
 
 # Solution
-def team_trouble(employee_a: bool, employee_b: bool)-> bool:
-  if employee_a == True and employee_b == True:
-    return True
-  elif employee_a == False and employee_b == False:
-    return True
-  else:
-    return False
+	def team_trouble(employee_a: bool, employee_b: bool)-> bool:
+	  if employee_a == True and employee_b == True:
+	    return True
+	  elif employee_a == False and employee_b == False:
+	    return True
+	  else:
+	    return False
 
 
 
@@ -143,11 +143,402 @@ Write a Python function that takes two input integers 'a' and 'b', and returns t
 sum_or_half_sum(4, 5) -> 9
 sum_or_half_sum(3, 3) -> 3
 
+Theory
+sum_or_half_sum
+1. Conditional Statements - Conditional statements in Python are used to execute certain blocks of code when certain conditions are true. They are created using if, elif, and else statements. 
+Example: 
+x = 10
+if x > 5:
+  print("x is greater than 5")
+elif x == 5:
+  print("x is equal to 5")
+else:
+  print("x is less than 5")
+2. Arithmetic Operators - Arithmetic operators are used to perform mathematical operations in Python. They include +, -, *, /, %, and //. 
+Example: 
+a = 10
+b = 5
+print(a + b) # Output: 15
+print(a - b) # Output: 5
+print(a * b) # Output: 50
+print(a / b) # Output: 2.0
+print(a % b) # Output: 0
+print(a // b) # Output: 2
+3. Functions - Functions in Python are blocks of code that can be called to perform a specific task. They can take input parameters and return values. 
+Example: 
+def multiply(x, y):
+  return x * y
+print(multiply(2, 3)) # Output: 6
+4. Boolean Operators - Boolean operators are used to compare values and return a boolean value of either True or False. They include and, or, and not. 
+Example: 
+x = 5
+y = 10
+print(x > 3 and y > 7) # Output: True
+print(x < 3 or y < 7) # Output: False
+print(not x == 5) # Output: False
+5. Comparison Operators - Comparison operators are used to compare values in Python and return a boolean value of either True or False. They include ==, !=, >, <, >=, and <=. 
+Example: 
+x = 5
+y = 10
+print(x == 5) # Output: True
+print(x != 5) # Output: False
+print(x > y) # Output: False
+print(x < y) # Output: True
+print(x >= 5) # Output: True
+print(y <= 10) # Output: True
 
+Hint
+sum_or_half_sum
+1. You will need an if statement to check if the two input integers are the same.
+2. Within the if statement, you should return half of the sum of the two integers.
+3. If the two integers are not the same, you should return the sum of the two integers.
 """
 # My Code
-  
+	def sum_or_half_sum(a: int, b: int)-> int:
+	    if a == b:
+	        return (a+b)/2
+	    else:
+	        return a+b
+
 # Solution
+	def sum_or_half_sum(a: int, b: int)-> int:
+	    if a != b:
+	        return a + b
+	    else:
+	        return a
+
+# IA's Solutions
+# 1. Using a conditional expression:
+	def sum_or_half_sum(a: int, b: int) -> int:
+	    return (a + b) / 2 if a == b else a + b
+# In this solution, we use a conditional expression which is shorter and more concise than an if-else statement. It directly returns the sum of 'a' and 'b' if they are not equal, and returns half of their sum if they are equal.
+# 2. Using a ternary operator:
+	def sum_or_half_sum(a: int, b: int) -> int:
+	    return (a + b) / 2 if a == b else a + b
+# This solution is similar to the first one but uses a ternary operator instead of a conditional expression. Ternary operators are a more compact way to write conditional statements in Python.
+# 3. Using the min() and max() functions:
+	def sum_or_half_sum(a: int, b: int) -> int:
+	    if a == b:
+	        return a
+	    return a + b
+# In this solution, we use the min() and max() functions to handle the case where 'a' and 'b' are equal. If 'a' is equal to 'b', we return 'a'. Otherwise, we return the sum of 'a' and 'b'.
+
+
+
+
+
+# https://www.codingdors.com/problem/14
+"""
+absolute_difference
+Show Solution
+Write a Python function that takes two input numbers 'a' and 'b', and returns the absolute difference between them. However, if the absolute difference is greater than 10, the function should return double the absolute difference instead. For instance, if 'a' is 4 and 'b' is 8, the function should return 4. If 'a' is 10 and 'b' is 25, the function should return 30.
+absolute_difference(4, 8) -> 4
+absolute_difference(10, 25) -> 30
+
+Theory
+absolute_difference
+1. Absolute value: Returns the absolute value of a number. It returns the number without its sign. 
+abs(-5) #5
+2. Conditional Statements: If the condition evaluates to true, then execute the code in the if block. Otherwise, execute the code in the else block (if it exists).
+num = 5
+if num > 0:
+    print("Positive")
+else:
+    print("Negative or Zero")
+3. Comparison Operators: Used to compare two values. Returns a boolean True or False based on the comparison.
+a = 5
+b = 10
+a < b  # True
+a > b  # False
+a == b  # False
+a != b  # True
+4. Double operator: Multiplies a number by 2.
+a = 7
+a_double = a*2
+print(a_double) # 14
+
+Hint
+absolute_difference
+1. Use the abs() function to calculate the absolute difference between a and b.
+2. Check if the absolute difference is greater than 10 using an if statement.
+3. If the absolute difference is greater than 10, return double the absolute difference using the multiplication operator.
+4. If the absolute difference is not greater than 10, simply return the absolute difference.
+"""
+# My Code
+	def absolute_difference(a: int, b: int)-> int:
+	    result = abs(a-b)
+	    if result > 10:
+	        return 2*result
+	    else:
+	        return result
+
+# Solution
+	def absolute_difference(a: int, b: int)-> int:
+	    if abs(a - b) > 10:
+	        return abs(a - b) * 2
+	    else:
+	        return abs(a - b)
+
+# IA's Solution
+# Sure! Here is an alternative solution using a single line of code with the ternary operator:
+	def absolute_difference(a: int, b: int) -> int:
+	    return 2 * abs(a - b) if abs(a - b) > 10 else abs(a - b)
+# In this solution, the absolute difference is calculated using `abs(a - b)` and then checked if it is greater than 10. If it is greater than 10, the function returns double the absolute difference. Otherwise, it returns the absolute difference itself. The ternary operator `x if condition else y` is used to achieve this in a single line.
+
+
+
+
+
+# https://www.codingdors.com/problem/15
+"""
+dog_trouble
+Show Solution
+We have a playful dog that barks loudly at night. The 'hour' parameter is the current hour time in the range 0...23. We are in trouble if the dog is barking and the hour is before 6 or after 22. Return True if we are in trouble.
+dog_trouble(True, 5) → True
+dog_trouble(True, 7) → False
+dog_trouble(False, 6) → False
+
+Theory
+dog_trouble
+1. Boolean - a data type that has only two possible values, true or false. Example:  'True'
+2. If/else statement - a programming structure that allows the program to make a decision based on a condition. Example: 
+if hour < 6 or hour > 22:
+    return True
+else:
+    return False
+3. Comparison operators - operators that compare two values and return a boolean value of true or false. Example: 'hour < 6'
+4. Parameters - values that are passed into a function to be used in the function's calculations. Example: 'hour' in 'dog_trouble(True, 6)'
+5. Return statement - a statement in a function that returns a value back to the caller of the function. Example:  
+return True
+
+Hint
+dog_trouble
+1. Identify the conditions that result in being in trouble. 
+2. Determine the range of hours that result in being in trouble. 
+3. Look for the given values of the 'hour' parameter to check if they fall within the trouble range. 
+4. Use the 'dog' parameter to determine if the dog is actually barking. 
+5. Return True if both the conditions are met, else return False.
+"""
+# My Code
+	def dog_trouble(barking: bool, hour: int)-> bool:
+	    if hour > 22 or hour < 6:
+	        is_late = True
+	    if is_late == True and barking == True:
+	        return True
+	    else:
+	        return False
+	        
+
+# Solution
+	def dog_trouble(barking: bool, hour: int)-> bool:
+	    if barking == True and (hour <= 6 or hour >= 22):
+	        return True
+	    else:
+	        return False
+
+# IA's Solution
+	def dog_trouble(barking: bool, hour: int) -> bool:
+	    return barking and (hour < 6 or hour > 22)
+		
+# Explanation:
+	def dog_trouble(barking: bool, hour: int)-> bool:
+		# trouble (true) IF barking(true) AND 6 > hour > 22
+		return True if barking and (hour < 6 or hour > 22) else False
+# 1. This solution directly returns the result of the logical expression `barking and (hour < 6 or hour > 22)`.
+# 2. If `barking` is True and the current `hour` is less than 6 or greater than 22, the expression evaluates to True, indicating that we are in trouble.
+# 3. Otherwise, the expression evaluates to False, indicating that we are not in trouble.
+	def dog_trouble(barking: bool, hour: int)-> bool:
+	  if barking == True and (6 > hour or hour > 22):
+	    return True
+	  else:
+	    return False
+
+
+
+
+
+# https://www.codingdors.com/problem/16
+"""
+near_ten
+Show Solution
+Given an int 'n', return True if it is within 10 of 50. 
+Note: abs(num) computes the absolute value of a number.
+near_ten(48) → True
+near_ten(55) → True
+near_ten(5) → False
+
+Theory
+near_ten
+1. abs() function: Returns the absolute value of a number. 
+abs(-5) = 5
+2. Comparison operators: Used to compare values and return a boolean value (True or False). 
+5 < 10
+returns True.
+3. Logical operators: Used to combine conditional statements and return a boolean value. 
+5 < 10 and 10 < 20
+returns True.
+4. Ternary operators: A shorter way of writing an if-else statement in one line. 
+x = 5 if y == 10 else 0
+sets x to 5 if y is equal to 10, otherwise sets it to 0.
+"""
+# My Code
+	def near_ten(n: int)->bool:
+	    if 40 <= abs(n) <= 60:
+	        return True
+	    else:
+	        return False
+		    
+# Solution
+	def near_ten(n: int)->bool:
+	    c = abs(n - 50)
+	    if c <= 10:
+	        return True
+	    else:
+	        return False
+		    
+# IA's Solutions
+# 1. Using the abs() function directly in the comparison:
+	def near_ten(n: int) -> bool:
+	    return abs(50 - n) <= 10
+# Explanation: This solution calculates the absolute difference between 'n' and 50 using abs(50 - n), and then checks if this absolute difference is less than or equal to 10. If it is, the function returns True, indicating that 'n' is within 10 of 50.
+# 2. Using a ternary conditional expression:
+	def near_ten(n: int) -> bool:
+	    return True if abs(50 - n) <= 10 else False
+# Explanation: This solution uses a ternary conditional expression to achieve the same result as the first solution. It checks if the absolute difference between 'n' and 50 is less than or equal to 10 and returns True if it is, otherwise it returns False.
+# 3. Checking two separate conditions:
+	def near_ten(n: int) -> bool:
+	    return (n >= 40 and n <= 50) or (n >= 50 and n <= 60)
+# Explanation: This solution checks two separate conditions to determine if 'n' is within 10 of 50. It first checks if 'n' is between 40 and 50 (inclusive), and then checks if 'n' is between 50 and 60 (inclusive). If either of these conditions is true, the function returns True.
+
+
+
+
+
+# https://www.codingdors.com/problem/17
+"""
+hi_string
+Show Solution
+Given a string 's', return a new string where "hi " has been added to the front. However, if the string already begins with "hi", return the string unchanged.
+hi_string('Alice') → 'hi Alice'
+hi_string('hi Bob') → 'hi Bob'
+hi_string('') → 'hi'
+
+Theory
+hi_string
+1. String Concatenation: Joining two or more strings together to produce a new string. Example: 
+'hello ' + 'world'
+will return 'hello world'.
+2. String Slicing: Extracting a part of a string based on its index. Example: 
+'computer'[0:4]
+will return 'comp'.
+3. Conditional Statements: Statement that executes different actions depending on whether a condition is true or false. Example: 
+if x > 5: 
+    print('x is greater than 5')
+4. String Comparison: Comparing two or more strings to check if they are equal or not. Example: 
+'hello' == 'world'
+ will return False.
+
+Hint
+hi_string
+1. Check if the first two characters of the string are "hi" using slicing. 
+2. If step 1 is True, return the string unchanged. 
+3. If step 1 is False, concatenate "hi " at the beginning of the string. 
+4. If the string is empty, simply return "hi".
+"""
+# My Code
+	def hi_string(s: str)-> str:
+	    if s[0:2]=="hi":
+	        return s
+	    else:
+	        return f"hi {s}"
+
+# Solution
+	def hi_string(s: str)-> str:
+		if s[0:2] == 'hi':
+		  return s
+		else:
+		  return 'hi ' + s
+			
+# IA's Solutions
+# 1. Using string concatenation:
+	def hi_string(s: str) -> str:
+	    if s.startswith("hi"):
+	        return s
+	    else:
+	        return "hi " + s
+# In this solution, the `startswith()` method is used to check if the string `s` already begins with "hi". If it does, the original string is returned unchanged. Otherwise, "hi " is concatenated with the original string using the `+` operator.
+# 2. Using f-strings directly:
+	def hi_string(s: str) -> str:
+	    if s.startswith("hi"):
+	        return s
+	    else:
+	        return f"hi {s}"
+# This solution is similar to the original one provided, but it directly uses an f-string to return the modified string with "hi " added at the front.
+
+
+
+
+
+# https://www.codingdors.com/problem/20
+"""
+front5
+Show Solution
+Given a string 's', we'll say that the front is the first 5 chars of the string. If the string length is less than 5, the front is whatever is there. Return a new string which is 5 copies of the front.
+front5('Python') → 'PythoPythoPythoPythoPytho'
+front5('Chocolate') → 'ChocoChocoChocoChocoChoco'
+front5('abc') → 'abcabcabcabcabc'
+
+Theory
+front5
+1. Substring: A substring is a smaller part of a string. A string can be sliced to get a smaller part of it. 
+"Hello"[1:3]
+ returns "el". 
+2. Conditional statements: We can use conditional statements like if-else to check if a condition is true, and execute different programs based on it. 
+if x > 0:
+    print("Positive")
+else:
+    print("Negative")
+3. Concatenation: Concatenation is joining two or more strings into one. We can use the + operator or the join method. 
+"Hello" + "World"
+ returns "HelloWorld".
+4. Repetition: We can repeat a string n number of times using the * operator. 
+"Hello" * 3
+ returns "HelloHelloHello". 
+In this problem, we need to get the front of the string and repeat it 5 times. We can use substring and repetition to solve this.
+
+Hint
+front5
+1. Identify the first 5 characters of the string.
+2. Check if the length of the string is less than 5, if yes, use the whole string as front.
+3. Return a new string which is the front repeated 5 times.
+"""
+# My Code
+	def front5(s: str)-> str:
+	    tamanho = len(s)
+	    if tamanho < 5:
+	        front = s[0:tamanho]
+	    else:
+	        front = s[0:5]
+	    return front*5
+    
+# Solution
+	def front5(s: str)-> str:
+		first = s[:5]
+		return first * 5
+		
+# IA's Solutions
+# 1. Using string slicing and repetition in a single line:
+	def front5(s: str) -> str:
+	    return (s[:5] if len(s) >= 5 else s) * 5
+# This solution uses a conditional expression to check if the length of the string is greater than or equal to 5. If it is, it takes the first 5 characters of the string; otherwise, it takes the entire string. Then, it multiplies this front portion by 5 to get the desired output.
+# 2. Using string concatenation in a loop:
+	def front5(s: str) -> str:
+	    front = s[:5] if len(s) >= 5 else s
+	    result = ''
+	    for _ in range(5):
+	        result += front
+	    return result
+# This solution follows a more traditional approach by using a loop to concatenate the front portion of the string to the result string five times. It first calculates the front portion of the string based on its length and then iterates five times, appending the front portion each time to build the final result.
 
 
 
@@ -158,8 +549,10 @@ sum_or_half_sum(3, 3) -> 3
 
 """
 # My Code
-  
+
 # Solution
+
+# IA's Solutions
 
 
 
@@ -171,13 +564,82 @@ sum_or_half_sum(3, 3) -> 3
 
 """
 # My Code
-  
+
 # Solution
 
+# IA's Solutions
 
 
 
 
 
 
+# https://www.codingdors.com/problem/
+"""
 
+"""
+# My Code
+
+# Solution
+
+# IA's Solutions
+
+
+
+
+
+
+# https://www.codingdors.com/problem/
+"""
+
+"""
+# My Code
+
+# Solution
+
+# IA's Solutions
+
+
+
+
+
+
+# https://www.codingdors.com/problem/
+"""
+
+"""
+# My Code
+
+# Solution
+
+# IA's Solutions
+
+
+
+
+
+
+# https://www.codingdors.com/problem/
+"""
+
+"""
+# My Code
+
+# Solution
+
+# IA's Solutions
+
+
+
+
+
+
+# https://www.codingdors.com/problem/
+"""
+
+"""
+# My Code
+
+# Solution
+
+# IA's Solutions
