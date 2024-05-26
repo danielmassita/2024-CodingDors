@@ -544,76 +544,350 @@ front5
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/181
 """
+caught_speeding
+Show Solution
+You are driving a little too fast, and a police officer stops you. Write a function to return the result, encoded as an int value: 0=no ticket, 1=small ticket, 2=big ticket. 
+If speed is 60 or less, the result is 0. If speed is between 61 and 80 inclusive, the result is 1. If speed is 81 or more, the result is 2. Unless it is your birthday -- on that day, your speed can be 5 higher in all cases.
+caught_speeding(60, False) → 0
+caught_speeding(65, False) → 1
+caught_speeding(100, True) → 2
+
+Theory
+caught_speeding
+1. Conditionals are used to make decisions based on certain conditions. The most common conditional statements in programming are if statements and switch statements. Example: 
+if x > 10:
+    # do something
+2. Functions are blocks of reusable code that perform a specific task. They are used to modularize code and make it more efficient. Example: 
+def add(a, b) :
+    return a + b
+3. Variables are used to store and manipulate data in a program. They are declared with a name. Example: 
+name = "Alice"
+4. Operators are used to perform operations on values and variables in a program. There are many different kinds of operators, including arithmetic, comparison, and logical operators.  Example: 
+result = 10 + 5
+
+Hint
+caught_speeding
+1. You need to write a function that takes in one parameter, which is the speed you were driving at. 
+2. The function should return an integer value based on the given conditions. 
+3. Remember to account for the exception if it is your birthday.
+"""
+# My Code
+	def caught_speeding(speed: int, is_birthday: bool) -> int:        
+	    if is_birthday == True:
+	        speed = speed - 5
+	
+	    if speed <= 60:
+	        return int(0)        
+	    if 61 <= speed <= 80:
+	        return int(1)
+	    if speed > 81:
+	        return int(2)
+
+# Solution
+	def caught_speeding(speed: int, is_birthday: bool) -> int:
+	  if is_birthday:
+	    speed -= 5
+	  if speed <= 60:
+	    return 0
+	  elif 61 <= speed <= 80:
+	    return 1
+	  else:
+	    return 2
+	  
+# IA's Solutions
+# Here is an alternative solution using a simpler approach without the need for multiple if statements:
+	def caught_speeding(speed: int, is_birthday: bool) -> int:
+	    if is_birthday:
+	        speed -= 5
+	    
+	    if speed <= 60:
+	        return 0
+	    elif speed <= 80:
+	        return 1
+	    else:
+	        return 2
+# In this solution, we first adjust the speed if it is the driver's birthday. Then, we directly check the speed ranges in a single if-elif-else block. This approach simplifies the code by reducing the number of if statements and improves readability.
+
+
+
+
+
+# https://www.codingdors.com/problem/183
+"""
+alarm_clock
+Show Solution
+Given a day of the week encoded as 0=Sun, 1=Mon, 2=Tue, ...6=Sat, and a boolean indicating if we are on vacation, return a string of the form "7:00" indicating when the alarm clock should ring. Weekdays, the alarm should be "7:00" and on the weekend it should be "10:00". Unless we are on vacation -- then on weekdays it should be "10:00" and weekends it should be "off".
+alarm_clock(1, False) → '7:00'
+alarm_clock(0, False) → '10:00'
+alarm_clock(6, True) → 'off'
+
+Theory
+alarm_clock
+1. Conditionals are used to make decisions based on certain conditions. The most common conditional statements in programming are if statements and switch statements. Example: 
+if x > 10:
+    # do something
+2. Functions are blocks of reusable code that perform a specific task. They are used to modularize code and make it more efficient. Example: 
+def add(a, b) :
+    return a + b
+3. Variables are used to store and manipulate data in a program. They are declared with a name. Example: 
+name = "Alice"
+4. Operators are used to perform operations on values and variables in a program. There are many different kinds of operators, including arithmetic, comparison, and logical operators.  Example: 
+result = 10 + 5
+
+Hint
+alarm_clock
+1. Consider using an if/else statement.
+2. Use the boolean variable to determine whether it's a weekday or weekend.
+3. If it's a weekday, the alarm time is always "7:00".
+4. If it's a weekend and we are not on vacation, the alarm time is "10:00".
+5. If we are on vacation, the alarm time on weekdays is "10:00" and on weekends it is "off".
+"""
+# My Code
+	def alarm_clock(day: int, vacation: bool) -> str:
+	    if vacation==True:
+	        if day==0 or day==6:
+	            return f"off"
+	        else:
+	            return "10:00"
+	            
+	    else:
+	        if day==0 or day==6:
+	            return f"10:00"
+	        else:
+	            return f"7:00"
+
+# Solution
+	def alarm_clock(day: int, vacation: bool) -> str:
+		if vacation:
+		  if day == 0 or day == 6:
+		    return "off"
+		  else:
+		    return "10:00"
+		else:
+		  if day == 0 or day == 6:
+		    return "10:00"
+		  else:
+		    return "7:00"
+
+# IA's Solutions
+# Sure! Here is an alternative solution using a dictionary to store the alarm times:
+def alarm_clock(day: int, vacation: bool) -> str:
+    alarm_times = {0: "10:00", 1: "7:00", 2: "7:00", 3: "7:00", 4: "7:00", 5: "7:00", 6: "10:00"}
+	
+    if vacation:
+        return "off" if alarm_times[day] == "10:00" else "10:00"
+    else:
+        return alarm_times[day]
+# In this solution, we use a dictionary `alarm_times` to store the alarm times for each day of the week. We then check the value for the given day in the dictionary and return the corresponding alarm time based on whether it is a vacation or not.
+
+
+
+
+
+# https://www.codingdors.com/problem/184
+"""
+love_six
+Show Solution
+The number 6 is a truly great number. Given two int values, a and b, return True if either one is 6. Or if their sum or difference is 6.
+love_six(6, 4) → True
+love_six(4, 5) → False
+love_six(1, 5) → True
+
+Theory
+love_six
+1. Conditional statements are used to take decisions based on certain conditions. In python, if, elif, and else are used for conditional statements. Example: 
+if x > 0:
+    print("x is a positive number")
+elif x == 0:
+    print("x is zero")
+else:
+    print("x is a negative number")
+2. Boolean Operators are used to combine conditional statements. Python has three Boolean operators: and, or, and not. Example:
+if x > 0 and y > 0:
+    print("Both x and y are positive numbers")
+elif x > 0 or y > 0:
+    print("At least one of x and y is a positive number")
+3. Comparison Operators are used to compare values. Python has six comparison operators: ==, !=, >, <, >=, <=. Example:
+if x == y:
+    print("x and y are equal")
+elif x != y:
+    print("x and y are not equal")
+else: 
+    print("this will never run")
+4. Arithmetic Operators are used to perform mathematical operations in Python. Python has seven arithmetic operators: +, -, *, /, %, //, and **. Example:
+x = 10
+y = 3
+print(x + y)      # 13
+print(x - y)      # 7
+print(x * y)      # 30
+print(x / y)      # 3.33333333333
+print(x % y)      # 1
+print(x // y)     # 3
+print(x ** y)     # 1000
+5. Logical Operators are used to combine multiple conditions and return a Boolean value. Python has two logical operators: and and or. Example:
+if x > 0 and y > 0:
+    print("Both x and y are positive")
+elif x > 0 or y > 0:
+    print("At least one of x and y is positive")
+6. Functions are a group of related statements that perform a specific task when called. In python, a function is defined using the def keyword followed by function name and parameters enclosed in a parentheses. Example: 
+def add_numbers(a, b):
+    return a + b
+sum = add_numbers(2, 5)
+print(sum)   # 7
+
+Hint
+love_six
+Think about the different ways that the numbers can add up or subtract to 6.
+"""
+# My Code
+	def love_six(a: int, b: int) -> bool:
+	    if (a or b) == 6:
+	        return True
+	    elif abs(a-b)==6 or abs(b-a)==6 or abs(a+b)==6:
+	        return True
+	    else:
+	        return False
+		    
+# Solution
+	def love_six(a: int, b: int) -> bool:
+		if a == 6 or b == 6 or a + b == 6 or abs(a - b) == 6:
+		  return True
+		else:
+		  return False
+			
+# IA's Solutions
+# Sure! Here is an alternative solution in Python with explanations:
+def love_six(a: int, b: int) -> bool:
+    return a == 6 or b == 6 or a + b == 6 or abs(a - b) == 6
+# Explanation:
+# 1. The expression `a == 6` checks if the value of `a` is equal to 6.
+# 2. The expression `b == 6` checks if the value of `b` is equal to 6.
+# 3. The expression `a + b == 6` checks if the sum of `a` and `b` is equal to 6.
+# 4. The expression `abs(a - b) == 6` checks if the absolute difference between `a` and `b` is equal to 6.
+# This solution simplifies the conditions by directly checking each condition in a single line, which results in a more concise and readable code.
+
+
+
+
+
+# https://www.codingdors.com/problem/185
+"""
+in_one_to_ten
+Show Solution
+Given a number n, return True if n is in the range 1..10, inclusive. Unless "outside_mode" is True, in which case return True if the number is less or equal to 1, or greater or equal to 10.
+in_one_to_ten(5, True) → True
+in_one_to_ten(11, False) → False
+in_one_to_ten(1, True) → True
+
+Theory
+in1to10
+1. Conditional Statement: A decision-making statement that specifies which block of code to execute based on a boolean condition. Example: 
+if n < 0: 
+    print("Number is negative")
+2. Comparison Operator: An operator that compares two values and returns a boolean value based on the comparison. Example: 
+n < 10
+3. Boolean Operator: An operator that combines two or more boolean values and returns a single boolean value. Example: 
+n < 10 and n > 0
+4. Inclusive Range: A set of integers that includes both the first and last value of the range. Example: 
+range(1, 11)
+5. Logical NOT Operator: An operator that reverses the boolean value of its operand. Example: 
+not n < 10
+6. Function Return Statement: A statement that stops the execution of a function and returns a value. Example: 
+return True
+7. Default Parameter Value: A default value set for a function parameter that is used when the value is not provided by the caller. Example: 
+def my_function(x=5):
+
+Hint
+in1to10
+1. Consider using a conditional statement to handle the two cases (inside and outside mode).
+2. Think about the range of values you need to check for each case.
+3. Pay attention to the inclusive/exclusive nature of the range.
+4. You can use comparison operators (e.g. '<', '>', '<=', '>=') to check if a number is within a certain range.
+"""
+# My Code
+	def in_one_to_ten(n: int, outside_mode: bool) -> bool:
+	    if outside_mode==False and (1 <= n <= 10):
+	        return True
+	    elif outside_mode==True and (10 >= n or n <= 1):
+	        return True
+	    
+	    else:
+	        return False
+
+# Solution
+	def in_one_to_ten(n: int, outside_mode: bool) -> bool:
+		if outside_mode and (n <= 1 or n >= 10):
+		  return True
+		else:
+		  if 1 < n < 10:
+		    return True
+		  else:
+		    return False
+			  
+# IA's Solutions
+# 1. Using conditional expressions:
+def in_one_to_ten(n: int, outside_mode: bool) -> bool:
+    return (outside_mode and (n <= 1 or n >= 10)) or (not outside_mode and 1 <= n <= 10)
+# Explanation: This solution uses conditional expressions to directly return the desired boolean value based on the conditions specified in the question. It checks if `outside_mode` is True and if `n` is less than or equal to 1 or greater than or equal to 10, or if `outside_mode` is False and `n` is in the range 1 to 10.
+# 2. Using nested if statements:
+def in_one_to_ten(n: int, outside_mode: bool) -> bool:
+    if outside_mode:
+        return n <= 1 or n >= 10
+    else:
+        return 1 <= n <= 10
+# Explanation: This solution uses nested if statements to check if `outside_mode` is True and then return True if `n` is less than or equal to 1 or greater than or equal to 10. Otherwise, if `outside_mode` is False, it checks if `n` is in the range 1 to 10 and returns True or False accordingly.
+
+
+
+
+
+# https://www.codingdors.com/problem/186
+"""
+near_ten_bool
+Show Solution
+Given a non-negative number "num", return True if num is within 2 of a multiple of 10. Note: (a % b) is the remainder of dividing a by b, so (7 % 5) is 2.
+near_ten_bool(12) → True
+near_ten_bool(19) → True
+near_ten_bool(23) → False
+
+Theory
+near_ten
+1. The modulo operator (%) returns the remainder of the division of two numbers. For example, 
+7 % 3
+ is equal to 1, because 7 divided by 3 leaves a remainder of 1.
+2. Logical operators are used to combine two or more conditions and evaluate them as a single Boolean expression. 'and' returns True if both conditions are True. 'or' returns True if either of the conditions is True. 'not' negates the result of a Boolean expression.
+3. Comparison operators are used to compare two values or expressions. > and < evaluate if one value is greater or less than the other. >= and <= evaluate if one value is greater than or equal to, or less than or equal to, the other. == and != evaluate if two values are equal or not equal. Example:
+def is_within_two_of_ten(num):
+    return (num % 10 <= 2) or (num % 10 >= 8)
+In this example, we use the modulo operator to check if the remainder of dividing num by 10 is within 2 of either end (0, 1, 8, or 9). We combine the conditions using the logical operator or and return the result as a Boolean value.
+
 
 """
 # My Code
-
+	def near_ten_bool(num: int) -> bool:
+	    if (num % 10) in [0, 1, 2, 8, 9]:
+	        return True
+	    else:
+	        return False
+		    
 # Solution
-
+	def near_ten_bool(num: int) -> bool:
+		if num % 10 >= 8 or num % 10 <= 2:
+		  return True
+		else:
+		  return False
+			
 # IA's Solutions
-
-
-
-
-
-
-# https://www.codingdors.com/problem/
-"""
-
-"""
-# My Code
-
-# Solution
-
-# IA's Solutions
-
-
-
-
-
-
-# https://www.codingdors.com/problem/
-"""
-
-"""
-# My Code
-
-# Solution
-
-# IA's Solutions
-
-
-
-
-
-
-# https://www.codingdors.com/problem/
-"""
-
-"""
-# My Code
-
-# Solution
-
-# IA's Solutions
-
-
-
-
-
-
-# https://www.codingdors.com/problem/
-"""
-
-"""
-# My Code
-
-# Solution
-
-# IA's Solutions
-
+# 1. Using the abs() function:
+def near_ten_bool(num: int) -> bool:
+    return (num % 10 <= 2) or (abs(num % 10 - 10) <= 2)
+# This solution first checks if the remainder of num divided by 10 is less than or equal to 2. If not, it calculates the absolute difference between the remainder and 10, and checks if that is less than or equal to 2.
+# 2. Using the min() function:
+def near_ten_bool(num: int) -> bool:
+    return min(num % 10, abs(num % 10 - 10)) <= 2
+# In this solution, we use the min() function to find the minimum value between the remainder of num divided by 10 and the absolute difference between the remainder and 10. If the minimum value is less than or equal to 2, the function returns True.
 
 
 
