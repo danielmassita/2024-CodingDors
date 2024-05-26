@@ -893,27 +893,477 @@ def near_ten_bool(num: int) -> bool:
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/188
 """
+answer_cell
+Show Solution
+Your cell phone rings. Return True if you should answer it. Normally you answer, except in the morning you only answer if it is your mom calling. In all cases, if you are asleep, you do not answer.
+answer_cell(False, True, True) → False
+answer_cell(True, True, True) → False
+answer_cell(False, False, False) → True
 
+Theory
+answer_cell
+1. If statements is used to execute a block of code only if a certain condition is true. It can be accompanied by else and elif statements to provide multiple conditions. Example: 
+age = 18
+if age >= 18:
+    print("You are eligible to vote.")
+2. Logical operators are used to combine and manipulate boolean values. and operator returns True if both conditions are true, or operator returns True if at least one condition is true, and not operator returns the opposite boolean value of the condition. Example: 
+is_raining = True
+has_umbrella = True
+if is_raining and has_umbrella:
+    print("You can go out without getting wet.")
+3. Variables are used to store and manipulate data values in a program. The value of a variable can be changed in the program. Example: 
+x = 5
+y = 3
+z = x + y
+print(z) # Output: 8
+
+Hint
+answer_cell
+1. Consider the time of day and the identity of the caller. 
+2. Also, take into account whether you are asleep or not.
 """
 # My Code
-
+	def answer_cell(is_morning: bool, is_mom: bool, is_asleep: bool) -> bool:
+	    if is_asleep == True:
+	        return False
+	            
+	    else:
+	        if (is_morning == True) and (is_mom == True):
+	            return True
+	        elif (is_morning == True) and (is_mom == False):
+	            return False
+	        else:
+	            return True
+			
 # Solution
-
+	def answer_cell(is_morning: bool, is_mom: bool, is_asleep: bool) -> bool:
+		if is_asleep:
+		  return False
+		elif is_morning and not is_mom:
+		  return False
+		return True
+		
 # IA's Solutions
+# Solution 1:
+def answer_cell(is_morning: bool, is_mom: bool, is_asleep: bool) -> bool:
+    if is_asleep:
+        return False
+    if is_morning and not is_mom:
+        return False
+    return True
+# Explanation:
+# This solution uses the same logic as the original code but simplifies the conditions by directly checking if `is_asleep` is True and returning False. Then, it checks if it is morning and not mom calling, returning False in that case. Otherwise, it returns True.
+# Solution 2:
+def answer_cell(is_morning: bool, is_mom: bool, is_asleep: bool) -> bool:
+    return not is_asleep and (not is_morning or is_mom)
+# Explanation:
+# In this solution, we use a single line of code with boolean logic. It first checks if the person is not asleep and then checks whether it is not morning or if it is morning, then it should be the mom calling. This approach simplifies the conditions into a single expression.
 
 
 
 
 
-
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/189
 """
+tea_party
+Show Solution
+We are having a party with amounts of tea and candy. Return the int outcome of the party encoded as 0=bad, 1=good, or 2=great. A party is good (1) if both tea and candy are at least 5. However, if either tea or candy is at least double the amount of the other one, the party is great (2). However, in all cases, if either tea or candy is less than 5, the party is always bad (0).
+tea_party(5, 5) → 1
+tea_party(10, 5) → 2
+tea_party(4, 5) → 0
 
+Hint
+tea_party
+1. Identify the three possible outcomes: bad (0), good (1), or great (2).
+2. Check if either tea or candy is less than 5. If so, return 0 (bad).
+3. Check if both tea and candy are at least 5. If so, you have at least a good party (1).
+4. Check if either tea or candy is at least double the amount of the other one. If so, return 2 (great).
+5. If none of the above conditions have been met, return 1 (good).
 """
 # My Code
+	def tea_party(tea: int, candy: int) -> int:
+	    if tea < 5 or candy < 5:
+	        return 0
+	    elif (tea >= 2*candy) or (candy >= 2*tea):
+	        return 2
+	    else:
+	        return 1
+		    
+# Solution
+	def tea_party(tea: int, candy: int) -> int:
+		if tea < 5 or candy < 5:
+		  return 0
+		elif tea >= 2 * candy or candy >= 2 * tea:
+		  return 2
+		else:
+		  return 1
+			
+# IA's Solutions
+# Certainly! Your solution is already quite clear and efficient. Here is an alternative solution using a nested if-else structure:
+def tea_party(tea: int, candy: int) -> int:
+    if tea < 5 or candy < 5:
+        return 0
+    else:
+        if tea >= 2*candy or candy >= 2*tea:
+            return 2
+        else:
+            return 1
+# This alternative solution achieves the same outcome by checking the conditions in a nested manner.
+# Another way to approach this problem is by using a single return statement with all the conditions checked in a compact way:
+def tea_party(tea: int, candy: int) -> int:
+    return 0 if tea < 5 or candy < 5 else 2 if tea >= 2*candy or candy >= 2*tea else 1
+# This solution utilizes conditional expressions within a single return statement to directly return the appropriate outcome based on the conditions. It is more concise but may be slightly less readable for some individuals.
+
+
+
+
+
+# https://www.codingdors.com/problem/190
+"""
+fizz_string
+Show Solution
+Given a string str, if the string starts with "f" return "Fizz". If the string ends with "b" return "Buzz". If both the "f" and "b" conditions are true, return "FizzBuzz". In all other cases, return the string unchanged.
+fizz_string('fizz') → 'Fizz'
+fizz_string('buzzb') → 'Buzz'
+fizz_string('fizzb') → 'FizzBuzz'
+fizz_string('abcdefg') → 'abcdefg'
+
+Theory
+fizz_string
+1. The if statement is used to check a condition and perform certain operations based on whether the condition is true or false. Example: 
+if x > 0:
+    print("Positive")
+else:
+    print("Negative or Zero")
+2. The startswith() method is used to check whether a given string starts with a specified prefix. Example: 
+str1 = "Hello World"
+if str1.startswith("Hello"):
+    print("Starts with Hello")
+else:
+    print("Does not start with Hello")
+3. The endswith() method is used to check whether a given string ends with a specified suffix. Example: 
+str1 = "Hello World"
+if str1.endswith("World"):
+    print("Ends with World")
+else:
+    print("Does not end with World")
+4. The and operator is used to check if both conditions in a logical statement are true. Example: 
+x = 5
+y = 10
+if x > 0 and y > 0:
+    print("Both x and y are positive")
+else:
+    print("At least one number is not positive")
+5. The return statement is used to exit a function and return a value or an object. Example: 
+def square(x):
+    return x*x
+6. The if-elif-else statement is used to execute different blocks of code based on multiple conditions. Example: 
+x = 5
+if x > 0:
+    print("Positive")
+elif x == 0:
+    print("Zero")
+else:
+    print("Negative")
+
+Hint
+fizz_string
+1. Check if the string starts with "f".
+2. Check if the string ends with "b".
+3. Combine the two conditions using "and" operator.
+4. Use conditional statements to return FizzBuzz, Fizz, Buzz or the original string.
+"""
+# My Code
+	def fizz_string(s: str) -> str:
+	    if s[0]=="f" and s[-1]=="b":
+	        return "FizzBuzz"
+	    elif s[0] == "f":
+	        return "Fizz"
+	    elif s[-1] == "b":
+	        return "Buzz"
+	    else:
+	        return s
+	    
 
 # Solution
-
+	def fizz_string(s: str) -> str:
+		if s[0] == "f" and s[-1] == "b":
+		  return "FizzBuzz"
+		elif s[0] == "f":
+		  return "Fizz"
+		elif s[-1] == "b":
+		  return "Buzz"
+		else:
+		  return s
+			
 # IA's Solutions
+# Sure! Here is an alternative solution using Python that achieves the same result as the one you provided:
+def fizz_string(s: str) -> str:
+    fizz = "Fizz" if s.startswith("f") else ""
+    buzz = "Buzz" if s.endswith("b") else ""
+    if fizz and buzz:
+        return fizz + buzz
+    elif fizz:
+        return fizz
+    elif buzz:
+        return buzz
+    else:
+        return s
+# In this solution, we use the `startswith()` method to check if the string starts with "f" and the `endswith()` method to check if the string ends with "b". We then construct the `fizz` and `buzz` strings based on these conditions and concatenate them accordingly. This solution eliminates the need for multiple `if` statements by using more concise conditional expressions and string concatenation.
+
+
+
+
+# https://www.codingdors.com/problem/194
+"""
+max_mod5
+Show Solution
+Given two int values, return whichever value is larger. However, if the two values have the same remainder when divided by 5, then the return the smaller value. However, in all cases, if the two values are the same, return 0.
+max_mod5(10, 5) → 5
+max_mod5(20, 15) → 15
+max_mod5(10, 10) → 0
+
+Theory
+max_mod5
+1. Conditional statements are used to take decisions based on certain conditions. In python, if, elif, and else are used for conditional statements. Example: 
+if x > 0:
+    print("x is a positive number")
+elif x == 0:
+    print("x is zero")
+else:
+    print("x is a negative number")
+2. Boolean Operators are used to combine conditional statements. Python has three Boolean operators: and, or, and not. Example:
+if x > 0 and y > 0:
+    print("Both x and y are positive numbers")
+elif x > 0 or y > 0:
+    print("At least one of x and y is a positive number")
+3. Comparison Operators are used to compare values. Python has six comparison operators: ==, !=, >, <, >=, <=. Example:
+if x == y:
+    print("x and y are equal")
+elif x != y:
+    print("x and y are not equal")
+else: 
+    print("this will never run")
+4. Arithmetic Operators are used to perform mathematical operations in Python. Python has seven arithmetic operators: +, -, *, /, %, //, and **. Example:
+x = 10
+y = 3
+print(x + y)      # 13
+print(x - y)      # 7
+print(x * y)      # 30
+print(x / y)      # 3.33333333333
+print(x % y)      # 1
+print(x // y)     # 3
+print(x ** y)     # 1000
+5. Logical Operators are used to combine multiple conditions and return a Boolean value. Python has two logical operators: and and or. Example:
+if x > 0 and y > 0:
+    print("Both x and y are positive")
+elif x > 0 or y > 0:
+    print("At least one of x and y is positive")
+6. Functions are a group of related statements that perform a specific task when called. In python, a function is defined using the def keyword followed by function name and parameters enclosed in a parentheses. Example: 
+def add_numbers(a, b):
+    return a + b
+sum = add_numbers(2, 5)
+print(sum)   # 7
+"""
+# My Code
+	def max_mod5(a: int, b: int) -> int:
+		ra = a % 5
+		rb = b % 5
+		if ra == rb:
+		  if a > b:
+		    return b
+		  elif a < b:
+		    return a
+		  else:
+		    return 0
+		else:
+		  if a > b:
+		    return a
+		  else:
+		    return b
+		  
+# Solution
+	def max_mod5(a: int, b: int) -> int:
+		ra = a % 5
+		rb = b % 5
+		if ra == rb:
+		  if a > b:
+		    return b
+		  elif a < b:
+		    return a
+		  else:
+		    return 0
+		else:
+		  if a > b:
+		    return a
+		  else:
+		    return b
+			  
+# IA's Solutions
+# 1. Using Conditional Operator:
+def max_mod5(a: int, b: int) -> int:
+    ra = a % 5
+    rb = b % 5   
+    return b if ra == rb and a > b else a if ra == rb and a < b else 0 if a == b else max(a, b)
+# Explanation: In this solution, we use the conditional operator to check the conditions and return the appropriate result.
+# 2. Using Ternary Operator:
+def max_mod5(a: int, b: int) -> int:
+    ra = a % 5
+    rb = b % 5  
+    return b if ra == rb and a > b else a if ra == rb and a < b else 0 if a == b else max(a, b)
+# Explanation: This solution is similar to the first one but uses the ternary operator instead of if-else statements for a more concise code.
+# 3. Using Python's built-in functions:
+def max_mod5(a: int, b: int) -> int:
+    if a == b:
+        return 0     
+    if a % 5 == b % 5:
+        return min(a, b)
+    else:
+        return max(a, b)
+# Explanation: This solution uses Python's built-in functions min() and max() to determine the result based on the given conditions. It also explicitly handles the case where a equals b and returns 0 in that case.
+
+
+
+
+
+# https://www.codingdors.com/problem/277
+"""
+grade_convertor
+Show Solution
+Write a function grade_convertor(grade) that takes a grade as a percentage (0-100) and returns a string: "Fail" if the grade is less than 40, "Pass" if the grade is between 40 and 60, and "Excellent" if the grade is more than 60.
+grade_convertor(30) -> 'Fail'
+grade_convertor(40) -> 'Pass'
+grade_convertor(60) -> 'Excellent'
+
+Theory
+grade_convertor
+1. Conditionals are used to make decisions based on certain conditions. The most common conditional statements in programming are if statements and switch statements. Example: 
+if x > 10:
+    # do something
+2. Functions are blocks of reusable code that perform a specific task. They are used to modularize code and make it more efficient. Example: 
+def add(a, b) :
+    return a + b
+3. Variables are used to store and manipulate data in a program. They are declared with a name. Example: 
+name = "Alice"
+4. Operators are used to perform operations on values and variables in a program. There are many different kinds of operators, including arithmetic, comparison, and logical operators.  Example: 
+result = 10 + 5
+
+Hint
+grade_convertor
+1. Start by defining your function grade_convertor(grade). The function takes one argument, which is the grade as a percentage.
+2. Use conditional statements (if, elif, and else) to check where the given grade falls in the categories.
+3. If the grade is less than 40, you should return the string "Fail".
+4. If the grade is between 40 and 60 (inclusive of both), you should return the string "Pass".
+5. If the grade is greater than 60, you should return the string "Excellent".
+6. Make sure to use the return statement to return the appropriate string based on the grade.
+"""
+# My Code
+	def grade_convertor(grade: int) -> str:
+	    if grade < 40:
+	        return "Fail"
+	    elif 40 <= grade < 60:
+	        return "Pass"
+	    else:
+	        return "Excellent"
+
+# Solution
+	def grade_convertor(grade: int) -> str:
+		if grade < 40:
+		  return 'Fail'
+		elif 40 <= grade < 60:
+		  return 'Pass'
+		else:
+		  return 'Excellent'
+			
+# IA's Solutions
+# Sure! Here is an alternative solution for the grade_convertor function in Python using a dictionary to map grade ranges to corresponding labels:
+def grade_convertor(grade: int) -> str:
+    grade_map = {
+        range(0, 40): "Fail",
+        range(40, 61): "Pass",
+        range(61, 101): "Excellent"
+    }
+    for score_range, label in grade_map.items():
+        if grade in score_range:
+            return label
+# In this solution, we define a dictionary `grade_map` where the keys are ranges of grades and the values are the corresponding labels. We then iterate over each key-value pair in the dictionary and check if the given grade falls within the range. If it does, we return the corresponding label. This approach can be useful if you want to easily update or expand the grade ranges and labels in the future.
+
+
+
+
+
+# https://www.codingdors.com/problem/278
+"""
+check_temperature
+Show Solution
+Write a function check_temperature(temp) that takes a temperature as input (in Fahrenheit) and returns "Hot" if the temperature is above 80 degrees, "Warm" if the temperature is between 60 and 80 degrees, "Cool" if the temperature is between 40 and 60 degrees, and "Cold" if the temperature is below 40 degrees.
+check_temperature(30) -> 'Cold'
+check_temperature(40) -> 'Cool'
+check_temperature(60) -> 'Warm'
+check_temperature(80) -> 'Hot'
+
+Theory
+check_temperature
+1. Conditionals are used to make decisions based on certain conditions. The most common conditional statements in programming are if statements and switch statements. Example: 
+if x > 10:
+    # do something
+2. Functions are blocks of reusable code that perform a specific task. They are used to modularize code and make it more efficient. Example: 
+def add(a, b) :
+    return a + b
+3. Variables are used to store and manipulate data in a program. They are declared with a name. Example: 
+name = "Alice"
+4. Operators are used to perform operations on values and variables in a program. There are many different kinds of operators, including arithmetic, comparison, and logical operators.  Example: 
+result = 10 + 5
+
+Hint
+check_temperature
+1. Start by defining your function check_temperature(temp). The function takes one argument, which is the temperature in Fahrenheit.
+2. Use conditional statements (if, elif, and else) to check where the given temperature falls in the categories.
+3. If the temperature is less than 40, you should return the string "Cold".
+4. If the temperature is between 40 and 60 (inclusive of both), you should return the string "Cool".
+5. If the temperature is between 60 and 80 (inclusive of both), you should return the string "Warm".
+6. If the temperature is above 80, you should return the string "Hot".
+7. Make sure to use the return statement to return the appropriate string based on the temperature.
+"""
+# My Code
+	def check_temperature(temp: int) -> str:
+		if temp < 40:
+		  return 'Cold'
+		elif 40 <= temp < 60:
+		  return 'Cool'
+		elif 60 <= temp < 80:
+		  return 'Warm'
+		else:
+		  return 'Hot'
+		
+# Solution
+	def check_temperature(temp: int) -> str:
+		if temp < 40:
+		  return 'Cold'
+		elif 40 <= temp < 60:
+		  return 'Cool'
+		elif 60 <= temp < 80:
+		  return 'Warm'
+		else:
+		  return 'Hot'
+			
+# IA's Solutions
+# 1. Using a dictionary to store temperature ranges and corresponding labels:
+def check_temperature(temp: int) -> str:
+    temperature_ranges = {
+        (float('-inf'), 40): 'Cold',
+        (40, 60): 'Cool',
+        (60, 80): 'Warm',
+        (80, float('inf')): 'Hot'
+    }
+
+    for temp_range, label in temperature_ranges.items():
+        if temp in range(*temp_range):
+            return label
+# This solution uses a dictionary to map temperature ranges to labels and iterates through the dictionary to find the appropriate label for the given temperature.
+# 2. Using a ternary operator to simplify the if-elif-else structure:
+def check_temperature(temp: int) -> str:
+    return 'Cold' if temp < 40 else 'Cool' if temp < 60 else 'Warm' if temp < 80 else 'Hot'
+# This solution utilizes a ternary operator to condense the conditional logic into a single line, making the code more concise.
