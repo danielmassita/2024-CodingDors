@@ -519,49 +519,175 @@ def first_last9(nums: list) -> bool:
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/267
 """
+same_value
+Show Solution
+Given a list of integers with 3 elements, return True if all the 3 elements are equal.
+same_value([1, 2, 3]) → False
+same_value([2, 2, 2]) → True
+same_value([1, 2, 1]) → False
 
-"""
-# My Code
+Theory
+same_value
+1. Lists are ordered collections of items in Python. You can create a list by placing a comma-separated sequence of items inside square brackets []. Example:
+list1 = [4, 5]
+2. Indexing allows you to access individual elements of a list. In Python, indices start at 0 for the first element. Example:
+list1 = [4, 5]
+first_element = list1[0]  # 4
+second_element = list1[1]  # 5
+3. In Python, you can compare two values using comparison operators. The greater than or equal to operator >= returns True if the left operand is greater than or equal to the right operand. Example:
+result = 4 >= 5  # False
+4. The logical OR operator or in Python returns True if at least one of the operands is true. Otherwise, it returns False. Example:
+result = (1 == 2) or (2 == 2)  # True, because the second comparison is true
 
-    
-# Solution
-
-
-# IA's Solutions
-
-
-
-
-
-# https://www.codingdors.com/problem/
-"""
-
-"""
-# My Code
-
-    
-# Solution
-
-
-# IA's Solutions
-
-
-
-
-
-# https://www.codingdors.com/problem/
-"""
-
+Hint
+same_value
+1. Compare the elements at the first, second, and third index of the list with each other.
+2. If all the elements are equal, return True. Else, return False.
 """
 # My Code
-
+  def same_value(n: list) -> bool:
+      if n[0] == n[1] and n[1] == n[2]:
+          return True
+      else:
+          return False
+  
+  def same_value(n: list) -> bool:
+      return True if n[0]==n[1]==n[2] else False
     
 # Solution
-
+  def same_value(n: list) -> bool:
+  	if n[0] == n[1] == n[2]:
+  	  return True
+  	else:
+  	  return False
 
 # IA's Solutions
+# 1. Using the `count` method:
+def same_value(n: list) -> bool:
+    return n.count(n[0]) == len(n)
+# Explanation: This solution uses the `count` method to count the occurrences of the first element `n[0]` in the list `n`. If the count is equal to the length of the list, then all elements are the same, and it returns True.
+# 2. Using set:
+def same_value(n: list) -> bool:
+    return len(set(n)) == 1
+# Explanation: This solution converts the list `n` into a set, which removes any duplicate elements. If the length of the set is 1, it means all elements in the list are the same, and it returns True.
+# 3. Using all:
+def same_value(n: list) -> bool:
+    return all(element == n[0] for element in n)
+# Explanation: This solution uses the `all` function along with a generator expression to check if all elements in the list `n` are equal to the first element `n[0]`. It returns True if all elements are the same.
+
+
+
+
+
+# https://www.codingdors.com/problem/268
+"""
+common_element
+Show Solution
+Given 2 lists of integers, a and b, return True if they have the same first element or they have the same second element or they have the same last element. Both arrays will be length 3.
+common_element([1,2,3], [4,5,3]) -> True
+common_element([1,2,3], [4,5,6]) -> False
+common_element([3,2,1], [0,2,4]) -> True
+
+Theory
+common_element
+1. Lists are ordered collections of items in Python. You can create a list by placing a comma-separated sequence of items inside square brackets []. Example:
+list1 = [4, 5]
+2. Indexing allows you to access individual elements of a list. In Python, indices start at 0 for the first element. Example:
+list1 = [4, 5]
+first_element = list1[0]  # 4
+second_element = list1[1]  # 5
+3. In Python, you can compare two values using comparison operators. The greater than or equal to operator >= returns True if the left operand is greater than or equal to the right operand. Example:
+result = 4 >= 5  # False
+4. The logical OR operator or in Python returns True if at least one of the operands is true. Otherwise, it returns False. Example:
+result = (1 == 2) or (2 == 2)  # True, because the second comparison is true
+
+Hint
+common_element
+1. Compare the elements at the corresponding indices from both the lists using an "or" condition (== operator).
+2. If any of the conditions is True, return True. Otherwise, return False.
+"""
+# My Code
+  def common_element(a: list, b: list) -> bool:
+      if a[0]==b[0] or a[1]==b[1] or a[2]==b[2]:
+          return True
+      else:
+          return False
+    
+# Solution
+  def common_element(a: list, b: list) -> bool:
+  	if a[0] == b[0]:
+  	  return True
+  	elif a[1] == b[1]:
+  	  return True
+  	elif a[2] == b[2]:
+  	  return True
+  	else:
+  	  return False
+
+# IA's Solutions
+# Certainly! Here is an alternative solution using the `any()` function along with list comprehension:
+def common_element(a: list, b: list) -> bool:
+    return any(x in a for x in b)
+# Explanation:
+# - This solution uses the `any()` function, which returns `True` if any element in the iterable passed as an argument is `True`.
+# - The list comprehension `[x in a for x in b]` generates a list of Boolean values based on whether each element in list `b` is present in list `a`.
+# - The `any()` function then checks if any element in the generated list is `True`, indicating that there is a common element between the two lists.
+# - If there is a common element, the function returns `True`; otherwise, it returns `False`.
+
+
+
+
+
+# https://www.codingdors.com/problem/269
+"""
+sum_all
+Show Solution
+Given a list of integers length 3, return the sum of all the elements.
+sum_all([1, 2, 3]) → 6
+sum_all([5, 11, 2]) → 18
+sum_all([7, 0, 0]) → 7
+
+Theory
+sum_all
+1. Lists are ordered collections of items in Python. You can create a list by placing a comma-separated sequence of items inside square brackets []. Example:
+list1 = [4, 5]
+2. Indexing allows you to access individual elements of a list. In Python, indices start at 0 for the first element. Example:
+list1 = [4, 5]
+first_element = list1[0]  # 4
+second_element = list1[1]  # 5
+
+Hint
+sum_all
+1. Use Python's built-in function sum() to sum all the elements in the list.
+"""
+# My Code
+  def sum_all(n: list) -> int:
+      return sum(n)
+    
+# Solution
+  def sum_all(n: list) -> int:
+  	sum = n[0] + n[1] + n[2]
+  	return sum
+
+# IA's Solutions
+# 1. Using a loop:
+def sum_all(n: list) -> int:
+    sum = 0
+    for num in n:
+        sum += num
+    return sum
+# Explanation: This solution iterates over each element in the list `n` and adds it to the `sum` variable.
+# 2. Using the reduce function from the functools module:
+from functools import reduce
+def sum_all(n: list) -> int:
+    return reduce(lambda x, y: x + y, n)  
+# Explanation: This solution uses the `reduce` function to repeatedly apply the lambda function to the elements of the list `n`, calculating the sum.
+# 3. Using a generator expression:
+def sum_all(n: list) -> int:
+    return sum(num for num in n)
+# Explanation: This solution uses a generator expression to generate each element from the list `n` and then calculates the sum of all the elements using the `sum` function.
 
 
 
