@@ -693,114 +693,384 @@ def sum_all(n: list) -> int:
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/270
 """
+new_list
+Show Solution
+Given three individual integers 'a', 'b', and 'c', the task is to formulate a list where each of these integers becomes an element.
+new_list(3, 4, 5) -> [3, 4, 5]
+new_list(1, 6, 12) -> [1, 6, 12]
+new_list(21, 7, 14) -> [21, 7, 14]
 
-"""
-# My Code
+Theory
+new_list
+1. Lists are ordered collections of items in Python. You can create a list by placing a comma-separated sequence of items inside square brackets []. Example:
+list1 = [4, 5]
+2. Indexing allows you to access individual elements of a list. In Python, indices start at 0 for the first element. Example:
+list1 = [4, 5]
+first_element = list1[0]  # 4
+second_element = list1[1]  # 5
 
-    
-# Solution
-
-
-# IA's Solutions
-
-
-
-
-
-# https://www.codingdors.com/problem/
-"""
-
-"""
-# My Code
-
-    
-# Solution
-
-
-# IA's Solutions
-
-
-
-
-
-# https://www.codingdors.com/problem/
-"""
-
+Hint
+new_list
+1. Initialize a new list using the list constructor [].
+2. Inside this constructor, add your individual elements separated by commas. Your function should return this newly created list.
 """
 # My Code
-
+  def new_list(a: int, b: int, c: int) -> list:
+      nova_lista = []
+      nova_lista = [a, b, c]
+      return nova_lista
     
 # Solution
-
+  def new_list(a: int, b: int, c: int) -> list:
+  	return [a, b, c]
 
 # IA's Solutions
+# Solution 1: Using list comprehension
+def new_list(a: int, b: int, c: int) -> list:
+    return [a, b, c]
+# Explanation: This solution directly returns a list containing the three input integers using list comprehension, which is a concise way to create lists in Python.
+# Solution 2: Using the append method
+def new_list(a: int, b: int, c: int) -> list:
+    nova_lista = []
+    nova_lista.append(a)
+    nova_lista.append(b)
+    nova_lista.append(c)
+    return nova_lista
+# Explanation: This solution initializes an empty list and then appends each input integer to the list using the append method. Finally, it returns the resulting list.
 
 
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/271
 """
+rotate_right
+Show Solution
+Given a list of integers length 3, return a new list with the elements "rotated right" so [1, 2, 3] yields [3, 1, 2].
+rotate_right([1, 2, 3]) → [3, 1, 2]
+rotate_right([5, 11, 9]) → [9, 5, 11]
+rotate_right([7, 0, 0]) → [0, 7, 0]
 
+Theory
+rotate_right
+1. Lists are ordered collections of items in Python. You can create a list by placing a comma-separated sequence of items inside square brackets []. Example:
+list1 = [4, 5]
+2. Indexing allows you to access individual elements of a list. In Python, indices start at 0 for the first element. Example:
+list1 = [4, 5]
+first_element = list1[0]  # 4
+second_element = list1[1]  # 5
+
+Hint
+rotate_right
+1. Access the last element of the list.
+2. Access the first and second elements of the list.
+3. Create a new list where you combine the elements from Step 1 and Step 2 in the order: last element, first element, second element.
 """
 # My Code
-
+  def rotate_right(n: list) -> list:
+      first = n[2]
+      middle = n[0]
+      last = n[1]
+      nova_lista = [first, middle, last]
+      return nova_lista
     
 # Solution
-
+  def rotate_right(n: list) -> list:
+  	first = n[0]
+  	second = n[1]
+  	last = n[2]
+  	return [last, first, second]
 
 # IA's Solutions
+# Certainly! Here is an alternative solution in Python using list slicing:
+def rotate_right(n: list) -> list:
+    return [n[-1], n[0], n[1]]
+# Explanation:
+# - In this solution, we use list slicing to access the elements from the input list `n`.
+# - `n[-1]` gives us the last element of the list `n`.
+# - `n[0]` gives us the first element of the list `n`.
+# - `n[1]` gives us the second element of the list `n`.
+# - We create a new list with these elements in the order "rotated right" and return it.
 
 
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/272
 """
+reverse_list
+Show Solution
+Given a list of integers length 3, return a new list with the elements in reverse order, so [1, 2, 3] becomes [3, 2, 1].
+reverse_list([1, 2, 3]) → [3, 2, 1]
+reverse_list([5, 11, 9]) → [9, 11, 5]
+reverse_list([7, 0, 0]) → [0, 0, 7]
 
+Theory
+reverse_list
+1. A list is a collection of items in a particular order. It is one of the most common data types in Python. 
+my_list = [1, 2, 3, 4, 5]
+2. Indexing refers to accessing a specific element within a list by its position. The first element in a list has an index of 0 
+my_list[0]
+ will return 1.
+3. Slicing allows you to create a new list that contains a subset of the elements from the original list. 
+my_list[1:3]
+ will return 
+[2, 3]
+4. Reverse is a Python built-in function that reverses the order of elements in a list. 
+my_list.reverse()
+ will reverse the order of elements in the list, so the output will be 
+[5, 4, 3, 2, 1]
+
+Hint
+reverse_list
+1. You will need to separate each element of the list in a variable
+2. Remember that the list contains only 3 elements
+3. Create a new list adding the elements in reverse order
 """
 # My Code
-
+  def reverse_list(n: list) -> list:
+      nova = [n[0], n[1], n[2]]
+      nova.reverse()
+      return nova
     
 # Solution
-
+  def reverse_list(n: list) -> list:
+  	first = n[0]
+  	second = n[1]
+  	last = n[2]
+  	return [last, second, first]
 
 # IA's Solutions
+# 1. Using list slicing:
+def reverse_list(n: list) -> list:
+    return n[::-1]
+# Explanation: In this solution, we use list slicing with a step size of -1 to reverse the list. By specifying `n[::-1]`, we are creating a new list with all elements from the original list but in reverse order.
+# 2. Using the reversed() function:
+def reverse_list(n: list) -> list:
+    return list(reversed(n))
+# Explanation: In this solution, we use the `reversed()` function which returns an iterator that accesses the elements of the list in reverse order. We convert this iterator back to a list using the `list()` constructor, resulting in a new list with elements reversed.
 
 
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/273
 """
+min_end
+Show Solution
+Given a list of integers length 3, figure out which is smaller, the first, second or last element in the list, and set all the other elements to be that value. Return the changed list.
+min_end([1, 2, 3]) → [1, 1, 1]
+min_end([11, 5, 9]) → [5, 5, 5]
+min_end([2, 11, 3]) → [2, 2, 2]
 
+Theory
+min_end
+1. Lists are ordered collections of items in Python. You can create a list by placing a comma-separated sequence of items inside square brackets []. Example:
+list1 = [4, 5]
+2. Indexing allows you to access individual elements of a list. In Python, indices start at 0 for the first element. Example:
+list1 = [4, 5]
+first_element = list1[0]  # 4
+second_element = list1[1]  # 5
+
+Hint
+min_end
+1. Use the min function to find the smallest element in the list.
+2. Create a new list where all the elements are the smallest element from Step 1.
 """
 # My Code
-
+  def min_end(n: list) -> list:
+      minimo = min(n[0], n[1], n[2])
+      return [minimo, minimo, minimo]
     
 # Solution
-
+  def min_end(n: list) -> list:
+  	if n[0] < n[1] and n[0] < n[2]:
+  	  min = n[0]
+  	elif n[1] < n[0] and n[1] < n[2]:
+  	  min = n[1]
+  	else:
+  	  min = n[2]
+  	return [min, min, min]
 
 # IA's Solutions
+# 1. Using list comprehension:
+def min_end(n: list) -> list:
+    min_val = min(n)  # Find the minimum value in the list
+    return [min_val] * 3   # Create a new list with the minimum value repeated three times
+# Explanation:
+# - The `min_val` variable stores the minimum value of the input list `n` using the `min()` function.
+# - We then return a new list `[min_val] * 3` where `[min_val]` creates a list with the minimum value, and `* 3` repeats this list three times, resulting in a list of length 3 with the minimum value.
+# 2. Using conditional assignment:
+def min_end(n: list) -> list:
+    min_val = min(n)  # Find the minimum value in the list
+    return [min_val if x != min_val else x for x in n]
+# Explanation:
+# - We first calculate the minimum value in the input list `n` using the `min()` function and store it in the `min_val` variable.
+# - We then use a list comprehension to create a new list where each element is either the minimum value `min_val` if it is not equal to the minimum, or the original value `x` if it matches the minimum value.
 
 
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/274
 """
+compare_lists
+Show Solution
+Given two lists of integers, 'a' and 'b', each consisting of three elements, return the list which has the larger value in the second position.
+compare_lists([1, 4, 3], [2, 3, 5]) → [1, 4, 3]
+compare_lists([1, 5, 9], [4, 2, 6]) → [1, 5, 9]
+compare_lists([6, 3, 1], [2, 7, 0]) → [2, 7, 0]
 
+Theory
+compare_lists
+1. Lists are ordered collections of items in Python. You can create a list by placing a comma-separated sequence of items inside square brackets []. Example:
+list1 = [4, 5]
+2. Indexing allows you to access individual elements of a list. In Python, indices start at 0 for the first element. Example:
+list1 = [4, 5]
+first_element = list1[0]  # 4
+second_element = list1[1]  # 5
+3. In Python, you can compare two values using comparison operators. The greater than or equal to operator >= returns True if the left operand is greater than or equal to the right operand. Example:
+result = 4 >= 5  # False
+4. The logical OR operator or in Python returns True if at least one of the operands is true. Otherwise, it returns False. Example:
+result = (1 == 2) or (2 == 2)  # True, because the second comparison is true
+
+Hint
+compare_lists
+1. Access the second elements of both lists 'a' and 'b'.
+2. Use a conditional statement to compare the second elements of the two lists.
+3. If the second element of list 'a' is larger, return list 'a'. If the second element of list 'b' is larger, return list 'b'.
 """
 # My Code
-
-    
+  def compare_lists(a: list, b: list) -> list:
+      novaLista = max(a[1], b[1])
+      if a[1] > b[1]:
+          return a
+      else:
+          return b
+          
 # Solution
-
+  def compare_lists(a: list, b: list) -> list:
+  	if a[1] > b[1]:
+  	  return a
+  	else:
+  	  return b
 
 # IA's Solutions
+# Solution 1: Using List Comprehension
+def compare_lists(a: list, b: list) -> list:
+    return a if a[1] > b[1] else b
+# Explanation: This solution uses a conditional expression to check if the second element of list 'a' is greater than the second element of list 'b'. If true, it returns list 'a'; otherwise, it returns list 'b'. This is a more concise way of writing the same logic as the original solution.
+# Solution 2: Using the key parameter in the max function
+def compare_lists(a: list, b: list) -> list:
+    return max([a, b], key=lambda x: x[1])
+# Explanation: This solution uses the key parameter in the max function to specify that the maximum value should be determined based on the second element of each list. By providing a lambda function that returns the value at index 1, the max function can compare the lists based on their second elements and return the list with the larger value in the second position.
 
+
+
+
+
+# https://www.codingdors.com/problem/275
+"""
+make_ends
+Show Solution
+Given two lists of integers 'a' and 'b', return a new list length 4 containing the first and last elements from the originals lists. The original list will be length 2 or more.
+make_ends([1, 2, 3], [4, 5, 6]) → [1, 3, 4, 6]
+make_ends([0, 2, 4], [1, 3, 5]) → [0, 4, 1, 5]
+make_ends([7, 4, 6, 2], [-1, 0]) → [7, 2, -1, 0]
+
+Theory
+make_ends
+1. Lists are ordered collections of items in Python. You can create a list by placing a comma-separated sequence of items inside square brackets []. Example:
+list1 = [4, 5]
+2. Indexing allows you to access individual elements of a list. In Python, indices start at 0 for the first element. Example:
+list1 = [4, 5]
+first_element = list1[0]  # 4
+second_element = list1[1]  # 5
+
+Hint
+make_ends
+1. Access the first and last elements of both lists 'a' and 'b'.
+2. Create a new list where you combine the elements from Step 1 in the order: first of 'a', last of 'a', first of 'b', last of 'b'.
+"""
+# My Code
+  def make_ends(a: list, b: list) -> list:
+      return [a[0], a[-1], b[0], b[-1]]
+    
+# Solution
+  def make_ends(a: list, b: list) -> list:
+  	return [a[0], a[-1], b[0], b[-1]]
+
+# IA's Solutions
+# 1. Using list unpacking:
+def make_ends(a, b):
+    return [*a[:1], *a[-1:], *b[:1], *b[-1:]]
+# Explanation: This solution uses list unpacking to concatenate the first and last elements of lists \a and \b  into a new list.
+# 2. Using list slicing and extend method:
+def make_ends(a, b):
+    result = []
+    result.extend([a[0], a[-1]])
+    result.extend([b[0], b[-1]])
+    return result
+# Explanation: This solution uses list slicing to get the first and last elements of lists 'a' and 'b', then extends the result list with these elements.
+# 3. Using list comprehension:
+def make_ends(a, b):
+    return [x for lst in [a[:1], a[-1:], b[:1], b[-1:]] for x in lst]
+# Explanation: This solution uses list comprehension to iterate through sublists containing the first and last elements of lists 'a' and 'b', and flattens them into a single list.
+
+
+
+
+
+# https://www.codingdors.com/problem/276
+"""
+even_list
+Show Solution
+Given a list of integers length 3, return True if all the elements are even.
+even_list([2, 5, 6]) → False
+even_list([4, 8, 12]) → True
+even_list([1, 3, 9]) → False
+
+Theory
+even_list
+1. Lists are ordered collections of items in Python. You can create a list by placing a comma-separated sequence of items inside square brackets []. Example:
+list1 = [4, 5]
+2. Indexing allows you to access individual elements of a list. In Python, indices start at 0 for the first element. Example:
+list1 = [4, 5]
+first_element = list1[0]  # 4
+second_element = list1[1]  # 5
+3. In Python, you can compare two values using comparison operators. The greater than or equal to operator >= returns True if the left operand is greater than or equal to the right operand. Example:
+result = 4 >= 5  # False
+4. The logical OR operator or in Python returns True if at least one of the operands is true. Otherwise, it returns False. Example:
+result = (1 == 2) or (2 == 2)  # True, because the second comparison is true
+
+Hint
+even_list
+1. Iterate through the list: Since you're given a list of integers, you'll need to check each element individually to see whether it is even or odd. 
+2. Check for evenness: For each integer in your list, you can check if it is even by using the modulo operator (%). In Python, n % 2 will return 0 if n is an even number and 1 if n is an odd number. So, you can use an if statement to check if n % 2 == 0 for each element n in your list.
+3. Return False immediately if an odd number is found: As you're checking each integer, if you find one that is odd (i.e., n % 2 != 0), you can immediately return False from your function. This is because finding even one odd number means not all elements in the list are even.
+4. Return True if the loop completes without finding any odd numbers: If your loop finishes without returning False, that means you never found any odd numbers, so all the elements in your list must be even. At this point, you can return True from your function.
+"""
+# My Code
+  def even_list(n: list) -> bool:
+      if n[0] % 2 == 0 and n[1] % 2 == 0 and n[2] % 2 == 0:
+          return True
+      else:
+          return False
+    
+# Solution
+  def even_list(n: list) -> bool:
+  	if n[0] % 2 == 0 and n[1] % 2 == 0 and n[2] % 2 == 0:
+  	  return True
+  	else:
+  	  return False
+
+# IA's Solutions
+# Certainly! Here is an alternative solution that uses a list comprehension to check if all elements are even:
+def even_list(n: list) -> bool:
+    return all(num % 2 == 0 for num in n)
+# In this solution, the `all()` function is used with a list comprehension to iterate through each element in the input list `n`. The list comprehension checks if each element is even (`num % 2 == 0`). If all elements pass this check, `all()` returns `True`, indicating that all elements are even.
 
 
 
