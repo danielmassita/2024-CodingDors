@@ -111,12 +111,12 @@ sum_one_to_n_while
 """
 # My Code
     def sum_one_to_n_while(n: int):
-    	sum = 0
-    	i = 0
-    	while i <= n:
-    	  sum = sum + i
-    	  i = i + 1
-    	return sum
+    	somatorio = 0
+    	contador = 0
+    	while contador <= n:
+    	  somatorio += i
+    	  contador += 1
+    	return somatorio
 
 # Solution
     def sum_one_to_n_while(n: int):
@@ -140,6 +140,7 @@ def sum_one_to_n_while(n: int):
 def sum_one_to_n_while(n: int):
     return (n * (n + 1)) // 2
 # This solution uses the formula for the sum of an arithmetic progression to directly calculate the sum of all integers from 1 to n. The formula is `n * (n + 1) / 2`.
+
 
 
 
