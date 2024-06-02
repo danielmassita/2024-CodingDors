@@ -801,17 +801,87 @@ def sum_reverse_n_odd_for(n: int) -> int:
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/302
 """
+sum_reverse_n_odd_while
+Show Solution
+Write a Python function that takes an integer n as input and returns the sum of all odd numbers from n to 1 inclusive, using a while loop.
+sum_reverse_n_odd_while(5) -> 9
+sum_reverse_n_odd_while(3) -> 4
+sum_reverse_n_odd_while(1) -> 1
 
+Theory
+sum_reverse_n_odd_while
+1. While loops - used to repeatedly execute a block of code while a certain condition is true. Example: 
+count = 0
+while count < 5:
+  print("Hello!")
+  count += 1
+# Output: 
+# Hello!
+# Hello!
+# Hello!
+# Hello!
+# Hello!
+2. If statements - used to execute a block of code only if a certain condition is true. Example:
+x = 5
+if x > 10:
+  print("x is greater than 10")
+else:
+  print("x is not greater than 10")
+# Output: x is not greater than 10
+3. The '%' operator - used to calculate the remainder of a division. Example:
+print(10 % 3)
+# Output: 1
+
+Hint
+sum_reverse_n_odd_while
+1. The function should take in one parameter, an integer n.
+2. Create an integer to hold the odd numbers.
+3. Use a while loop with a condition that checks for odd numbers greater than or equal to 1.
+4. Within the while loop, sum the current odd number
+5. Return the sum at the end of the function.
 """
 # My Code
-
+    def sum_reverse_n_odd_while(n: int) -> int:
+        soma = 0
+        while n >= 1:
+            if n % 2 != 0:
+                soma += n
+            n -= 1
+        return soma
 
 # Solution
-
+    def sum_reverse_n_odd_while(n: int) -> int:
+    	sum = 0
+    	while n > 0:
+    	  if n % 2 != 0:
+    	    sum += n
+    	  n -= 1
+    	return sum
 
 # IA's Solutios
+# 1. Using a for loop:
+def sum_reverse_n_odd_for(n: int) -> int:
+    soma = 0
+    for i in range(n, 0, -1):
+        if i % 2 != 0:
+            soma += i
+    return soma
+# This solution achieves the same result using a for loop instead of a while loop. It iterates over the range from n to 1 in steps of -1, checking for odd numbers and adding them to the sum.
+# 2. Using a list comprehension:
+def sum_reverse_n_odd_list_comprehension(n: int) -> int:
+    return sum(i for i in range(n, 0, -1) if i % 2 != 0)
+# This solution utilizes a list comprehension to generate a list of odd numbers from n to 1 and then uses the sum() function to calculate the sum of those numbers.
+# 3. Using a recursive function:
+def sum_reverse_n_odd_recursive(n: int) -> int:
+    if n == 0:
+        return 0
+    if n % 2 != 0:
+        return n + sum_reverse_n_odd_recursive(n-1)
+    else:
+        return sum_reverse_n_odd_recursive(n-1)
+# This solution uses a recursive function to calculate the sum of odd numbers from n to 1. It adds the current number to the sum if it is odd and then calls the function recursively with n-1.
 
 
 
