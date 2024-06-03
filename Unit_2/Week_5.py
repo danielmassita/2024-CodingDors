@@ -1153,71 +1153,168 @@ return_quarters
     	return quarter
 
 # IA's Solutios
+# Sure! Here is an alternative solution using a while loop in Python:
+def return_quarters(change: int) -> int:
+    quarters = 0
+    while change >= 25:
+        quarters += 1
+        change -= 25
+    return quarters
+# In this solution, we have a variable called 'quarters' which is used to keep track of how many quarters we need to give as change. Inside the while loop, we check if the remaining change is greater than or equal to 25. If it is, we increment the quarters´ variable by 1 and subtract 25 from the remaining change. The loop continues until the remaining change is less than 25, at which point the function returns the total number of quarters.
+def return_quarters(change: int) -> int:
+	quarter = 0
+	while change // 25 > 0:
+	  quarter = quarter + 1
+	  change = change - 25
+	return quarter
 
 
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/23
 """
+count_digits
+Show Solution
+Given a integer 'n', return how many digits 'n' has. 
+count_digits(3278) -> 4 
+count_digits(67766776) -> 8
 
-"""
-# My Code
+Theory
+count_digits
+1. Type Conversion: The process of converting a variable from one data type to another. Example: 
+int('5')
+ converts the string "5" to an integer 5.
+2. Length: A built-in function that returns the number of items in an object like a string, list, or tuple. Example: 
+len('hello')
+ returns 5.
+3. String Conversion: The process of converting a number to a string. Example: 
+str(123)
+ converts the integer 123 to the string "123".
 
-
-# Solution
-
-
-# IA's Solutios
-
-
-
-
-
-# https://www.codingdors.com/problem/
-"""
-
-"""
-# My Code
-
-
-# Solution
-
-
-# IA's Solutios
-
-
-
-
-
-# https://www.codingdors.com/problem/
-"""
-
-"""
-# My Code
-
-
-# Solution
-
-
-# IA's Solutios
-
-
-
-
-
-# https://www.codingdors.com/problem/
-"""
-
+Hint
+count_digits
+1. You can convert the integer to a string and find its length.
+2. You can use logarithms to find the number of digits.
 """
 # My Code
-
+    def count_digits(n: int) -> int:
+        n_string = str(n)
+        tamanho = len(n_string)
+        return tamanho
 
 # Solution
-
+    def count_digits(n: int) -> int:
+    	n_of_digits = 0
+    	while n > 0:
+    	  n_of_digits = n_of_digits + 1
+    	  n = n // 10
+    	return n_of_digits
 
 # IA's Solutios
+# 1. Using math module:
+import math
+def count_digits(n: int) -> int:
+    num_digits = math.floor(math.log10(n)) + 1
+    return num_digits
+# Explanation: This approach uses the math module to calculate the number of digits in the integer 'n'. It calculates the floor of the logarithm base 10 of 'n' and then adds 1 to account for the total number of digits.
+# 2. Using a while loop:
+def count_digits(n: int) -> int:
+    num_digits = 0
+    while n != 0:
+        n //= 10
+        num_digits += 1
+    return num_digits
+# Explanation: This solution uses a while loop to continuously divide 'n' by 10 until it reaches 0, incrementing the count of digits each time. Once 'n' becomes 0, the total count of digits is returned.
 
+
+
+
+
+# https://www.codingdors.com/problem/24
+"""
+sum_digits
+Show Solution
+Given a integer 'n', return the sum of the digits. 
+sum_digits(3278) -> 20 
+sum_digits(67766776) -> 52
+
+Theory
+sum_digits
+1. While loop: Allows code to be executed repeatedly while a certain condition is true. For example: 
+num = 10
+while num > 0:
+    print(num)
+    num -= 1
+This will print the numbers from 10 to 1.
+2. Modulus operator (%): Returns the remainder of a division operation. For example: 
+10 % 3  # Returns 1 because 10 divided by 3 leaves a remainder of 1
+3. Integer division (//): Performs a division operation and returns the quotient as an integer (rounded down). For example: 
+10 // 3  # Returns 3 because 10 divided by 3 is 3 with a remainder of 1
+4. String conversion: Converts a non-string data type into a string. For example: 
+num = 10
+str_num = str(num)
+5. String iteration (for loop): Iterates over each character in a string. For example: 
+word = "hello"
+for char in word:
+    print(char)
+This will print each letter of the word "hello" on a new line.
+6. Type conversion: Converts one data type to another. For example: 
+num_str = "10"
+num = int(num_str)
+7. Integer addition: Adds two or more integers. For example: 
+num1 = 10
+num2 = 5
+sum = num1 + num2
+8. String concatenation: Combines two or more strings. For example: 
+name = "Alice"
+greeting = "Hello, " + name + "!"
+9. Conditional statements (if/else): Executes different code depending on a certain condition. For example: 
+num = 10
+if num % 2 == 0:
+    print("The number is even.")
+else:
+    print("The number is odd.")
+10. Integer modulo: The operator % returns the remainder of the division operation. For example:
+5 % 2 # Return 1, because 5 divided by 2 is 2 with a remainder of 1
+11. Floor division: The operator // performs a division operation and returns the quotient as an integer (round down). For example:
+10 // 3 # Return 3, because 10 divided by 3 is 3 with a  remainder of 1
+12. Conversion to string: Converts a non-string data type to a string. For example:
+num = 10
+str_num = str(num)
+
+Hint
+sum_digits
+1. Break down the number into its individual digits 
+2. Keep a running total of the digits as you iterate through them 
+3. Use modulus and integer division to extract each digit
+"""
+# My Code
+    def sum_digits(n: int) -> int:
+        soma = 0
+        n_string = str(n)
+        for char in n_string:
+            soma += int(char)
+        return soma
+
+# Solution
+    def sum_digits(n: int) -> int:
+    	sum = 0
+    	while n > 0:
+    	  lastDigit = n % 10
+    	  sum = sum + lastDigit
+    	  n = n // 10
+    	return sum
+
+# IA's Solutios
+# 1. Using list comprehension:
+def sum_digits(n: int) -> int:
+    return sum([int(char) for char in str(n)])
+# In this solution, we use list comprehension to create a list of integers from the string representation of the integer 'n'. Then, we use the `sum()` function to calculate the sum of the digits.
+# 2. Using map() function:
+def sum_digits(n: int) -> int:
+    return sum(map(int, str(n)))
+# In this solution, we use the `map()` function to apply the `int()` function to each character in the string representation of the integer 'n'. Then, we use the `sum()` function to calculate the sum of the resulting integers.
 
 
 
