@@ -84,6 +84,30 @@ Write a function that counts the number of lowercase letters present in a given 
 count_lower_letters("Hello World") → 8
 count_lower_letters("LOWERCASE") → 0
 count_lower_letters("MixedCase123") → 5
+
+Theory
+count_lower_letters
+Every character in a string corresponds to an index, starting with 0 for the first character. You can access any character in a string by referring to its index.
+my_string = "Hello"
+first_char = my_string[0]  # This will be 'H'
+You can loop through the characters in a string using a for loop. This lets you examine or operate on each character individually.
+for char in "Hello":
+    print(char)
+The islower() method returns True if the character is a lowercase letter, otherwise it returns False.
+letter = "a"
+result = letter.islower()  # This will be True
+While iterating over a sequence, you can maintain a counter that you increment whenever a certain condition is met.
+count = 0
+for num in [1, 2, 3, 2, 4, 2]:
+    if num == 2:
+        count += 1
+# count will be 3 after this loop
+
+Hint
+count_lower_letters
+1. For each character, determine if it's lowercase. There's a built-in Python method for strings that helps with this.
+2.Consider using a variable (e.g., count) to keep track of the number of lowercase letters you encounter as you iterate through the string.
+3. Once you've finished iterating over the entire string, count should hold the total number of lowercase letters. This will be your final answer to return.
 """
 # My Code
   def count_lower_letters(s: str) -> int:
@@ -248,37 +272,130 @@ def count_consonants_str(s: str) -> int:
 
 # https://www.codingdors.com/problem/132
 """
+find_char
+Show Solution
+Write a function that returns the index of the first occurrence of a specified character in a given string or -1 if the character is not present.
+find_char('banana', 'b') -> 0
+find_char('hello', 'l') -> 2
+find_char('code', 'a') -> -1
 
+Theory
+find_char
+1. Strings: Strings are a sequence of characters enclosed in single, double, or triple quotes. They are immutable and each character can be accessed by its index. 
+'I am a string'
+ is an example of a string.
+2. Indexing: Indexing is the way we access individual elements in a sequence. It is done using a numeric index inside square brackets. The first element in a sequence has an index of 0. 
+'hello'[1]
+ will return 'e'.
+3. for loop: A for loop is used to iterate over a sequence of elements. It is used to execute a block of code repeatedly. 
+for item in sequence:
+ is the syntax for a for loop.
+4. if statement: An if statement is used to check a condition and execute a block of code if the condition is true. 
+if condition:
+ is the syntax. 
+5. return statement: A return statement is used to exit a function and return a value to the caller. 'return value' is the syntax. Example:
+# Example for indexing
+word = 'hello'
+print(word[1]) # output is 'e'
+# Example for for loop
+fruits = ['apple', 'banana', 'cherry']
+for fruit in fruits:
+    print(fruit) # outputs the fruits in a new line each
+# Example for if statement and return statement
+def is_even(number):
+    if number % 2 == 0:
+        return True
+    else:
+        return False
+print(is_even(4)) # output is True
+
+Hint
+find_char
+1. The function should take two arguments: a string and a character to search for.
+2. Use a loop to iterate through each character in the string.
+3. Check if the current character matches the character being searched for.
+4. If there is a match, return the index of that character in the string.
+5. If the loop finishes without finding a match, return -1.
 """
 # My Code
 
 
 # Solution
-
+  def find_char(s: str, char_to_find: str) -> int:
+    for i in range(len(s)):
+    	if char_to_find.lower() in s[i].lower():
+    	   return i
+    return -1
 
 # IA's Solutions
+# Certainly! Here is an alternative solution using the `index` method:
+def find_char(s: str, char_to_find: str) -> int:
+    try:
+        index = s.lower().index(char_to_find.lower())
+        return index
+    except ValueError:
+        return -1
+# In this solution, we convert both the input string and the character to find to lowercase using the `lower()` method before searching for the character using the `index` method. If the character is found, the index of the first occurrence is returned. If the character is not found, a `ValueError` is raised, and we return -1.
 
 
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/287
 """
+contains_special_chars
+Show Solution
+Write a function that checks if the string contains either an exclamation mark (!) or a question mark (?). The function should return True if either (or both) of these characters are present, and False otherwise.
+contains_special_chars("Hello! Welcome") → True
+contains_special_chars("What is your name") → False
+contains_special_chars("How are you?") → True
 
+Theory
+contains_special_chars
+A for loop can be employed to traverse through each character in a string, facilitating individual examination or manipulation.
+for char in "Hello":
+    print(char)
+For each char, check if it is equals to '!' or '?'.
+
+Hint
+contains_special_chars
+1. Use Python string methods to check for the presence of characters in a string.
+2. You have to check for two characters. Think about how you can efficiently check for both in one pass.
 """
 # My Code
-
+  def contains_special_chars(s: str) -> bool:
+      especiais = ['!', '?']
+      for char in s:
+          if char in especiais:
+              return True
+      return False
 
 # Solution
-
+  def contains_special_chars(s: str) -> bool:
+  	for i in s:
+  	  if i == '!' or i == '?':
+  	    return True
+  	return False
 
 # IA's Solutions
+# 1. Using the any() function with a generator expression:
+def contains_special_chars(s: str) -> bool:
+    return any(char in ['!', '?'] for char in s)
+# This solution utilizes the any() function along with a generator expression to iterate through the characters in the string and check if any of them are either '!' or '?'. It returns True if any special character is found, and False otherwise.
+# 2. Using the set intersection method:
+def contains_special_chars(s: str) -> bool:
+    return bool(set(s) & set('!?'))
+# This solution converts both the string and the special characters '!' and ? into sets and then calculates their intersection. If the intersection is not empty, it means that at least one special character is present in the string, so it returns True.
+# 3. Using the any() function with a lambda function:
+def contains_special_chars(s: str) -> bool:
+    return any(map(lambda x: x in ['!', '?'], s))
+# This solution combines the any() function with a lambda function to check if any character in the string is either '!' or '?'. It returns True if any special character is found, and False otherwise.
 
 
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/283
 """
 
 """
