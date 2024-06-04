@@ -397,15 +397,73 @@ def contains_special_chars(s: str) -> bool:
 
 # https://www.codingdors.com/problem/283
 """
+find_uppercase_position
+Show Solution
+Write a function that returns the position (index) of the first uppercase letter in a given string 's'. If there are no uppercase letters in the string, the function should return -1.
+find_uppercase_position("hello World") → 6
+find_uppercase_position("nouppercasehere") → -1
+find_uppercase_position("CodingDors") → 0
 
+Theory
+find_uppercase_position
+Every character in a string corresponds to an index, starting with 0 for the first character. You can access any character in a string by referring to its index.
+my_string = "Hello"
+first_char = my_string[0]  # This will be 'H'
+You can loop through the characters in a string using a for loop. This lets you examine or operate on each character individually.
+for char in "Hello":
+    print(char)
+The islower() method returns True if the character is a lowercase letter, otherwise it returns False.
+letter = "a"
+result = letter.islower()  # This will be True
+While iterating over a sequence, you can maintain a counter that you increment whenever a certain condition is met.
+count = 0
+for num in [1, 2, 3, 2, 4, 2]:
+    if num == 2:
+        count += 1
+# count will be 3 after this loop
+
+Hint
+find_uppercase_position
+1. For each character in the string, use a Python string method to check if it is uppercase.
+2. If you find an uppercase letter, immediately return its position (index).
+3. If the loop completes without finding an uppercase letter, return -1.
 """
 # My Code
+  def find_uppercase_position(s: str) -> int:
+      for i in range(len(s)):
+          if s[i].isupper():
+              return i
+      return -1
 
+  def find_uppercase_position(s: str) -> int:
+      for i, char in enumerate(s):
+          if char.isupper():
+              return i
+      return -1
 
 # Solution
-
+  def find_uppercase_position(s: str) -> int:
+      for i in range(len(s)):
+          if s[i].isupper():
+              return 1
+      else:
+          return -1
 
 # IA's Solutions
+# Alternative Solution 0:
+def find_uppercase_position(s: str) -> int:
+    for i, char in enumerate(s):
+        if char.isupper():
+            return i
+    return -1
+# Alternative Solution 1:
+def find_uppercase_position(s: str) -> int:
+    return next((i for i, char in enumerate(s) if char.isupper()), -1)
+# Explanation: This solution uses a generator expression inside the next function to iterate over the characters in the string and return the index of the first uppercase letter found. If no uppercase letter is found, it returns -1 using the default argument of next.
+# Alternative Solution 2:
+def find_uppercase_position(s: str) -> int:
+    return s.index(next((char for char in s if char.isupper()), None))
+# Explanation: This solution also uses a generator expression to find the first uppercase letter in the string, and then uses the index method to get the index of that letter in the original string. If no uppercase letter is found, it returns None which will raise a ValueError, hence it's important to handle this exception if using this approach.
 
 
 
