@@ -469,33 +469,119 @@ def find_uppercase_position(s: str) -> int:
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/282
 """
+extract_uppercase
+Show Solution
+Write a function that extracts all the uppercase letters from the given string 's' and return them as a new string in the order they appear.
+extract_uppercase("Hello World") → "HW"
+extract_uppercase("nouppercasehere") → ""
+extract_uppercase("CODINGDORS") → "CODINGDORS"
 
+Theory
+extract_uppercase
+A for loop can be employed to traverse through each character in a string, facilitating individual examination or manipulation.
+for char in "Hello":
+    print(char)
+isupper() method returns True if a character is uppercase and False otherwise.
+letter = "A"
+result = letter.isupper()  # This will yield True
+You can combine strings using the + operator. This action doesn't alter the original strings but yields a new string.
+word1 = "Open"
+word2 = "AI"
+combined = word1 + word2  # "OpenAI"
+
+Hint
+extract_uppercase
+1. For each character, check if it's an uppercase letter using a Python string method.
+2. If the character is uppercase, append it to your initialized string or list.
+3. After iterating over all characters, your string or list should contain all the uppercase letters from s.
+4. Convert the list to a string if you used a list, and return the result. If you used a string, simply return it.
 """
 # My Code
-
-
+  def extract_uppercase(s: str) -> str:
+      resultado = ""
+      for char in s:
+          if char.isupper() == True:
+              resultado += char
+      return resultado
+          
 # Solution
-
+  def extract_uppercase(s: str) -> str:
+      word = ''
+      for i in s:
+        if i.isupper():
+          word = word + i
+      return word
 
 # IA's Solutions
+# 1. Using list comprehension:
+def extract_uppercase(s: str) -> str:
+    return ''.join([char for char in s if char.isupper()])
+# In this solution, a list comprehension is used to iterate over each character in the string 's' and only append the character to the list if it is uppercase. The list is then joined back together to form a new string containing only the uppercase letters.
+# 2. Using filter and lambda function:
+def extract_uppercase(s: str) -> str:
+    return ''.join(filter(lambda char: char.isupper(), s))
+# In this solution, the filter function is used along with a lambda function to filter out only the uppercase letters from the string 's'. The filtered characters are then joined back together to form a new string.
 
 
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/284
 """
+replace_a_with_four
+Show Solution
+Write a function that returns a new string where every instance of the letter 'a' (both uppercase and lowercase) in the given string 's' is replaced with the number '4'.
+replace_a_with_four("Banana") → "B4n4n4"
+replace_a_with_four("Apples are Amazing!") → "4pples 4re 4m4zing!"
+replace_a_with_four("CodingDors") → "CodingDors"
 
+Theory
+replace_a_with_four
+A for loop can be employed to traverse through each character in a string, facilitating individual examination or manipulation.
+for char in "Hello":
+    print(char)
+isupper() method returns True if a character is uppercase and False otherwise.
+letter = "A"
+result = letter.isupper()  # This will yield True
+You can combine strings using the + operator. This action doesn't alter the original strings but yields a new string.
+word1 = "Open"
+word2 = "AI"
+combined = word1 + word2  # "OpenAI"
+
+Hint
+replace_a_with_four
+1. Remember the problem requires you to replace both uppercase 'A' and lowercase 'a'. Consider converting the string to a uniform case before replacing, or use a method that can replace both cases simultaneously.
+2. For each instance of 'a' or 'A' found, replace it with '4'.
+3. After processing the entire string, return the modified string.
 """
 # My Code
-
-
+  def replace_a_with_four(s: str) -> str:
+      p4l4vr4s = ""
+      for char in s:
+          if char == 'a' or char == 'A':
+              char = '4'
+              p4l4vr4s += char
+          else:
+              p4l4vr4s += char
+      return p4l4vr4s
+          
 # Solution
-
+  def replace_a_with_four(s: str) -> str:
+  	word = ''
+  	for i in s:
+  	  if i.lower() == 'a':
+  	    word = word + '4'
+  	  else:
+  	    word = word + i
+  	return word
 
 # IA's Solutions
+# Sure! Here is an alternative solution using list comprehension:
+def replace_a_with_four(s: str) -> str:
+    return ''.join(['4' if char.lower() == 'a' else char for char in s])
+# In this solution, we use list comprehension to iterate over each character in the input string `s`. We check if the lowercase version of the character is equal to 'a', and if it is, we replace it with '4'. Otherwise, we keep the character as is. Finally, we use `join()` to convert the list of characters back into a string.
 
 
 
