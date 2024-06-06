@@ -587,17 +587,68 @@ def replace_a_with_four(s: str) -> str:
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/286
 """
+replace_upper
+Show Solution
+Write a function that returns a new string where every uppercase letter from the given string 's' is replaced with an underscore (_).
+replace_upper("helloWorld") → "hello_orld"
+replace_upper("replaceUppeR") → "replace_ppe_"
+replace_upper("cOdInG") → "c_d_n_"
 
+Theory
+replace_upper
+A for loop can be employed to traverse through each character in a string, facilitating individual examination or manipulation.
+for char in "Hello":
+    print(char)
+isupper() method returns True if a character is uppercase and False otherwise.
+letter = "A"
+result = letter.isupper()  # This will yield True
+You can combine strings using the + operator. This action doesn't alter the original strings but yields a new string.
+word1 = "Open"
+word2 = "AI"
+combined = word1 + word2  # "OpenAI"
+
+Hint
+replace_upper
+1. Utilize Python string methods to identify uppercase letters.
+2. For each uppercase letter found, replace it with an underscore.
+3. Consider iterating over the string and building a new string based on the conditions mentioned.
 """
 # My Code
-
+  def replace_upper(s: str) -> str:
+      replaced_uppers = ""
+      for char in s:
+          if char.isupper() == True:
+              replaced_uppers += "_"
+          else:
+              replaced_uppers += char
+      return replaced_uppers
 
 # Solution
-
+  def replace_upper(s: str) -> str:
+  	word = ''
+  	for i in s:
+  	  if i.isupper():
+  	    word = word + '_'
+  	  else:
+  	    word = word + i
+  	return word
 
 # IA's Solutions
+# 1. Using list comprehension:
+def replace_upper(s: str) -> str:
+    return ''.join(['_' if char.isupper() else char for char in s])
+# This solution uses list comprehension to iterate over each character in the input string 's'. If the character is uppercase, it replaces it with an underscore ('_'), otherwise, it keeps the character as it is. Finally, it joins all the characters back together to form the final replaced string.
+# 2. Using a generator expression:
+def replace_upper(s: str) -> str:
+    return ''.join('_' if char.isupper() else char for char in s)
+# This solution is similar to the previous one but uses a generator expression instead of a list comprehension. The main advantage of using a generator expression is that it is more memory efficient as it generates the values on-the-fly without creating a list in memory.
+# 3. Using a regular expression:
+import re
+def replace_upper(s: str) -> str:
+    return re.sub(r'[A-Z]', '_', s)
+# This solution uses the `re.sub()` function from the `re` module to replace all uppercase letters (A-Z) in the input string 's' with an underscore ('_'). This is a more concise and efficient way to achieve the desired result using regular expressions.
 
 
 
