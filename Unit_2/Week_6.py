@@ -654,25 +654,64 @@ def replace_upper(s: str) -> str:
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/291
 """
+triple_char
+Show Solution
+Given a string 's', return a new string where for every char in the original, there are three chars.
+triple_char('The') → 'TTThhheee'
+triple_char('Abc') → 'AAAbbbccc'
+triple_char('code') → 'cccooodddeee'
 
+Theory
+triple_char
+A for loop can be employed to traverse through each character in a string, facilitating individual examination or manipulation.
+for char in "Hello":
+    print(char)
+You can combine strings using the + operator. This action doesn't alter the original strings but yields a new string.
+word1 = "Open"
+word2 = "AI"
+combined = word1 + word2  # "OpenAI"
+
+Hint
+triple_char
+1. Consider iterating over each character in the given string.
+2. Think about how you can repeat each character in a string.
+3. As you iterate, build a new string that incorporates the repeated characters.
 """
 # My Code
-
+  def triple_char(s: str) -> str:
+      result_triple_char = ""
+      for char in s:
+          result_triple_char += char*3 
+      return result_triple_char
 
 # Solution
-
+  def triple_char(s: str) -> str:
+  	word = ''
+  	for i in s:
+  	  word = word + (i * 3)
+  	return word
 
 # IA's Solutions
+# Certainly! Here is an alternative solution in Python using list comprehension:
+def triple_char(s: str) -> str:
+    return "".join([char*3 for char in s])
+# In this alternative solution, a list comprehension is used to iterate over each character in the input string 's'. For each character, it multiplies the character by 3 and creates a list of tripled characters. Finally, the ''.join() method is used to concatenate the characters in the list into a single string, which is then returned.
 
 
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/292
 """
+hi_ho
+Show Solution
+Return True if the string "hi" and "ho" appear the same number of times in the given string.
 
+hi_ho('hiho') → True
+hi_ho('hihi') → False
+hi_ho('1hi1hohello') → True
 """
 # My Code
 
