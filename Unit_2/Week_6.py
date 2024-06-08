@@ -712,12 +712,45 @@ Return True if the string "hi" and "ho" appear the same number of times in the g
 hi_ho('hiho') → True
 hi_ho('hihi') → False
 hi_ho('1hi1hohello') → True
+
+Theory
+hi_ho
+When dealing with strings (or other sequences), sometimes you don't just need the value of each item, but also its position (index) within the sequence. 
+This is particularly useful when comparing two sequences, modifying a sequence based on its indices, or when you need direct access to adjacent elements.
+The range() function generates a sequence of numbers, which when combined with len() (a function that returns the length of a sequence) produces a sequence of indices that represent the positions of items in a sequence.
+s = "Hello"
+for i in range(len(s)):
+    print(i, s[i])  # Prints index and the character at that index
+While iterating over a sequence, you can maintain a counter that you increment whenever a certain condition is met.
+count = 0
+s = "hello"
+for i in range(len(s)):
+    if s[i] == 'h':
+        count += 1
+
+Hint
+hi_ho
+1. Use string methods or manual iteration to count the occurrences of specific substrings in a string.
+2. After counting occurrences of "hi" and "ho", compare the counts to determine the return value.
 """
 # My Code
 
 
 # Solution
-
+  def hi_ho(s: str) -> bool:
+  	count_hi = 0
+  	count_ho = 0
+  	# Count the 'hi's and 'ho's
+  	for i in range(len(s)-1):
+  	  if s[i:i+2] == 'hi':
+  	    count_hi += 1
+  	  elif s[i:i+2] == 'ho':
+  	    count_ho += 1
+  	# Check if they are the same
+  	if count_hi == count_ho:
+  	  return True
+  	else:
+  	  return False
 
 # IA's Solutions
 
