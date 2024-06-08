@@ -734,8 +734,19 @@ hi_ho
 2. After counting occurrences of "hi" and "ho", compare the counts to determine the return value.
 """
 # My Code
-
-
+  def hi_ho(s: str) -> bool:
+      conta_hi = 0
+      conta_ho = 0
+      tamanho = len(s)
+      
+      for i in range(tamanho-1): # range starts at 0
+          if s[i:i+2] == 'hi':
+              conta_hi += 1
+          if s[i:i+2] == 'ho':
+              conta_ho += 1
+      
+      return True if conta_hi == conta_ho else False
+      
 # Solution
   def hi_ho(s: str) -> bool:
   	count_hi = 0
@@ -753,6 +764,16 @@ hi_ho
   	  return False
 
 # IA's Solutions
+# Sure! Here is an alternative solution using a regular expression to count the number of occurrences of 'hi' and 'ho' in the given string:
+import re
+def hi_ho(s: str) -> bool:
+    count_hi = len(re.findall(r'hi', s))
+    count_ho = len(re.findall(r'ho', s))
+    return count_hi == count_ho
+# In this solution:
+# - `re.findall(r'hi', s)` finds all non-overlapping occurrences of 'hi' in the input string `s` and returns them as a list. The length of this list gives the count of 'hi' occurrences in the string.
+# - Similarly, `re.findall(r'ho', s)` gives the count of 'ho' occurrences.
+# - Finally, it compares the counts of 'hi' and 'ho' and returns True if they are equal, otherwise False.
 
 
 
