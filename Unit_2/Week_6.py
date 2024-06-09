@@ -779,71 +779,273 @@ def hi_ho(s: str) -> bool:
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/293
 """
+count_code_times
+Show Solution
+Return the number of times that the string "code" appears anywhere in the given string.
+count_code_times('aaacodebbb') → 1
+count_code_times('codexxcode') → 2
+count_code_times('cozexxcope') → 0
 
-"""
-# My Code
+Theory
+count_code_times
+When dealing with strings (or other sequences), sometimes you don't just need the value of each item, but also its position (index) within the sequence. 
+This is particularly useful when comparing two sequences, modifying a sequence based on its indices, or when you need direct access to adjacent elements.
+The range() function generates a sequence of numbers, which when combined with len() (a function that returns the length of a sequence) produces a sequence of indices that represent the positions of items in a sequence.
+s = "Hello"
+for i in range(len(s)):
+    print(i, s[i])  # Prints index and the character at that index
+While iterating over a sequence, you can maintain a counter that you increment whenever a certain condition is met.
+count = 0
+s = "hello"
+for i in range(len(s)):
+    if s[i] == 'h':
+        count += 1
 
-
-# Solution
-
-
-# IA's Solutions
-
-
-
-
-
-# https://www.codingdors.com/problem/
-"""
-
-"""
-# My Code
-
-
-# Solution
-
-
-# IA's Solutions
-
-
-
-
-
-# https://www.codingdors.com/problem/
-"""
-
+Hint
+count_code_times
+1. Think about how you can iterate over the string and identify occurrences of "code".
+2. Consider using a sliding window approach where you inspect chunks of the string of size 4.
+3. Maintain a count of the number of times "code" is identified in the string.
 """
 # My Code
-
+  def count_code_times(s: str) -> int:
+      contador = 0
+      tamanho = len(s)
+      
+      for i in range(tamanho-1):
+          if s[i:i+4] == 'code':
+              contador += 1
+      return contador
 
 # Solution
-
+  def count_code_times(s: str) -> int:
+  	count = 0
+  	for i in range(len(s)-3):
+  	  if s[i:i+4] == 'code':
+  	    count += 1
+  	return count
 
 # IA's Solutions
+# 1. Using regular expressions:
+import re
+def count_code_times(s: str) -> int:
+    return len(re.findall('code', s))
+# Explanation: This solution uses the `re.findall` function from the `re` module to find all non-overlapping occurrences of the string "code" in the input string `s`. The function returns a list of all matching substrings, and the length of this list corresponds to the number of occurrences found.
+# 2. Using list comprehension:
+def count_code_times(s: str) -> int:
+    return sum(1 for i in range(len(s)-3) if s[i:i+4] == 'code')
+# Explanation: This solution uses a list comprehension to iterate over all possible substrings of length 4 in the input string `s`, checking if each substring is equal to "code". For each matching substring found, it adds 1 to the sum. The final result is the total count of occurrences of "code" in the string.
 
 
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/136
 """
+swap_case
+Show Solution
+Write a function that returns a new string with the case of each character in the given string swapped.
+swap_case('hello') -> 'HELLO'
+swap_case('CODE') -> 'code'
+swap_case('aPpLe') -> 'ApPlE'
 
+Theory
+swap_case
+1. String - A sequence of characters 
+string_example = "Hello, World!"
+2. For Loop - A loop that iterates over a sequence and executes the block of code for each element in the sequence 
+for element in sequence:
+3. If statement - A conditional statement that executes a block of code if the condition is true 
+if condition:
+4. isupper() and islower() methods - String methods that return True if all characters of a string are in uppercase or lowercase, respectively 
+"Hello".isupper()
+ returns False, 
+"hello".islower()
+ returns True
+5. upper() and lower() methods - String methods that return a string with all characters in uppercase or lowercase, respectively 
+"Hello".upper()
+ returns "HELLO", 
+"hello".lower()
+ returns "hello"
+
+ Hint
+swap_case
+- You need to iterate through each character in the string and check whether it is upper or lowercase. 
+- Then, you need to change the case of each character accordingly and add it to a new string.
 """
 # My Code
-
+  def swap_case(s: str) -> str:
+      nova_string = ""
+      for char in s:
+          if char.isupper() == True:
+              nova_string += char.lower()
+          elif char.isupper() == False:
+              nova_string += char.upper()
+          elif char.islower() == True:
+              nova_string += char.upper()
+          elif char.islower() == False:
+              nova_string += char.lower()
+      return nova_string
 
 # Solution
-
+  def swap_case(s: str) -> str:
+  	word = ''
+  	for i in s:
+  	  if i.isupper():
+  	    word = word + i.lower()
+  	  else:
+  	    word = word + i.upper()
+  	return word
 
 # IA's Solutions
+# Alternative Solution 1:
+def swap_case(s: str) -> str:
+    return s.swapcase()
+# Explanation: This solution uses the `swapcase()` method provided by Python for strings. It directly swaps the case of each character in the string and returns the modified string.
+# Alternative Solution 2:
+def swap_case(s: str) -> str:
+    return ''.join([char.lower() if char.isupper() else char.upper() for char in s])
+# Explanation: This solution uses a list comprehension to iterate over each character in the string. It checks if the character is uppercase, then converts it to lowercase, and vice versa. Finally, it joins the modified characters back together to form the new string.
+# Alternative Solution 3:
+def swap_case(s: str) -> str:
+    return ''.join(char.lower() if char.isupper() else char.upper() for char in s)
+# Explanation: This solution is similar to the previous one but with a slight modification in the way the characters are joined back together. It directly uses the generator expression inside the `join()` function to achieve the same result.
 
 
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/140
+"""
+reverse_string
+Show Solution
+Write a function that takes a string as input and returns the string reversed.
+reverse_string('hello') -> 'olleh'
+reverse_string('code') -> 'edoc'
+reverse_string('banana') -> 'ananab'
+
+Theory
+reverse_string
+When dealing with strings (or other sequences), sometimes you don't just need the value of each item, but also its position (index) within the sequence. 
+This is particularly useful when comparing two sequences, modifying a sequence based on its indices, or when you need direct access to adjacent elements.
+The range() function generates a sequence of numbers, which when combined with len() (a function that returns the length of a sequence) produces a sequence of indices that represent the positions of items in a sequence.
+s = "Hello"
+for i in range(len(s)):
+    print(i, s[i])  # Prints index and the character at that index
+The range() function can take up to three arguments: start, stop, and step. By default, range starts at 0 and increments by 1. However, if we set the start to the last index, and step to -1, we can effectively iterate backwards through the sequence.
+s = "Hello"
+for i in range(len(s)-1, -1, -1):  # starts from len(s)-1, ends at 0
+    print(i, s[i])  # Prints index and the character at that index in reverse order
+
+Hint
+reverse_string
+1. Think about how you can manipulate strings in Python. 
+2. Consider using a loop to iterate through the string.
+3. Think about how you can concatenate characters to create a new string that is the reverse of the original string.
+"""
+# My Code
+  def reverse_string(s: str) -> str:
+      nova_s = ''
+      for char in s[::-1]:
+          nova_s += char
+      return nova_s
+
+# Solution
+  def reverse_string(s: str) -> str:
+  	word = ''
+  	for i in range(len(s)-1, -1, -1):
+  	  word = word + s[i]
+  	return word
+
+# IA's Solutions
+# 1. Using the `join` function:
+def reverse_string(s: str) -> str:
+    return ''.join(reversed(s))
+# Explanation: The `reversed` function returns an iterator that iterates over the elements of the string in reverse order. By using `join`, we can concatenate these elements back into a string.
+# 2. Using list comprehension:
+def reverse_string(s: str) -> str:
+    return ''.join([s[i] for i in range(len(s)-1, -1, -1)])
+# Explanation: This solution uses a list comprehension to iterate over the characters of the string in reverse order and then join them back into a string.
+# 3. Using slicing:
+def reverse_string(s: str) -> str:
+    return s[::-1]
+# Explanation: This solution utilizes string slicing to reverse the order of the characters in the string. By using `[::-1]`, we can easily achieve the desired result without the need for a loop.
+
+
+
+
+
+# https://www.codingdors.com/problem/285
+"""
+reverse_swap
+Show Solution
+Write a function that returns a new string that is the reverse of the given string 's', and where the case of each letter in the original string is swapped (i.e., lowercase letters become uppercase and uppercase letters become lowercase).
+reverse_swap("Hello") → "OLLEh"
+reverse_swap("wOrLd123!") → "!321DlRoW"
+reverse_swap("sWAP mE") → "eM pawS"
+
+Theory
+reverse_swap
+When dealing with strings (or other sequences), sometimes you don't just need the value of each item, but also its position (index) within the sequence. 
+This is particularly useful when comparing two sequences, modifying a sequence based on its indices, or when you need direct access to adjacent elements.
+The range() function generates a sequence of numbers, which when combined with len() (a function that returns the length of a sequence) produces a sequence of indices that represent the positions of items in a sequence.
+s = "Hello"
+for i in range(len(s)):
+    print(i, s[i])  # Prints index and the character at that index
+The range() function can take up to three arguments: start, stop, and step. By default, range starts at 0 and increments by 1. However, if we set the start to the last index, and step to -1, we can effectively iterate backwards through the sequence.
+s = "Hello"
+for i in range(len(s)-1, -1, -1):  # starts from len(s)-1, ends at 0
+    print(i, s[i])  # Prints index and the character at that index in reverse order
+Conditional statements, primarily if, enable execution of specific blocks of code based on whether certain conditions are met.
+char = 'a'
+if char.isupper():
+    # Handle uppercase letter
+elif char.islower():
+    # Handle lowercase letter
+
+Hint
+reverse_swap
+1. Think about how to reverse strings in Python.
+2. Research Python string methods that allow you to change the case of letters.
+3. Determine the order of the operations (reverse first, then swap case or vice versa) that is most efficient or easier to implement.    
+"""
+# My Code
+  def reverse_swap(s: str) -> str:
+  	word = ''
+  	for i in range(len(s)-1, -1, -1):
+  	  if s[i].isupper():
+  	    word += s[i].lower()
+  	  else:
+  	    word += s[i].upper()
+  	return word
+
+# Solution
+  def reverse_swap(s: str) -> str:
+  	word = ''
+  	for i in range(len(s)-1, -1, -1):
+  	  if s[i].isupper():
+  	    word += s[i].lower()
+  	  else:
+  	    word += s[i].upper()
+  	return word
+
+# IA's Solutions
+# Certainly! Here's an alternative solution using list comprehension and the join method:
+def reverse_swap(s: str) -> str:
+    return ''.join([char.lower() if char.isupper() else char.upper() for char in s[::-1]])
+# In this solution:
+# 1. `s[::-1]` reverses the given string.
+# 2. The list comprehension iterates over each character in the reversed string.
+# 3. For each character, it checks if it is uppercase using `char.isupper()`. If it is uppercase, it converts it to lowercase using `char.lower()`. If it is not uppercase (meaning it is lowercase or not a letter), it converts it to uppercase using `char.upper()`.
+# 4. The resulting list of characters is joined using `join` to form the final reversed and swapped string.
+
+
+
+
+
+# https://www.codingdors.com/problem/288
 """
 
 """
