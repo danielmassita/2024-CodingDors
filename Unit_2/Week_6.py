@@ -1047,65 +1047,277 @@ def reverse_swap(s: str) -> str:
 
 # https://www.codingdors.com/problem/288
 """
+has_matching
+Show Solution
+Given two strings 's1' and 's2', write a function that determines if the two strings share at least one letter in the same position. The function should return True if they do and False otherwise.
+Assume that both strings will have the same length.
+has_matching("apple", "abcde") → True
+has_matching("hello", "world") → True
+has_matching("dance", "lover") → False
 
+Theory
+has_matching
+When dealing with strings (or other sequences), sometimes you don't just need the value of each item, but also its position (index) within the sequence. 
+This is particularly useful when comparing two sequences, modifying a sequence based on its indices, or when you need direct access to adjacent elements.
+The range() function generates a sequence of numbers, which when combined with len() (a function that returns the length of a sequence) produces a sequence of indices that represent the positions of items in a sequence.
+s = "Hello"
+for i in range(len(s)):
+    print(i, s[i])  # Prints index and the character at that index
+Strings are indexed starting from 0 for the first character. This indexing allows for the retrieval or modification of individual characters in a string.
+text = "Python"
+first_char = text[0]  # 'P'
+
+Hint
+has_matching
+1. Iterate over the length of the strings (since they are of the same length).
+2. For each position, compare the characters of both strings.
+3. Think about when you can terminate the check early, as soon as a match is found.
 """
 # My Code
-
+  def has_matching(s1: str, s2: str) -> bool:
+      tamanho = len(s1)    
+      for i in range(tamanho):
+          if s1[i] == s2[i]:
+              return True
+      return False
 
 # Solution
-
+  def has_matching(s1: str, s2: str) -> bool:
+  	for i in range(len(s1)):
+  	  if s1[i] == s2[i]:
+  	    return True
+  	return False
 
 # IA's Solutions
+# 1. Using zip() function:
+def has_matching(s1: str, s2: str) -> bool:
+    return any(char1 == char2 for char1, char2 in zip(s1, s2))
+# In this solution, the zip() function is used to iterate over both strings simultaneously. We check if there is at least one matching character at the same index in both strings using the any() function, which returns True if any element in the iterable is true.
+# 2. Using list comprehension:
+def has_matching(s1: str, s2: str) -> bool:
+    return any(s1[i] == s2[i] for i in range(len(s1)))
+# This solution is similar to the original solution but uses a list comprehension to generate a list of boolean values indicating if the characters at each index match. The any() function is then used to check if there is at least one True value in the list.
+# 3. Using zip() and set intersection:
+def has_matching(s1: str, s2: str) -> bool:
+    return bool(set(s1) & set(s2))
+# In this solution, we convert both strings into sets and then calculate the intersection of the sets using the '&' operator. If there is at least one common character between the two strings, the intersection set will not be empty, and the bool() function will return True.
 
 
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/289
 """
+check_first_number
+Show Solution
+Given a string 's', determine if the first number appearing in the string is 0. The function should return False if the first number in the string is 0. If the string does not contain any numbers or if the first number appearing isn't 0, it should return True.
+check_first_number("Hello") → True
+check_first_number("Hell0") → False
+check_first_number("H3ll0") → True
 
+Theory
+check_first_number
+Looping through each character in a string is a fundamental concept. In Python, you can achieve this using a for loop.
+for char in s:
+    # process char
+To identify whether a character is a number, we can use the isdigit() method which is built into Python's string handling.
+if char.isdigit():
+    # char is a number
+When iterating through a list or string, if a certain condition is met, it might not be necessary to process the rest of the elements or characters. In such cases, the loop can be exited immediately using the break statement or by returning a value directly from inside the loop.
+for i in s:
+    if i == 0:
+        return False
+    else:
+        return True
+
+Hint
+check_first_number
+1. Loop through the string to identify the first occurrence of a digit.
+2. Once a number is found, immediately check if it's 0.
+3. Consider what to return if no numbers are found in the entire string.
 """
 # My Code
-
+  def check_first_number(s: str) -> bool:
+      for char in s:
+          if char.isdigit():
+              if char == "0": # As soon as it occurs 
+                  return False # Should return False if the first number in the string is 0.
+              else:
+                  return True # or if the first number appearing isn't 0, it should return True.                
+      return True # If the string does not contain any numbers 
 
 # Solution
-
+  def check_first_number(s: str) -> bool:
+  	for i in s:
+  	  if i.isdigit():
+  	    if i == '0':
+  	      return False
+  	    else:
+  	      return True
+  	# If we don't have any number, we need the next line
+  	return True
 
 # IA's Solutions
+# Certainly! Here is an alternative solution for the given problem:
+def check_first_number(s: str) -> bool:
+    if s == "":
+        return True  # If the string is empty, return True
+    for char in s:
+        if char.isdigit():
+            if char == "0" and s.index(char) == 0:
+                return False  # Return False if the first number in the string is 0
+            else:
+                return True  # Return True if the first number appearing isn't 0
+    return True  # If the string does not contain any numbers, return True
+# This solution follows a similar approach to the previous one but uses the `s.index(char) == 0` condition to check if the current number is the first character in the string. It returns False if the condition is met, indicating that the first number in the string is 0. Otherwise, it continues to check the remaining characters in the string. This solution also returns True if the string does not contain any numbers.
 
 
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/290
 """
+valid_vanity_plate
+Show Solution
+Given a string 's', determine if, after the first appearance of a number in the string, there are any letters. For a string to be considered valid, once numbers start appearing, they should not be followed by any letters.
+valid_vanity_plate("ABC123") → True
+valid_vanity_plate("AB12CD") → False
+valid_vanity_plate("A1B2") → False
 
+Theory
+valid_vanity_plate
+When dealing with strings (or other sequences), sometimes you don't just need the value of each item, but also its position (index) within the sequence. 
+This is particularly useful when comparing two sequences, modifying a sequence based on its indices, or when you need direct access to adjacent elements.
+The range() function generates a sequence of numbers, which when combined with len() (a function that returns the length of a sequence) produces a sequence of indices that represent the positions of items in a sequence.
+s = "Hello"
+for i in range(len(s)):
+    print(i, s[i])  # Prints index and the character at that index
+To identify the type of a character (whether it's a letter or a number), Python provides two helpful string methods: isdigit() and isalpha().
+if char.isdigit():
+    # char is a number
+if char.isalpha():
+    # char is a letter
+
+Hint
+valid_vanity_plate
+1. Begin by initializing a flag or a variable (e.g., found_number) to False. This will be used to track when you've first encountered a number in the string.
+2. Start by iterating over each character of the string s.
+3. While iterating, check if the current character is a digit.
+4. If it is a digit and found_number is False, set found_number to True. This indicates you've found your first number.
+5. If found_number is True (meaning you've previously encountered a number), check if the current character is a letter. If it is a letter, immediately return False as this means a letter has appeared after a number.
+6. If you complete the loop without returning False, it means one of the following:
+- No numbers were found in the string.
+- Numbers were found, but no letters followed them.
+In both cases, you should return True.
+7. Once found_number is set to True, you can skip checking if the other characters are digits since you're only concerned about letters appearing afterward.
 """
 # My Code
-
+  def valid_vanity_plate(s: str) -> bool:
+      for i in range(len(s)):
+          
+          if s[i].isdigit():
+              if s[i:].isdigit():
+                  return True
+              else:
+                  return False
+      
+      return True
 
 # Solution
-
+  def valid_vanity_plate(s: str) -> bool:
+  	for i in range(len(s)):
+  	  if s[i].isdigit():
+  	    if s[i:].isdigit():
+  	      return True
+  	    else:
+  	      return False
+  	# If we don't have any number, we should return True
+  	return True
 
 # IA's Solutions
+# Certainly! Here is an alternative solution using a flag variable to keep track of whether letters have appeared after the first number:
+def valid_vanity_plate(s: str) -> bool:
+    number_found = False
+    for char in s:
+        if char.isdigit():
+            number_found = True
+        elif number_found and char.isalpha():
+            return False
+    return True
+# Explanation:
+# 1. We initialize a flag variable `number_found` to keep track of whether a number has been found in the string.
+# 2. We iterate through each character in the string.
+# 3. If the character is a number, we set `number_found` to True.
+# 4. If `number_found` is True and the character is a letter, we immediately return False as the condition is violated.
+# 5. If no violation is found after iterating through the string, we return True at the end.
 
 
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/138
 """
+split_string
+Show Solution
+Write a function that splits a given string into a list of words using a specified delimiter.
+split_string('apple,banana,orange', ',') -> ['apple', 'banana', 'orange']
+split_string('red.green.blue', '.') -> ['red', 'green', 'blue']
+split_string('python/java/html', '/') -> ['python', 'java', 'html']
 
+Theory
+split_string
+1. The process of splitting a string into a list using a specified delimiter. Example: 
+string = 'apple,banana,orange'
+delimiter = ','
+result = string.split(delimiter) # ['apple', 'banana', 'orange']
+2. The process of converting a list of strings into a single string by joining them with a specified delimiter. Example:
+list_of_strings = ['apple', 'banana', 'orange']
+delimiter = ','
+result = delimiter.join(list_of_strings) # 'apple,banana,orange'
+3. Providing default values for function arguments that can be overwritten if desired. Example:
+def some_function(argument_1, argument_2='default_value'):
+    # function code
+    return result
+In this example, if argument_2 is not provided when the function is called, it will use the default value of 'default_value'.
+4. The process of creating a new string using variables and formatting techniques such as f-strings or the str.format() method. Example:
+name = "Alice"
+age = 30
+result = f"My name is {name} and I am {age} years old." # "My name is Alice and I am 30 years old."
+
+Hint
+split_string
+1. Start the function definition with the name and parameters.
+2. Create an empty list to hold the words.
+3. Use the "split" method on the string parameter to split it into words.
+4. Use the delimiter parameter as the argument for the "split" method.
+5. Use a loop to iterate through the words and append them to the empty list.
+6. Return the list.
 """
 # My Code
-
+def split_string(s: str, delimiter: str) -> list:
+    nova_lista = []
+    nova_lista = s.split(delimiter)
+    return nova_lista
 
 # Solution
-
+def split_string(s: str, delimiter: str) -> list:
+	return s.split(delimiter)
 
 # IA's Solutions
-
-
+# 1. Using list comprehension:
+def split_string(s: str, delimiter: str) -> list:
+    return [word for word in s.split(delimiter)]
+# Explanation:
+# - In this solution, list comprehension is used to directly create a new list of words by splitting the input string 's' using the specified delimiter.
+# - The split() method is used to split the string based on the delimiter and then each word is added to the new list using list comprehension.
+# - Finally, the new list of words is returned.
+# 2. Using map function:
+def split_string(s: str, delimiter: str) -> list:
+    return list(map(str.strip, s.split(delimiter)))
+# Explanation:
+# - In this solution, the map() function is used to apply the strip() method to each word in the list obtained after splitting the string.
+# - The strip() method is used to remove any leading or trailing whitespaces from each word.
+# - The map() function returns an iterator, so we convert it back to a list using the list() function before returning the final list of words.
 
 
 
