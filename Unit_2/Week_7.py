@@ -601,8 +601,13 @@ reverse_n_while
 5. Return the resulting list after the while loop has completed.
 """
 # My Code
-
-
+	def reverse_n_while(n: int):
+	    listinha = []
+	    indice = n
+	    while indice >= 0:
+	        listinha.append(indice)
+	        indice -= 1
+	    return listinha
 
 # Solution
 
