@@ -53,12 +53,29 @@ print_to_n_for_loop
 5. Return the list at the end of the function.
 """
 # My Code
-
-
+  def print_to_n_for_loop(n: int):
+      listinha = []
+      for cada in range(0, n+1): # Começa index 0, e vai até n incluso = N+1
+          listinha.append(cada) # .append() adiciona ao final da lista
+      return listinha
+        
 # Solution
-
+  def print_to_n_for_loop(n: int):
+  	numbers = []
+  	for i in range(0, n+1):
+  	  numbers.append(i)
+  	return numbers
 
 # IA's Solutions
+# Alternative Solution 1: Using list comprehension
+def print_to_n_for_loop(n: int):
+    numbers = [i for i in range(n+1)]
+    return numbers
+# This solution uses list comprehension to create a list of numbers from 0 to n inclusive. It is a more concise way to achieve the same result as using a for loop.
+# Alternative Solution 2: Using range directly in the return statement
+def print_to_n_for_loop(n: int):
+    return list(range(n+1))
+# In this solution, we eliminate the need for a separate list variable by directly using the range function inside the return statement. This also makes the code more succinct and easier to understand.
 
 
 
