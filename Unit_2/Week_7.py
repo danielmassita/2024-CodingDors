@@ -605,32 +605,115 @@ reverse_n_while
 	    listinha = []
 	    indice = n
 	    while indice >= 0:
-	        listinha.append(indice)
-	        indice -= 1
+		listinha.append(indice)
+		indice -= 1
 	    return listinha
 
 # Solution
-
+	def reverse_n_while(n: int):
+		numbers = []
+		while n >= 0:
+		  numbers.append(n)
+		  n = n - 1
+		return numbers
 
 # IA's Solutions
+# 1. Using a for loop:
+def reverse_n_while(n: int):
+    listinha = []
+    for i in range(n, -1, -1):
+        listinha.append(i)
+    return listinha
+# 2. Using list comprehension:
+def reverse_n_while(n: int):
+    return [i for i in range(n, -1, -1)]
+# 3. Using a while loop with a decrementing range:
+def reverse_n_while(n: int):
+    listinha = []
+    while n >= 0:
+        listinha.append(n)
+        n -= 1
+    return listinha
+# All these solutions achieve the same result as your original code by creating a list in reverse order from n to 0 inclusive. Each solution offers a different approach to achieving the desired outcome, showcasing the flexibility and versatility of Python.
 
 
 
 
 
-
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/91
 """
+reverse_n_even_for
+Show Solution
+Write a Python function that takes an integer n as input and returns a list that contains all even numbers from n to 0 inclusive, using a for loop.
+reverse_n_even_for(5) -> [4, 2, 0]
+reverse_n_even_for(3) -> [2, 0]
+reverse_n_even_for(1) -> [0]
 
+Theory
+reverse_n_even_for
+1. A for loop is used for iterating over a sequence (that is either a list, a tuple, a dictionary, a set, or a string). It executes a set of statements, once for each item in a sequence. Example: 
+fruits = ["apple", "banana", "cherry"]
+for x in fruits:
+  print(x)
+2. The range() function returns a sequence of numbers, starting from 0 by default, and increments by 1 (by default), and stops before a specified number. Example:
+for x in range(6):
+  print(x)
+Output: 
+0
+1
+2 
+3
+4
+5
+3. An if statement is a conditional statement that runs or skips code based on whether a condition is true or false. Example:
+a = 33
+b = 200
+if b > a:
+  print("b is greater than a")
+Output: b is greater than a
+4. A list is a collection of items ordered in a particular sequence, which can be of any type. Lists are mutable, i.e., their contents can be modified after creation. Example: 
+my_list = [1, "Hello", 3.4, True]
+
+Hint
+reverse_n_even_for
+1. You need to start with n and work your way down to 0, so your for loop should count downwards.
+2. You need to identify the even numbers in your for loop. One way to do this is to use the modulus operator (%).
+3. You need to add the even numbers to a list and return that list.
 """
 # My Code
-
+	def reverse_n_even_for(n: int):
+	    listinha = []
+	    for i in range(n, -1, -1):
+	        if i%2 == 0:
+	            listinha.append(i)
+	    return listinha
 
 # Solution
-
+	def reverse_n_even_for(n: int):
+		numbers = []
+		for i in range(n, -1, -1):
+		  if i % 2 == 0:
+		    numbers.append(i)
+		return numbers
 
 # IA's Solutions
-
+# 1. Using list comprehension:
+def reverse_n_even_for(n: int):
+    return [i for i in range(n, -1, -1) if i % 2 == 0]
+Explanation: This solution utilizes list comprehension to create the list of even numbers in a more concise way. It iterates through the range from n to 0 inclusive and only adds the even numbers to the list.
+2. Using a while loop:
+def reverse_n_even_for(n: int):
+    listinha = []
+    while n >= 0:
+        if n % 2 == 0:
+            listinha.append(n)
+        n -= 1
+    return listinha
+Explanation: This solution uses a while loop to iterate from n to 0 inclusive. It checks if the number is even and adds it to the list if it is. The loop continues until n reaches 0.
+3. Using extended slicing:
+def reverse_n_even_for(n: int):
+    return list(range(n, -1, -1))[::2]
+Explanation: This solution first creates a list of numbers from n to 0 using the range function. Then, it uses extended slicing [::2] to only select every second element in the list, effectively filtering out the odd numbers.
 
 
 
