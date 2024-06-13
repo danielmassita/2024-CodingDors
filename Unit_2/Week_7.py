@@ -719,101 +719,393 @@ def reverse_n_even_for(n: int):
 
 
 
+# https://www.codingdors.com/problem/92
 """
+reverse_n_even_while
+Show Solution
+Write a Python function that takes an integer n as input and returns a list that contains all even numbers from n to 0 inclusive, using a while loop.
+reverse_n_even_while(5) -> [4, 2, 0]
+reverse_n_even_while(3) -> [2, 0]
+reverse_n_even_while(1) -> [0]
+
+Theory
+reverse_n_even_while
+1. While Loop: A while loop is a control flow statement that allows code to be executed repeatedly based on a given condition. The loop continues to execute until the condition is False. 
+Example: 
+i = 0
+while i < 5:
+    print(i)
+    i += 1
+2. List: A list is a data structure in Python that is a collection of items. It is ordered and changeable. Lists are defined by having values separated by commas inside square brackets []. 
+Example: 
+my_list = [1, 3, "apple", True]
+3. Append: Append() is a built-in function in Python that adds a single item to the existing list. The item is added at the end of the list. 
+Example:
+my_list = [1, 2, 3]
+my_list.append(4)
+print(my_list) # [1, 2, 3, 4]
+4. If statement: An if statement is a control flow statement that allows code to be executed conditionally based on a given condition. If the condition is true, the block of code inside the if statement is executed, otherwise, it is skipped. 
+Example: 
+x = 5 
+if x < 10:
+    print("x is less than 10")
+else:
+    print("x is greater than or equal to 10")
+5. Range: The range function is a built-in function in Python that generates a sequence of numbers. It can take 1-3 parameters, start (inclusive), stop (exclusive), and step(argument to skip counting). 
+Example:
+# generates odd numbers between 1 and 10
+odd_numbers = range(1, 10, 2)
+print(list(odd_numbers)) # [1, 3, 5, 7, 9]
+
+Hint
+reverse_n_even_while
+1. Start with an empty list to store the even numbers
+2. Set up a while loop to continue until n reaches 0
+3. Within the loop, use an if statement to check if n is even
+4. If n is even, append it to the list
+5. Decrement n within the loop to eventually reach 0
+6. Return the list of even numbers at the end of the function
+"""
+# My Code
+	def reverse_n_even_while(n: int):
+	    listinha = []
+	    while n >= 0:
+	        if n%2 == 0:
+	            listinha.append(n)
+	        n -= 1
+	    return listinha
+
+# Solution
+	def reverse_n_even_while(n: int):
+		numbers = []
+		while n >= 0:
+		  if n % 2 == 0:
+		    numbers.append(n)
+		  n = n - 1
+		return numbers
+
+# IA's Solutions
+# 1. Using a decrementing loop counter:
+def reverse_n_even_while(n: int):
+    listinha = []
+    while n >= 0:
+        if n % 2 == 0:
+            listinha.append(n)
+        n -= 1
+    return listinha
+# 2. Using a loop with step size of -2 to directly skip odd numbers:
+def reverse_n_even_while(n: int):
+    listinha = []
+    while n >= 0:
+        listinha.append(n)
+        n -= 2
+    return listinha
+# 3. Using a simpler approach with a single condition inside the loop:
+def reverse_n_even_while(n: int):
+    listinha = []
+    while n >= 0:
+        listinha.append(n)
+        n -= 2 if n >= 2 else 1
+    return listinha
+# All of these solutions essentially do the same thing by iterating from n to 0 inclusively and adding even numbers to the list. However, they vary slightly in terms of readability and efficiency due to different ways of handling conditions and loop counter updates.
+
+
+
+
+
+# https://www.codingdors.com/problem/93
+"""
+reverse_n_odd_while
+Show Solution
+Write a Python function that takes an integer n as input and returns a list that contains all odd numbers from n to 1 inclusive, using a while loop.
+reverse_n_odd_while(5) -> [5, 3, 1]
+reverse_n_odd_while(3) -> [3, 1]
+reverse_n_odd_while(1) -> [1]
+
+Theory
+reverse_n_odd_while
+1. While loops - used to repeatedly execute a block of code while a certain condition is true. Example: 
+count = 0
+while count < 5:
+  print("Hello!")
+  count += 1
+# Output: 
+# Hello!
+# Hello!
+# Hello!
+# Hello!
+# Hello!
+2. Lists - used to store multiple items in a single variable. Items in a list are indexed and can be accessed and manipulated easily. Example:
+my_list = [1, 2, "three", True]
+print(my_list[1])
+# Output: 2
+my_list.append("four")
+print(my_list)
+# Output: [1, 2, "three", True, "four"]
+3. If statements - used to execute a block of code only if a certain condition is true. Example:
+x = 5
+if x > 10:
+  print("x is greater than 10")
+else:
+  print("x is not greater than 10")
+# Output: x is not greater than 10
+4. The '%' operator - used to calculate the remainder of a division. Example:
+print(10 % 3)
+# Output: 1
+5. range() function - used to generate a sequence of numbers. Example:
+for i in range(0, 5):
+  print(i)
+# Output:
+# 0
+# 1
+# 2
+# 3
+# 4
+
+Hint
+reverse_n_odd_while
+1. The function should take in one parameter, an integer n.
+2. Create an empty list to hold the odd numbers.
+3. Use a while loop with a condition that checks for odd numbers greater than or equal to 1.
+4. Within the while loop, append the current odd number to the list and decrement it by 2.
+5. Return the list at the end of the function.
+"""
+# My Code
+	def reverse_n_odd_while(n: int):
+	    listinha = []
+	    while n >= 0:
+	        if n % 2 > 0:
+	            listinha.append(n)
+	        n -= 2 
+	    return listinha
+
+# Solution
+	def reverse_n_odd_while(n: int):
+		numbers = []
+		while n >= 0:
+		  if n % 2 != 0:
+		    numbers.append(n)
+		  n = n - 1
+		return numbers
+
+# IA's Solutions
+# 1. Using a while loop with different condition:
+def reverse_n_odd_while(n: int):
+    listinha = []
+    while n >= 1:
+        if n % 2 != 0:
+            listinha.append(n)
+        n -= 1
+    return listinha
+# Explanation: In this solution, we start the while loop with the condition `n >= 1` to include the number 1 in the final list. We check if the number is odd using the condition `n % 2 != 0` and then decrement `n` by 1 in each iteration.
+# 2. Simplifying the condition inside the while loop:
+def reverse_n_odd_while(n: int):
+    listinha = []
+    while n >= 1:
+        if n % 2:
+            listinha.append(n)
+        n -= 1
+    return listinha
+# Explanation: In Python, the condition `n % 2` will automatically evaluate to `True` if the remainder is non-zero (indicating an odd number) and `False` if the remainder is zero (indicating an even number). This simplifies the condition inside the if statement.
+
+
+
+
+
+# https://www.codingdors.com/problem/94
+"""
+reverse_n_odd_for
+Show Solution
+Write a Python function that takes an integer n as input and returns a list that contains all odd numbers from n to 0, using a for loop.
+reverse_n_odd_for(5) -> [5, 3, 1]
+reverse_n_odd_for(3) -> [3, 1]
+reverse_n_odd_for(1) -> [1]
+
+Theory
+reverse_n_odd_for
+1. for loop: A for loop is used for iterating over a sequence (that is either a list, a tuple, a dictionary, a set, or a string). A loop variable is used for accessing the elements of a sequence one by one. 
+for i in range(5):
+2. list: A list is a collection of elements enclosed in square brackets and separated by commas. Lists can be changed. 
+my_list = [1, 2, 3, 4]
+3. integer: An integer is a whole number (not a fraction) that can be either positive, negative, or zero. 
+my_int = 5
+4. function: A function is a block of code that is designed to perform a specific task. 
+def my_function():
+Example: 
+# reverse_n_odd_for(5) -> [5, 3, 1]
+def reverse_n_odd_for(n):
+    odd_list = []
+    for i in range(n, -1, -1):
+        if i % 2 == 1:
+            odd_list.append(i)
+    return odd_list
+
+Hint
+reverse_n_odd_for
+1. Use a for loop that starts from n and goes down to 0 (inclusive)
+2. Check if the current number in the loop is odd using the modulus operator (%)
+3. If the number is odd, add it to a list (initialize an empty list before the loop)
+4. Return the list containing all the odd numbers found in the loop.
+"""
+# My Code
+	def reverse_n_odd_for(n: int):
+	    listinha = []
+	    for n in range(n, -1, -1):
+	        if n%2 > 0:
+	            listinha.append(n)
+	    return listinha
+
+# Solution
+	def reverse_n_odd_for(n: int):
+		numbers = []
+		for i in range(n, -1, -1):
+		  if i % 2 != 0:
+		    numbers.append(i)
+		return numbers
+
+# IA's Solutions
+# 1. Using list comprehension:
+def reverse_n_odd_for(n: int):
+    return [x for x in range(n, -1, -1) if x % 2 != 0]
+# Explanation: This solution uses list comprehension to create a list of odd numbers from n to 0. It iterates over the range from n to 0 with a step of -1 and filters out only the odd numbers using the condition `x % 2 != 0`.
+# 2. Using while loop:
+def reverse_n_odd_for(n: int):
+    listinha = []
+    while n >= 0:
+        if n % 2 != 0:
+            listinha.append(n)
+        n -= 1
+    return listinha
+# Explanation: This solution uses a while loop to iterate from n to 0 and checks if each number is odd before appending it to the list. It decrements the value of n in each iteration until it reaches 0.
+
+
+
+
+
+# https://www.codingdors.com/problem/308
+"""
+count_odds_list
+Show Solution
+Return the number of odd integers in the given list. Note: the % "mod" operator computes the remainder, e.g. 5 % 2 is 1.
+count_odds_list([2, 1, 2, 3, 4]) → 2
+count_odds_list([2, 2, 5]) → 1
+count_odds_list([1, 3, 5]) → 3
+
 
 """
 # My Code
-
+	def count_odds_list(l: list) -> int:
+	    contador = 0
+	    tamanho = len(l)
+	    for i in range(tamanho):
+	        if l[i] % 2 != 0:
+	            contador += 1
+	    return contador
 
 # Solution
-
+	def count_odds_list(l: list) -> int:
+		sum = 0
+		for i in range(len(l)):
+		  if l[i] % 2 != 0:
+		    sum += 1
+		return sum
 
 # IA's Solutions
+# Sure! Here is an alternative solution to count the number of odd integers in a given list using list comprehension:
+def count_odds_list(l: list) -> int:
+    return len([x for x in l if x % 2 != 0])
+# In this solution, a list comprehension is used to iterate over each element in the input list l and a new list is created containing only the elements that are odd (i.e., elements for which x % 2 != 0 is True). The length of this new list, which corresponds to the number of odd integers, is then returned.
 
 
 
 
 
+# https://www.codingdors.com/problem/309
 """
+has33_list
+Show Solution
+Given a list of integers, return True if the list contains a 3 next to a 3 somewhere.
+has33_list([1, 3, 3]) → True
+has33_list([1, 3, 1, 3]) → False
+has33_list([3, 1, 3]) → False
+
 
 """
 # My Code
-
+def has33_list(l: list) -> bool:
+	for i in range(len(l)-1):
+	  if l[i] == l[i+1] == 3:
+	    return True
+	return False
 
 # Solution
-
+	def has33_list(l: list) -> bool:
+		for i in range(len(l)-1):
+		  if l[i] == l[i+1] == 3:
+		    return True
+		return False
 
 # IA's Solutions
+# 1. Using a list comprehension:
+def has33_list(l: list) -> bool:
+    return any(l[i] == l[i+1] == 3 for i in range(len(l)-1))
+# Explanation: This solution uses a list comprehension along with the `any` function to check if any pair of consecutive elements in the list are equal to 3. It returns `True` if it finds such a pair, otherwise it returns `False`.
+# 2. Using the `zip` function:
+def has33_list(l: list) -> bool:
+    return any(x == y == 3 for x, y in zip(l, l[1:]))
+# Explanation: This solution uses the `zip` function to iterate over pairs of consecutive elements in the list. It then checks if both elements in the pair are equal to 3. If it finds such a pair, it returns `True`, otherwise it returns `False`.
+# 3. Using a simple iteration with index:
+def has33_list(l: list) -> bool:
+    for i in range(len(l) - 1):
+        if l[i] == l[i+1] == 3:
+            return True
+    return False
+# Explanation: This solution is similar to the original solution provided. It iterates over the list using indices and checks if each pair of consecutive elements are equal to 3. If it finds such a pair, it returns `True`, otherwise it returns `False`.
 
 
 
 
 
-
+# https://www.codingdors.com/problem/310
 """
+list456
+Show Solution
+Given a list of integers, return True if the sequence of numbers 4, 5, 6 appears in the list somewhere.
+list456([1, 4, 5, 6, 1]) → True
+list456([1, 4, 5, 4, 6]) → False
+list456([1, 1, 2, 4, 5, 6]) → True
+
 
 """
 # My Code
-
-
-# Solution
-
-
-# IA's Solutions
-
-
-
-
-
-
-"""
-
-"""
-# My Code
-
+def list456(l: list) -> bool:
+	for i in range(len(l)-2):
+	  if l[i] == 4 and l[i+1] == 5 and l[i+2] == 6:
+	    return True
+	return False
 
 # Solution
-
-
-# IA's Solutions
-
-
-
-
-
-
-"""
-
-"""
-# My Code
-
-
-# Solution
-
+	def list456(l: list) -> bool:
+		for i in range(len(l)-2):
+		  if l[i] == 4 and l[i+1] == 5 and l[i+2] == 6:
+		    return True
+		return False
 
 # IA's Solutions
+# Here is an alternative solution using list comprehension:
+def list456(l: list) -> bool:
+    return any(l[i:i+3] == [4, 5, 6] for i in range(len(l)-2))
+# Explanation:
+# 1. This solution uses list comprehension to iterate through the list 'l' and check if a sublist of 3 consecutive elements is equal to [4, 5, 6].
+# 2. The expression `l[i:i+3]` denotes a sublist of 'l' starting at index 'i' and ending at index 'i+2'.
+# 3. The `any()` function is used to return True if at least one sublist matches [4, 5, 6].
+# 4. The function returns True if the sequence [4, 5, 6] appears in the list 'l', otherwise it returns False.
 
 
 
 
 
-
-"""
-
-"""
-# My Code
-
-
-# Solution
-
-
-# IA's Solutions
-
-
-
-
-
-
+# https://www.codingdors.com/problem/306
 """
 
 """
