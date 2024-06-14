@@ -1100,6 +1100,14 @@ def list456(l: list) -> bool:
 # 2. The expression `l[i:i+3]` denotes a sublist of 'l' starting at index 'i' and ending at index 'i+2'.
 # 3. The `any()` function is used to return True if at least one sublist matches [4, 5, 6].
 # 4. The function returns True if the sequence [4, 5, 6] appears in the list 'l', otherwise it returns False.
+#   Solution 1: Using list comprehension and the zip function
+def list456(l: list) -> bool:
+    return any(x == (4, 5, 6) for x in zip(l, l[1:], l[2:]))
+# Explanation: This solution uses list comprehension along with the zip function to create tuples of three consecutive elements in the list. It then checks if any of these tuples are equal to (4, 5, 6). The any() function returns True if any of the tuples match the specified condition.
+# Solution 2: Using the in operator and list slicing
+def list456(l: list) -> bool:
+    return (4, 5, 6) in zip(l, l[1:], l[2:])
+# Explanation: This solution directly checks if the tuple (4, 5, 6) is present in the list of tuples created by zipping three consecutive elements of the input list. The in operator returns True if the specified tuple is found in the list of tuples.
 
 
 
@@ -1110,85 +1118,231 @@ def list456(l: list) -> bool:
 has_matching_list
 Show Solution
 Given two lists 'l1' and 'l2', write a function that determines if the two lists share at least one letter in the same position. The function should return True if they do and False otherwise.
-
 Assume that both lists will have the same length.
-
 has_matching_list(["a","p","p","l","e"], ["a","b","c","d","e"]) → True
 has_matching_list(["h","e","l","l","o"], ["w","o","r","l","d"]) → True
 has_matching_list(["d","a","n","c","e"], ["l","o","v","e","r"]) → False
 """
 # My Code
-
+	def has_matching_list(l1: list, l2: list) -> bool:
+	    tamanho = len(l1)
+	    for i in range(tamanho):
+	        if l1[i] == l2[i]:
+	            return True
+	    return False
 
 # Solution
-
+	def has_matching_list(l1: list, l2: list) -> bool:
+		for i in range(len(l1)):
+		  if l1[i] == l2[i]:
+		    return True
+		return False
 
 # IA's Solutions
+# 1. Using the zip() function:
+def has_matching_list(l1: list, l2: list) -> bool:
+    return any(x == y for x, y in zip(l1, l2))
+# - Explanation: This solution uses the zip() function to pair elements from both lists together. It then uses a generator expression inside the any() function to check if there is at least one pair of elements that match.
+# 2. Using list comprehension:
+def has_matching_list(l1: list, l2: list) -> bool:
+    return any(l1[i] == l2[i] for i in range(len(l1)))
+# - Explanation: This solution uses a list comprehension to iterate over the indices of the lists and check if the elements at the same index match. The any() function is used to return True if any of the comparisons are True.
+# 3. Using a single line with all():
+def has_matching_list(l1: list, l2: list) -> bool:
+    return all(l1[i] == l2[i] for i in range(len(l1)))
+# - Explanation: This solution is similar to the previous one but uses the all() function to return True only if all the comparisons are True. If any pair of elements does not match, it will return False immediately.
 
 
 
 
 
-
+# https://www.codingdors.com/problem/307
 """
-
+check_first_number_list
+Show Solution
+Given a list 'l', determine if the first number appearing in the list is 0. The function should return False if the first number in the list is 0. If the list does not contain any numbers or if the first number appearing isn't 0, it should return True.
+check_first_number_list(["H","e","l","l","o"]) → True
+check_first_number_list(["H","e","l","l","0"]) → False
+check_first_number_list(["H","3","l","l","0"]) → True
 """
 # My Code
-
+	def check_first_number_list(l: list) -> bool:
+	    tamanho = len(l)
+	    lista_numeros = []
+	    for i in range(tamanho):
+	        if str(l[i]).isdigit() == True:
+	            lista_numeros.append(l[i])
+	    if lista_numeros[0] == "0":
+	        return False
+	    if lista_numeros == None:
+	        return True
+	    return True
 
 # Solution
-
+	def check_first_number_list(l: list) -> bool:
+		for i in range(len(l)):
+		  if str(l[i]).isdigit():
+		    if str(l[i]) == '0':
+		      return False
+		    else:
+		      return True
+		return True
 
 # IA's Solutions
+# Here is an alternative solution in Python for the problem statement:
+def check_first_number_list(l: list) -> bool:
+    if len(l) == 0:
+        return True
+    for item in l:
+        if str(item).isdigit():
+            if int(item) == 0:
+                return False
+            else:
+                return True
+    return True
+# Explanation:
+# 1. The function `check_first_number_list` takes a list `l` as input and returns a boolean value.
+# 2. If the length of the list is 0, meaning the list is empty, the function returns True right away.
+# 3. It iterates through each item in the list using a for loop.
+# 4. For each item, it checks if the item is a digit using `str(item).isdigit()`.
+# 5. If the item is a digit, it further checks if the integer value of the item is 0.
+# 6. If the first number appearing in the list is 0, the function returns False.
+# 7. If the list doesn't contain any numbers or if the first number appearing isn't 0, it returns True.
 
 
 
 
 
-
+# https://www.codingdors.com/problem/313
 """
-
+sort_list
+Show Solution
+Given a list of integers, return a the same list sorted in ascending order.
+sort_list([25, 12, 22, 11]) -> [11, 12, 22, 25]
+sort_list([-5, 0, -2, 3, 2, 1]) -> [-5, -2, 0, 1, 2, 3]
 """
 # My Code
-
+def sort_list(l: list) -> list:
+    lista_ordenada = []
+    lista_ordenada = l.sort()
+    return lista_ordenada
+# Your solution is almost correct, but there is a small mistake in the way you are using the `sort()` method. The `sort()` method in Python does not return a new sorted list, instead, it sorts the list in place and returns `None`. Therefore, when you assign `lista_ordenada = l.sort()`, you are actually assigning `None` to `lista_ordenada`.
+# To fix this issue, you should use the `sort()` method on the list directly and then return the list itself (not the result of `sort()`). Here is the corrected version of your function:
+def sort_list(l: list) -> list:
+    l.sort()
+    return l
+# By sorting the list directly and returning it after sorting, you will get the sorted list as the output.
 
 # Solution
-
+	def sort_list(l: list) -> list:
+		return sorted(l)
 
 # IA's Solutions
+# 1. Using the sorted() function:
+def sort_list(l: list) -> list:
+    return sorted(l)
+# Explanation: This solution uses the built-in sorted() function in Python, which returns a new sorted list without modifying the original list. It takes the input list 'l' and returns a new sorted list in ascending order.
+# 2. Using the sorted() function with a lambda function:
+def sort_list(l: list) -> list:
+    return sorted(l, key=lambda x: x)
+# Explanation: This solution also uses the sorted() function, but with a lambda function as the 'key' parameter. The lambda function specifies the sorting criteria, which in this case is just the elements themselves (x). This solution will also return a new sorted list in ascending order without modifying the original list.
 
 
 
 
 
-
+# https://www.codingdors.com/problem/311
 """
-
+sum_matrix_elements
+Show Solution
+Given a 2-dimensional list (matrix) of integers, write a Python function that calculates and returns the sum of all its elements using loops.
+sum_matrix_elements([[1, 2, 3], [4, 5, 6], [7, 8, 9]]) -> 45
+sum_matrix_elements([[10]]) -> 10
 """
 # My Code
-
+	def sum_matrix_elements(matrix):
+	    # [1,2,3]
+	    # [4,5,6]
+	    # [7,8,9]
+	    # sum = 45
+	    somatorio = 0
+	    for i in range(matrix):
+	        somatorio += i
+	    return somatorio
+# Your solution is incorrect because you are trying to iterate over the matrix using the range function, which expects an integer as an argument, not a list. To iterate over each row in the matrix, you should use "for row in matrix" instead of "for i in range(matrix)".
+# Here is the corrected version of your function:
+	def sum_matrix_elements(matrix):
+	    somatorio = 0
+	    for row in matrix:
+	        for cada in row:
+	            somatorio += cada
+	    return somatorio
 
 # Solution
-
+	def sum_matrix_elements(matrix):
+		total = 0
+		for row in matrix:
+		  for num in row:
+		    total += num
+		return total
 
 # IA's Solutions
+# Alternative Solution 1: Using Nested List Comprehension
+def sum_matrix_elements(matrix):
+    return sum([sum(row) for row in matrix])
+# Explanation:
+# - This solution uses a nested list comprehension to iterate over each row in the matrix and calculate the sum of elements in each row.
+# - The outer list comprehension iterates over each row in the matrix.
+# - The inner list comprehension calculates the sum of elements in each row.
+# - The `sum()` function is used to calculate the total sum of all elements in the matrix.
+# - The final sum is returned as the result.
+# Alternative Solution 2: Using Numpy Library
+import numpy as np
+def sum_matrix_elements(matrix):
+    return np.sum(matrix)
+# Explanation:
+# - This solution utilizes the `numpy` library, which provides efficient numerical operations on multi-dimensional arrays.
+# - We first import the `numpy` library as `np`.
+# - The `np.sum()` function is used to calculate the sum of all elements in the matrix.
+# - The function directly takes the matrix as input and returns the total sum of all elements in the matrix.
 
 
 
 
 
-
+# https://www.codingdors.com/problem/312
 """
-
+has_letter_a_matrix
+Show Solution
+Given a 2-dimensional list (matrix) where each element is a single letter, write a Python function that determines if the letter 'a' exists in the matrix. If the letter 'a' is found, the function should return True, otherwise, it should return False.
+has_letter_a_matrix([['b', 'c', 'd'], ['e', 'f', 'g'], ['h', 'i', 'a']]) -> True
+has_letter_a_matrix([['b', 'c', 'd'], ['e', 'f', 'g'], ['h', 'i', 'j']]) -> False
 """
 # My Code
-
+	def has_letter_a_matrix(matrix):
+	    for row in matrix:
+	        for elemento in row:
+	            if elemento == "a":
+	                return True
+	    return False
 
 # Solution
-
+	def has_letter_a_matrix(matrix):
+		for row in matrix:
+		  for num in row:
+		    if num == 'a':
+		      return True
+		return False
 
 # IA's Solutions
-
+# 1. Using any():
+def has_letter_a_matrix(matrix):
+    return any('a' in row for row in matrix)
+# Explanation: This solution uses the `any()` function to check if 'a' exists in any of the rows in the matrix. It iterates through each row and checks if 'a' is in that row. If 'a' is found in any row, it returns True, otherwise it returns False.
+# 2. Using nested list comprehensions:
+def has_letter_a_matrix(matrix):
+    return any('a' in row for row in matrix)
+# Explanation: This solution uses a nested list comprehension to iterate through both the rows and elements in the matrix. It checks if 'a' is in each element of the matrix. If 'a' is found in any element, it returns True, otherwise it returns False.
 
 
 
