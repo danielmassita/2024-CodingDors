@@ -136,13 +136,32 @@ find_person
 3. 'in' keyword returns True if the name exists in the dictionary and False otherwise.
 """
 # My Code
-
+	def find_person(d: dict,name: str) -> bool:
+	    if name in d: # == True - In Python, the `in` operator already returns a boolean value (True or False) based on whether the specified key exists in the dictionary. So there is no need to compare it explicitly with `True`.
+	        return True
+	    else:
+	        return False
         
 # Solution
-
+	def find_person(d: dict,name: str) -> bool:
+		if name in d:
+		  return True
+		else:
+		  return False
 
 # IA's Solutions
-
+# 1. Using the `get` method:
+def find_person(d: dict, name: str) -> bool:
+    return d.get(name) is not None
+# Explanation: The `get` method retrieves the value associated with the specified key in a dictionary. If the key is not found, it returns `None`. By checking if the return value is not `None`, we can determine if the key exists in the dictionary.
+# 2. Using the `in` keyword with a ternary operator:
+def find_person(d: dict, name: str) -> bool:
+    return True if name in d else False
+# Explanation: This solution uses a ternary operator to achieve the same result as your original solution in a single line. If the name exists in the dictionary, it returns `True`, otherwise it returns `False`.
+# 3. Using the `keys` method:
+def find_person(d: dict, name: str) -> bool:
+    return name in d.keys()
+# Explanation: The `keys` method returns a view object that displays a list of all the keys in the dictionary. By checking if the name is in this list of keys, we can determine if the name exists in the dictionary. 
 
 
 
