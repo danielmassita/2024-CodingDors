@@ -167,9 +167,31 @@ def find_person(d: dict, name: str) -> bool:
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/233
 """
+dictionary_size
+Show Solution
+Given a dictionary, return the number of key-value pairs it contains.
 
+dictionary_size({}) -> 0
+dictionary_size({'name': 'Gi'}) -> 1
+dictionary_size({'a':1, 'b':4, 'c': 7}) -> 3
+
+Theory
+dictionary_size
+1. Dictionary: A collection of key-value pairs that are unordered, changeable, and indexed.
+example_dict = {'a': 1, 'b': 2, 'c': 3}
+2. Key: The identifier used to access a value in a dictionary.
+example_key = 'a'
+3. Value: The data associated with a key in a dictionary.
+example_value = 1
+4. Length: The number of elements in a collection.
+example_len = len(example_dict)
+
+Hint
+dictionary_size
+Think about how you would count the number of items in a list. 
+Can the same approach be applied to a dictionary?
 """
 # My Code
 
