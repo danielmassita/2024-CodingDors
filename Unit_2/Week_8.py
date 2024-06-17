@@ -197,7 +197,8 @@ Can the same approach be applied to a dictionary?
 
         
 # Solution
-
+	def dictionary_size(d):
+		return len(d)
 
 # IA's Solutions
 
