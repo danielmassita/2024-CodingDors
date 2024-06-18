@@ -194,13 +194,23 @@ Think about how you would count the number of items in a list.
 Can the same approach be applied to a dictionary?
 """
 # My Code
-
+	def dictionary_size(d):
+	    tamanho_dicionario = len(d)
+	    return tamanho_dicionario
         
 # Solution
 	def dictionary_size(d):
 		return len(d)
 
 # IA's Solutions
+# 1. Using the `len()` function directly on the dictionary's items:
+def dictionary_size(d):
+    return len(d.items())
+# Explanation: This solution uses the `items()` method of dictionaries to get a view of all key-value pairs and then uses the `len()` function to determine the number of key-value pairs.
+# 2. Using a list comprehension:
+def dictionary_size(d):
+    return len([(k, v) for k, v in d.items()])
+# Explanation: This solution uses a list comprehension to generate a list of key-value pairs from the dictionary and then calculates the length of that list to determine the number of key-value pairs.
 
 
 
