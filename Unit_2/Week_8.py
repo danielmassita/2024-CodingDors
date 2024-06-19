@@ -217,18 +217,82 @@ def dictionary_size(d):
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/236
 """
+update_value
+Show Solution
+Given a dictionary, a key, and a value, update the value associated with the key in the dictionary. If the key does not exist, add the key-value pair to the dictionary.
 
+update_value({}, 'name', 'Gi') -> {'name': 'Gi'}
+update_value({'name': 'Gi'}, 'name', 'Leo') -> {'name': 'Leo'}
+update_value({'name': 'Gi'}, 'age', 25) -> {'name': 'Gi', 'age': 25}
+
+Theory
+update_value
+1. Dictionary: A dictionary is a collection of key-value pairs enclosed in curly braces 
+{}
+. Each key is unique and is associated with a value. 
+{"name": "John", "age": 25, "city": "New York"}
+2. Key: A key is a unique identifier in a dictionary used to access its associated value. Keys must be immutable, meaning they cannot be changed once created. 
+"name"
+3. Value: A value is a data that is associated with a particular key in a dictionary. Values can be of any data type including strings, numbers, lists, or even another dictionary. 
+"John"
+4. Update: To update a value in a dictionary, simply access the key and assign it a new value. If the key does not exist, it will add the key-value pair to the dictionary. 
+my_dict["name"] = "Jane"
+5. Add: To add a new key-value pair to a dictionary, simply assign a value to a new key. 
+my_dict["city"] = "Los Angeles"
+
+Hint
+update_value
+1. You will need to use the dictionary's built-in methods for updating or adding new key-value pairs.
+2. Pay attention to the data types of the key and value you are working with.
+3. Consider using conditional statements to check if the key already exists in the dictionary.
+4. Remember to assign the updated dictionary back to the original variable.
 """
 # My Code
-
+	def update_value(d, key, value):
+		if key in value:
+		  d[key] = value
+		  return d
+		else:
+		  d[key] = value
+		  return d
+		  
+		# Since we'll change the value either way, 
+		# you can do only as follow:
+		d[key] = value
+		return d
         
 # Solution
-
+	def update_value(d, key, value):
+		if key in value:
+		  d[key] = value
+		  return d
+		else:
+		  d[key] = value
+		  return d
+		  
+		# Since we'll change the value either way, 
+		# you can do only as follow:
+		d[key] = value
+		return d
 
 # IA's Solutions
-
+# Solution 1: Using dictionary methods
+def update_value(d, key, value):
+    d[key] = value
+    return d
+# Explanation: This solution directly assigns the key-value pair to the dictionary. If the key already exists, it will update the value; otherwise, it will add a new key-value pair to the dictionary.
+# Solution 2: Using the setdefault() method
+def update_value(d, key, value):
+    d.setdefault(key, value)
+    return d
+# Explanation: The setdefault() method checks if a key exists in the dictionary. If the key is present, it returns the corresponding value. If the key is not found, it adds the key with the specified value to the dictionary and returns the value.
+# Solution 3: Using the update() method
+def update_value(d, key, value):
+    d.update({key: value})
+    return d
+# Explanation: The update() method adds the key-value pair to the dictionary. If the key already exists, it will update the value; otherwise, it will add a new key-value pair to the dictionary.
 
 
 
