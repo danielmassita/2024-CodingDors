@@ -29,11 +29,20 @@ create_dictionary('rod', 12) -> {'rod': 12}
           return new_dict
 
 # IA's Solutions
-# Certainly! Here's an alternative solution using dictionary comprehension:
+# 1. Using the dict() constructor:
+def create_dictionary(name, age):
+    return dict([(name, age)])
+# This solution creates a dictionary by passing a list of key-value pairs to the dict() constructor.
+# 2. Using dictionary comprehension:
 def create_dictionary(name, age):
     return {name: age}
-# This solution is more concise and uses dictionary comprehension to directly create and return the dictionary with the key-value pair of 'name' and 'age'. It achieves the same result as the original solution but in a more compact form.
-
+# This solution uses dictionary comprehension to create the dictionary with the given name and age.
+# 3. Using the update() method:
+def create_dictionary(name, age):
+    dicionario = {}
+    dicionario.update({name: age})
+    return dicionario
+# This solution initializes an empty dictionary and then uses the update() method to add the key-value pair.
 
 
 
@@ -50,7 +59,13 @@ add_element_dictionary({'fe': 27}, 'leo', 41) -> {'fe': 27,'leo': 41}
 add_element_dictionary({}, 'rod', 12) -> {'rod': 12}
 """
 # My Code
-
+	def add_element_dictionary(students, name, age):
+	    students.update({name: age})
+	    return students
+# Ou então...	
+	def add_element_dictionary(students, name, age):
+	    students[name] = age
+	    return students
         
 # Solution
 def add_element_dictionary(students, name, age):
@@ -162,7 +177,9 @@ def find_person(d: dict, name: str) -> bool:
 def find_person(d: dict, name: str) -> bool:
     return name in d.keys()
 # Explanation: The `keys` method returns a view object that displays a list of all the keys in the dictionary. By checking if the name is in this list of keys, we can determine if the name exists in the dictionary. 
-
+# 4. Using 'in' directly in the return statement:
+def find_person(d: dict, name: str) -> bool:
+    return name in d
 
 
 
@@ -211,7 +228,17 @@ def dictionary_size(d):
 def dictionary_size(d):
     return len([(k, v) for k, v in d.items()])
 # Explanation: This solution uses a list comprehension to generate a list of key-value pairs from the dictionary and then calculates the length of that list to determine the number of key-value pairs.
-
+# 1. Using list comprehension to count key-value pairs:
+def dictionary_size(d):
+    return sum(1 for _ in d.items())
+# Explanation: This solution uses a list comprehension to iterate over the key-value pairs in the dictionary `d` using the `items()` method. The `sum` function is then used to count the number of key-value pairs by summing up 1 for each pair.
+# 2. Using a loop to count key-value pairs:
+def dictionary_size(d):
+    count = 0
+    for key in d:
+        count += 1
+    return count
+# Explanation: This solution uses a loop to iterate over the keys in the dictionary `d` and increments the `count` variable for each key, effectively counting the number of key-value pairs in the dictionary.
 
 
 
