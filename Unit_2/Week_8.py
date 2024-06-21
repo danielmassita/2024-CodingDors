@@ -325,9 +325,15 @@ def update_value(d, key, value):
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/230
 """
+sum_values_dict
+Show Solution
+Given a dictionary with integer values, return the sum of all the values.
 
+sum_values_dict({'a': 1}) -> 1
+sum_values_dict({'a': 1, 'b': 7}) -> 8
+sum_values_dict({'a': 1, 'b': 7, 'c': 9}) -> 17
 """
 # My Code
 
