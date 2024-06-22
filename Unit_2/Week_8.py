@@ -334,15 +334,56 @@ Given a dictionary with integer values, return the sum of all the values.
 sum_values_dict({'a': 1}) -> 1
 sum_values_dict({'a': 1, 'b': 7}) -> 8
 sum_values_dict({'a': 1, 'b': 7, 'c': 9}) -> 17
+
+Theory
+sum_values
+1. Dictionary: a collection of key-value pairs that are unordered, changeable, and indexed. Backtick example: 
+{'apple': 3, 'banana': 5, 'orange': 2}
+2. Key: the identifier used to access a value in a dictionary. Backtick example: 
+'apple'
+3. Value: the actual data that is associated with a key in a dictionary. Backtick example: 
+3
+4. Summation: the act of adding two or more numbers together to get a total. Backtick example: 
+2 + 3 + 5 = 10
+5. For loop: a programming construct that allows for iterating over elements in a collection such as a list, tuple, or dictionary. Backtick example: 
+fruits = {'apple': 3, 'banana': 5, 'orange': 2}
+for fruit in fruits:
+    print(fruits[fruit])
+
+Hint
+sum_values
+- You don't need to iterate over the keys, only over the values.
+- You can use the method 
+.values()
+ to get all the values in the dictionary.
+- You can use the built-in function 
+sum()
+ to add all the values together.
 """
 # My Code
+	def sum_values_dict(d):
+	    somatorio = 0
+	    for key in d:
+	        somatorio += d[key]
+	    return somatorio
 
         
 # Solution
-
+	def sum_values_dict(d):
+		sum = 0
+		for key in d:
+		  sum += d[key]
+		return sum
 
 # IA's Solutions
-
+# Certainly! Here is an alternative solution using the `sum()` function along with a list comprehension:
+def sum_values_dict(d):
+    return sum([value for value in d.values()])
+# Explanation:
+# 1. `d.values()` returns a view object that displays a list of all the values in the dictionary `d`.
+# 2. The list comprehension `[value for value in d.values()]` iterates over each value in the dictionary and creates a list of all the values.
+# 3. `sum()` function is then used to calculate the sum of all the values in the list.
+# 4. The total sum is returned as the result.
 
 
 
