@@ -376,7 +376,7 @@ sum()
 		return sum
 
 # IA's Solutions
-# Certainly! Here is an alternative solution using the `sum()` function along with a list comprehension:
+# Certainly! Here is an alternative solution using the `sum()e` function along with a list comprehension:
 def sum_values_dict(d):
     return sum([value for value in d.values()])
 # Explanation:
@@ -384,6 +384,19 @@ def sum_values_dict(d):
 # 2. The list comprehension `[value for value in d.values()]` iterates over each value in the dictionary and creates a list of all the values.
 # 3. `sum()` function is then used to calculate the sum of all the values in the list.
 # 4. The total sum is returned as the result.
+# 1. Using the `values()` method:
+def sum_values_dict(d):
+    return sum(d.values())
+# Explanation: The `values()` method returns a view object that displays a list of all the values in the dictionary. By using the `sum()` function, we can directly calculate the sum of all values in the dictionary.
+# 2. Using a generator expression:
+def sum_values_dict(d):
+    return sum(d[key] for key in d)
+# Explanation: This solution uses a generator expression to iterate over all keys in the dictionary and sum their corresponding values. It calculates the sum using the `sum()` function.
+# 3. Using the `reduce()` function from the `functools` module:
+from functools import reduce
+def sum_values_dict(d):
+    return reduce(lambda x, y: x + y, d.values())
+# Explanation: The `reduce()` function from the `functools` module is used to reduce the dictionary values to a single value (the sum of all values). It takes a lambda function that adds two values together and reduces the dictionary values to a single sum.
 
 
 
