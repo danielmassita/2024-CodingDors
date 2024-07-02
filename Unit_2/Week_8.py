@@ -402,18 +402,60 @@ def sum_values_dict(d):
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/235
 """
+square_values
+Show Solution
+Given a dictionary with integer values, return a new dictionary with the values squared.
 
+square_values({'a':1}) -> {'a': 1}
+square_values({'a':1, 'b': 5}) -> {'a': 1, 'b': 25}
+square_values({'a':1, 'b': 5, 'c': 9}) -> {'a': 1, 'b': 25, 'c': 9}
+
+Theory
+square_values
+1. Dictionary: A collection of key-value pairs, where each key is unique and immutable, and its corresponding value can be any type. 
+my_dict = {'apple': 1, 'banana': 2, 'orange': 3}
+2. Looping through a dictionary: We can use a for loop to iterate through the dictionary. By default, the for loop goes through the keys of the dictionary. We can access its value by using the key as an index. 
+for key in my_dict: print(key, my_dict[key])
+3. Dictionary comprehension: A concise way to create a new dictionary using an existing iterable (e.g., another dictionary, list, or tuple). 
+new_dict = {key: value**2 for key, value in my_dict.items()}
+. This creates a new dictionary by iterating through the key-value pairs of 
+my_dict
+, squaring each value, and mapping the original key to the squared value in the new dictionary.
+
+Hint
+square_values
+1. Use a loop to iterate through the original dictionary. 
+2. For each key-value pair, square the value and add the new key-value pair to the new dictionary. 
+3. Return the new dictionary.
 """
 # My Code
-
+def square_values(d):
+    squared_dict = {}
+    for key, value in d.items():
+        squared_dict[key] = value ** 2
+    return squared_dict
         
 # Solution
-
+def square_values(d):
+	for key in d:
+	  d[key] = d[key] ** 2
+	return d
 
 # IA's Solutions
-
+# Alternative Solution 1:
+def square_values(d):
+    return {key: value**2 for key, value in d.items()}
+# Explanation: This solution uses a dictionary comprehension to iterate through the key-value pairs in the input dictionary `d`. It then creates a new dictionary where the values are squared and mapped to the corresponding keys. This is a more concise and Pythonic way of achieving the same result as the original solution.
+# Alternative Solution 2:
+def square_values(d):
+    quadrado_dict = dict(map(lambda item: (item[0], item[1]**2), d.items()))
+    return quadrado_dict
+# ou
+def square_values(d):
+    return dict(map(lambda kv: (kv[0], kv[1]**2), d.items()))
+# Explanation: This solution uses the `map` function along with a lambda function to iterate through the key-value pairs in the input dictionary `d`. It squares the values and then creates a new dictionary where the values are squared and mapped to the corresponding keys. This is another way of achieving the desired result with a slightly different approach.
 
 
 
