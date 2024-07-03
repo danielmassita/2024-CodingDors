@@ -461,8 +461,49 @@ def square_values(d):
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/229
 """
+common_keys
+Show Solution
+Given two dictionaries, return True if at least one of the keys that are present in both dictionaries.
+
+common_keys({'a': 1}, {'a': 2}) -> True
+common_keys({'a': 1}, {'b': 2}) -> False
+common_keys({'a': 1, 'b': 2}, {'c': 3, 'b': 3}) -> True
+
+Theory
+common_keys
+1. 
+dictionaries
+: Dictionaries are a collection of key-value pairs. They are unordered and can be changed. To access a value from a dictionary, we use the corresponding key. Example: 
+{'apple': 2, 'banana': 3, 'orange': 1}
+.
+2. 
+List
+: A list is a collection of elements that are ordered and can be changed. We can access individual elements in a list using their index. Example: 
+[1, 2, 3, 4, 5]
+.
+3. 
+keys()
+: The keys() method in Python returns a view object that displays a list of all the keys in the dictionary. Example: 
+dict_name.keys()
+.
+4. 
+intersection()
+: The intersection() method in Python returns a set that contains the intersection of two or more sets. Example: 
+set1.intersection(set2)
+.
+5. 
+Iterables
+: In Python, an iterable is a collection of elements that can be iterated over, meaning we can go through each element one by one. Example: 
+[1, 2, 3, 4]
+ is an iterable.
+For the given problem, we can use the keys() method to retrieve the keys from both dictionaries and then use the intersection() method to find the common keys. Finally, we can convert the result into a list. Example:
+dict1 = {'apple': 2, 'banana': 3, 'orange': 1}
+dict2 = {'banana': 4, 'peach': 2, 'orange': 5}
+common_keys = list(dict1.keys() & dict2.keys())
+print(common_keys) # Output: ['banana', 'orange']
+
 
 """
 # My Code
