@@ -504,22 +504,39 @@ dict2 = {'banana': 4, 'peach': 2, 'orange': 5}
 common_keys = list(dict1.keys() & dict2.keys())
 print(common_keys) # Output: ['banana', 'orange']
 
-
+Hint
+common_keys
+- You will need to use the 
+keys()
+ method for dictionaries. 
+- Think about how to compare the keys in both dictionaries.
 """
 # My Code
 
         
 # Solution
-
+def common_keys(d1, d2):
+	for key in d1:
+	  if key in d2:
+	    return True
+	return False
 
 # IA's Solutions
+# Certainly! Here is an alternative solution using set intersection:
+def common_keys(d1, d2):
+    return bool(set(d1.keys()) & set(d2.keys()))
+# Explanation:
+# 1. `set(d1.keys())` creates a set of keys from the first dictionary `d1`.
+# 2. `set(d2.keys())` creates a set of keys from the second dictionary `d2`.
+# 3. By using the `&` operator (set intersection), we find the common keys between the two sets.
+# 4. If the intersection set is not empty, `bool()` will return True, indicating that there is at least one common key present in both dictionaries.
+# This solution provides a concise and efficient way to check for common keys between two dictionaries.
 
 
 
 
 
-
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/224
 """
 
 """
