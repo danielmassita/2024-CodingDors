@@ -538,16 +538,67 @@ def common_keys(d1, d2):
 
 # https://www.codingdors.com/problem/224
 """
+capitalize_keys
+Show Solution
+Given a dictionary with string keys, create a new dictionary with the same key-value pairs, but with the keys capitalized.
 
+capitalize_keys({'name': 'gi'}) -> {'Name': 'gi'}
+capitalize_keys({'sport': 'soccer'}) -> {'Sport': 'soccer'}
+capitalize_keys({'name': 'gi', 'sport': 'soccer'}) -> {'Name': 'gi', 'Sport': 'soccer'}
+
+Theory
+capitalize_keys
+1. Dictionary: A collection which is unordered, changeable, and indexed. The elements in a dictionary are written as 
+key: value
+ pairs.
+Example: 
+fruits = {
+  "apple": 2,
+  "banana": 5,
+  "orange": 3
+}
+2. For Loop: A structure in programming used to repeat a block of code for a specified number of times or for iterating over a sequence of data.
+Example:
+for i in range(5):
+  print(i)
+3. Dictionary Comprehension: A concise way to create dictionaries in Python, using a single line of code.
+Example: 
+squares = {x: x**2 for x in range(6)}
+4. String Methods: Built-in functions in Python for manipulating strings.
+Example:
+text = "hello, world"
+text_upper = text.upper()
+Output: "HELLO, WORLD"
+5. Capitalize Method: A string method in Python used to return a copy of the string with only the first character capitalized.
+Example:
+text = "hello, world"
+text_capitalized = text.capitalize()
+Output: "Hello, world"
+
+Hint
+capitalize_keys
+You can use a loop to iterate through the original dictionary and create a new dictionary with capitalized keys.
 """
 # My Code
 
         
 # Solution
-
+	def capitalize_keys(d):
+	  new_d = {}
+	  for key in d:
+	    new_d[key.title()] = d[key]
+	  return new_d
 
 # IA's Solutions
-
+# Certainly! Your solution is a valid and effective way to capitalize the keys in a dictionary. However, there are alternative ways to achieve the same result. Here are a few additional solutions in Python:
+# 1. Using dictionary comprehension:
+def capitalize_keys(d):
+    return {key.title(): value for key, value in d.items()}
+# This solution uses dictionary comprehension to iterate through the key-value pairs in the original dictionary and create a new dictionary with the capitalized keys.
+# 2. Using the `map` function:
+def capitalize_keys(d):
+    return dict(map(lambda kv: (kv[0].title(), kv[1]), d.items()))
+# In this solution, the `map` function is used to apply a lambda function to each key-value pair in the original dictionary, where the key is capitalized using the `title()` method.
 
 
 
