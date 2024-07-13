@@ -604,35 +604,137 @@ def capitalize_keys(d):
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/225
 """
+capitalize_values
+Show Solution
+Given a dictionary with string values, create a new dictionary with the same key-value pairs, but with the values capitalized.
 
+capitalize_values({'name': 'gi'}) -> {'name': 'Gi'}
+capitalize_values({'sport': 'soccer'}) -> {'sport': 'Soccer'}
+capitalize_values({'name': 'gi', 'sport': 'soccer'}) -> {'name': 'Gi', 'sport': 'Soccer'}
+
+Theory
+capitalize_values
+1. for loop: A for loop is a construct in Python that is used to iterate over a sequence of elements. 
+Example: 
+for i in range(10):
+    print(i)
+
+2. dictionary: A dictionary is a collection of key-value pairs, where each key maps to a corresponding value.
+Example: 
+my_dict = {"name": "Alice", "age": 30, "gender": "female"}
+
+3. capitalize: The capitalize() method in Python is used to convert the first character of a string to uppercase.
+Example: 
+my_string = "hello, world"
+capitalized_string = my_string.capitalize()
+print(capitalized_string)
+Output: Hello, world
+
+4. update: The update() method is used to add key-value pairs to a dictionary.
+Example: 
+my_dict = {"name": "Alice", "age": 30}
+my_dict.update({"gender": "female"})
+print(my_dict)
+Output: {"name": "Alice", "age": 30, "gender": "female"}
+
+Hint
+capitalize_values
+1. You will need to loop through the original dictionary to access the string values. 
+2. You can use the upper() method to capitalize each string value. 
+3. You can use a dictionary comprehension to create the new dictionary with the capitalized values.
 """
 # My Code
 
         
 # Solution
-
+	def capitalize_values(d):
+		for key in d:
+		  d[key] = d[key].title()
+		return d
 
 # IA's Solutions
+# Sure! Here is an alternative solution using dictionary comprehension:
+def capitalize_values(d):
+    return {key: value.title() for key, value in d.items()}
+# This solution uses dictionary comprehension to iterate over the key-value pairs in the original dictionary `d`. For each key-value pair, it capitalizes the value using the `title()` method and stores the new key-value pair in the new dictionary that is returned. The resulting dictionary has the same key-value pairs as the original dictionary, but with the values capitalized.
 
 
 
 
 
-
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/226
 """
+merge_dictionaries
+Show Solution
+Given two dictionaries, merge them into a single dictionary. If a key exists in both dictionaries, sum the values.
 
+merge_dictionaries({'a': 5, 'b': 3}, {'a': 2, 'c': 7}) -> {'a': 7, 'b': 3, 'c': 7}
+merge_dictionaries({'apple': 10}, {'banana': 5, 'apple': 2}) -> {'apple': 12, 'banana': 5}
+
+Theory
+merge_dictionaries
+1. Dictionaries: A dictionary is a collection of key-value pairs, where each key is unique. A dictionary is mutable which means its elements can be added, deleted, or modified. 
+   Example: 
+{'name': 'Bob', 'age': 30, 'country': 'USA'}
+
+2. Merging Dictionaries: Merging two dictionaries means adding all the key-value pairs of one dictionary into another. If both dictionaries have a key in common, the value of that key in the second dictionary will overwrite the value of that key in the first dictionary.
+   Example: 
+   dict1 = {'a': 1, 'b': 2}
+   dict2 = {'c': 3, 'd': 4}
+   dict1.update(dict2)
+   print(dict1)  # Output: {'a': 1, 'b': 2, 'c': 3, 'd': 4}
+   
+3. Summing Values: To sum the values of two keys that have the same name in two dictionaries, we can simply add the values together.
+   Example: 
+   dict1 = {'a': 2, 'b': 4}
+   dict2 = {'c': 3, 'b': 6}
+   dict3 = {}
+   for key in dict1:
+       if key in dict2:
+           dict3[key] = dict1[key] + dict2[key]
+       else:
+           dict3[key] = dict1[key]
+   for key in dict2:
+       if key not in dict1:
+           dict3[key] = dict2[key]   
+   print(dict3)  # Output: {'a': 2, 'b': 10, 'c': 3}
+
+Hint
+merge_dictionaries
+- Use a loop to iterate over the keys in one dictionary
+- Check if the key exists in the other dictionary
+- If it does, add the values and store in the merged dictionary with the key
+- If it doesn't, simply store the key-value pair in the merged dictionary
+- Repeat the process for the keys in the other dictionary that haven't been checked yet
 """
 # My Code
 
         
 # Solution
-
+	def merge_dictionaries(d1, d2):
+		new_dict = {}
+		for key in d1:
+		  if key in d2:
+		    new_dict[key] = d1[key] + d2[key]
+		  else:
+		    new_dict[key] = d1[key]
+		for key2 in d2:
+		  if key2 not in new_dict:
+		    new_dict[key2] = d2[key2]
+		return new_dict
 
 # IA's Solutions
-
+# Certainly! Your solution is correct and works as expected. Here is an alternative solution using dictionary comprehension:
+def merge_dictionaries(d1, d2):
+    new_dict = {key: d1.get(key, 0) + d2.get(key, 0) for key in set(d1.keys()).union(d2.keys())}
+    return new_dict
+# Explanation:
+# 1. We use dictionary comprehension to iterate over the union of keys from both dictionaries (d1 and d2).
+# 2. For each key, we use the `get` method to retrieve the value for that key from both dictionaries. If the key is not present in a dictionary, we default to 0.
+# 3. We sum the values for the key from both dictionaries and store the result in the new dictionary.
+# This solution is more concise and achieves the same result as your original solution.
 
 
 
