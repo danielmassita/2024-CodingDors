@@ -740,25 +740,72 @@ def merge_dictionaries(d1, d2):
 
 
 
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/223
 """
+invert_dictionary
+Show Solution
+Given a dictionary, return a new dictionary with keys and values swapped.
 
+invert_dictionary({'a': 1, 'b': 2}) -> {1: 'a', 2: 'b'}
+invert_dictionary({'apple': 'fruit', 'carrot': 'vegetable'}) -> {'fruit': 'apple', 'vegetable': 'carrot'}
+invert_dictionary({}) -> {}
+
+Theory
+invert_dictionary
+1. Dictionary: A collection of key-value pairs, where each key is unique. They are enclosed in curly braces {}.  
+'my_dict = {'apple': 2, 'banana': 4}'
+2. Looping through a dictionary: You can loop through a dictionary by using a for loop. 
+'for key, value in my_dict.items(): print(key, value)'
+3. Swapping keys and values: To swap keys and values in a dictionary, you can use a dictionary comprehension. 
+'{value: key for key, value in my_dict.items()}'
+4. Dictionary comprehension: A shorthand way to create a new dictionary based on an existing dictionary. 
+'squared_dict = {num: num*num for num in range(10)}'
+5. items() method: A method that returns a list of tuple pairs, where each tuple contains a key-value pair in the dictionary. 
+my_dict.items()
+
+Hint
+invert_dictionary
+- You will need to use a loop to iterate over the key-value pairs in the original dictionary and create a new dictionary where the keys and values are swapped. 
+- You can use the dictionary method items()  to get the key-value pairs.
 """
 # My Code
 
         
 # Solution
-
+	def invert_dictionary(d):
+		new_dict = {}
+		for key in d:
+		  old_value = d[key]
+		  new_dict[old_value] = key
+		return new_dict
 
 # IA's Solutions
+# 1. Using dictionary comprehension:
+def invert_dictionary(d):
+    return {v: k for k, v in d.items()}
+# This solution utilizes dictionary comprehension to create a new dictionary with swapped keys and values. It is concise and efficient.
+# 2. Using zip and items method:
+def invert_dictionary(d):
+    return dict(zip(d.values(), d.keys()))
+# This solution uses the zip function to pair values with keys and then converts the pairs into a dictionary. It is a simple and readable approach.
+# 3. Using dict.items() and reversed iteration:
+def invert_dictionary(d):
+    return {v: k for k, v in reversed(list(d.items()))}
+# This solution reverses the key-value pairs in the original dictionary by converting them into a list and then using dictionary comprehension to create the inverted dictionary.
 
 
 
 
 
-
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/227
 """
+filter_by_value
+Show Solution
+Given a dictionary and a value, return a new dictionary containing only the key-value pairs with the given value.
+
+filter_by_value({'a': 1, 'b': 2, 'c': 1}, 1) -> {'a': 1, 'c': 1}
+filter_by_value({'apple': 'fruit', 'carrot': 'vegetable', 'banana': 'fruit'}, 'fruit') -> {'apple': 'fruit', 'banana': 'fruit'}
+
 
 """
 # My Code
