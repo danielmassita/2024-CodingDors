@@ -806,70 +806,252 @@ Given a dictionary and a value, return a new dictionary containing only the key-
 filter_by_value({'a': 1, 'b': 2, 'c': 1}, 1) -> {'a': 1, 'c': 1}
 filter_by_value({'apple': 'fruit', 'carrot': 'vegetable', 'banana': 'fruit'}, 'fruit') -> {'apple': 'fruit', 'banana': 'fruit'}
 
+Theory
+filter_by_value
+1. Dictionary comprehension - It is a concise way to create a new dictionary from an existing iterable where you can specify the key-value pairs. 
+Example - 
+my_dict = {key: value**2 for key, value in {'a':1, 'b':2, 'c':3}.items()}
+2. Dictionary items method - It returns a view object that contains the key-value pairs of the dictionary as tuples.
+Example - 
+my_dict = {1: 'one', 2: 'two', 3:'two'}
+my_items = my_dict.items()
+3. Filter function - It returns an iterable that contains only elements that pass the condition specified in the function.
+Example - 
+my_list = [1, 2, 3, 4]
+filtered_list = filter(lambda x: x % 2 == 0, my_list)
+4. List comprehension - It is a concise way to create a new list from an existing iterable where you can specify the elements based on condition.
+Example - 
+my_list = [x for x in range(10) if x % 2 == 0]
+5. Lambda function - It is an anonymous function that can take any number of arguments and can have any expression as its body.
+Example - 
+add = lambda x, y : x + y
 
+Hint
+filter_by_value
+Use dictionary comprehension to iterate through the original dictionary and filter based on the given value.
 """
 # My Code
 
         
 # Solution
-
+	def filter_by_value(d, value):
+		new_d = {}
+		for key in d:
+		  if d[key] == value:
+		    new_d[key] = value
+		return new_d
 
 # IA's Solutions
+# 1. Using dictionary comprehension:
+def filter_by_value(d, value):
+    return {key: val for key, val in d.items() if val == value}
+# With this solution, we use a dictionary comprehension to iterate over the key-value pairs in the input dictionary `d`, and only include those pairs where the value matches the specified `value`.
+# 2. Using the filter() function:
+def filter_by_value(d, value):
+    return dict(filter(lambda item: item[1] == value, d.items()))
+# In this solution, we use the `filter()` function to filter the items of the dictionary `d` based on the condition that the value of each item equals the specified `value`. We then convert the filtered items back into a dictionary using the `dict()` function.
+# Both of these alternative solutions achieve the same result as the original solution you provided, but in a more concise manner using Python's language features.
 
 
 
 
 
-
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/228
 """
+keys_of_max_value
+Show Solution
+Given a dictionary with integer values, return a list of keys with the maximum value.
 
+keys_of_max_value({'a': 1, 'b': 2, 'c': 1}) -> ['b']
+keys_of_max_value({'apple': 3, 'banana': 5, 'cherry': 5}) -> ['banana', 'cherry']
+
+Theory
+keys_of_max_value
+1. Dictionary: A collection of key-value pairs that are unordered, changeable and indexed. 
+{"apple": 5, "banana": 2, "cherry": 3}
+2. Keys: The unique identifiers in a dictionary that helps to associate the values with that particular key. 
+"apple"
+3. Values: The data or information associated with a key in a dictionary. 
+5
+4. Maximum Value: The highest value in a collection of values. Example: In 
+[3, 5, 7, 2, 8], the maximum value is 8.
+5. List: An ordered collection of elements that are changeable and indexed. 
+[1, 2, 3, 4]
+
+Hint
+keys_of_max_value
+- You will need to iterate through the dictionary to find the maximum value.
+- You may need to keep track of the current maximum value and update it as you iterate.
+- You will also need to keep track of the keys that correspond to the maximum value.
+- Consider using a loop and conditionals to accomplish this task.
 """
 # My Code
 
         
 # Solution
-
+	def keys_of_max_value(d):
+		keys_list = []
+		max_value = max(d.values())
+		for key in d:
+		  if d[key] == max_value:
+		    keys_list.append(key)
+		return keys_list
 
 # IA's Solutions
+# Certainly! Your solution is already quite efficient and straightforward. However, I can provide an alternative solution using list comprehension, which is a more concise way to achieve the same result:
+def keys_of_max_value(d):
+    max_value = max(d.values())
+    return [key for key, value in d.items() if value == max_value]
+# In this alternative solution, a list comprehension is used to iterate through the key-value pairs in the dictionary `d`. For each pair, the key is added to the list if its corresponding value matches the maximum value found in the dictionary. The final list of keys with the maximum value is then returned.
 
 
 
-# https://www.codingdors.com/problem/
+
+
+# https://www.codingdors.com/problem/231
 """
+sorted_keys
+Show Solution
+Given a dictionary, return a list of its keys sorted in ascending order.
 
+sorted_keys({'c': 1, 'a': 2, 'b': 1}) -> ['a', 'b', 'c']
+sorted_keys({'banana': 5, 'apple': 3, 'cherry': 7}) -> ['apple', 'banana', 'cherry']
+
+Theory
+sorted_keys
+1. Dictionary - a collection of key:value pairs enclosed in curly braces 
+{}
+. Keys must be unique and immutable while values can be of any data type. If a key is repeated, the later value replaces the former.
+Example: 
+{'apple': 3, 'banana': 2, 'cherry': 4}
+2. List - an ordered collection of elements enclosed in square brackets 
+[]
+. Each element is separated by a comma. Lists are mutable, meaning that their elements can be changed.
+Example: 
+[10, 20, 30, 40]
+3. Sorted - a built-in Python function that sorts a collection in ascending order. It can be used with both lists and dictionaries. It takes an iterable as an argument but returns a list.
+Example: 
+sorted([3, 1, 4, 2])
+ returns 
+[1, 2, 3, 4]
+4. Keys - the first part of a key:value pair in a dictionary. They serve as unique identifiers for each value in the dictionary. Keys must be immutable and unique.
+Example: In 
+{'apple': 3, 'banana': 2}
+, 'apple' and 'banana' are the keys.
+5. Ascending Order - a sorting order in which elements are arranged from smallest to largest. 
+Example: When sorting 
+[3, 1, 4, 2]
+ in ascending order, the result is 
+[1, 2, 3, 4]
+
+Hint
+sorted_keys
+- You need to iterate through all the keys in the dictionary
+- You can use the keys() method to get a list of all the keys in the dictionary
+- Consider using the sorted() function to order the keys in ascending order.
 """
 # My Code
 
         
 # Solution
-
+	def sorted_keys(d):
+		keys_list = sorted(d.keys())
+		return keys_list
 
 # IA's Solutions
+# 1. Using sorted() function directly on the dictionary:
+def sorted_keys(d):
+    keys_list = sorted(d)
+    return keys_list
+# Explanation: In this solution, we directly pass the dictionary `d` to the sorted() function without calling the keys() method. The sorted() function automatically sorts the keys of the dictionary and returns them as a list in ascending order.
+# 2. Using list comprehension to sort keys:
+def sorted_keys(d):
+    keys_list = [key for key in sorted(d.keys())]
+    return keys_list
+# Explanation: In this solution, we use list comprehension to iterate over the sorted keys of the dictionary. By calling sorted(d.keys()), we obtain a sorted list of keys, and then we iterate over this sorted list to create a new list (keys_list) containing the keys in ascending order.
+# Both of these alternative solutions achieve the same result as the original solution provided.
 
 
 
 
 
-
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/234
 """
+remove_key
+Show Solution
+Given a dictionary and a key, return a new dictionary with the specified key removed.
 
+remove_key({'a': 1, 'b': 2, 'c': 3}, 'a') -> {'b': 2, 'c': 3}
+remove_key({'apple': 'fruit', 'banana': 'fruit', 'carrot': 'vegetable'}, 'banana') -> {'apple': 'fruit', 'carrot': 'vegetable'}
+
+Theory
+remove_key
+1. Dictionaries: A dictionary is a collection of key-value pairs. It is similar to a list or an array, but the items are accessed by their key rather than their position. 
+{"apple": 2, "banana": 5, "orange": 3}
+ is an example of a dictionary where "apple", "banana", and "orange" are the keys, and 2, 5, and 3 are their respective values.
+
+2. Keys and Values: In a dictionary, a key is a unique identifier for a value. Keys can be of any immutable data type such as strings, integers, or tuples. A value is the data associated with a given key in a dictionary. A key and its value are separated by a colon and each key-value pair is separated by a comma. For example, in 
+{"apple": 2, "banana": 5, "orange": 3}
+, "apple", "banana", and "orange" are the keys, and 2, 5, and 3 are the values.
+
+3. Dictionary Comprehension: It is a concise way to create a new dictionary from an iterable by specifying the key-value pairs in a single expression. The general syntax is {key: value for (key, value) in iterable}. For example, 
+{x: x**2 for x in range(5)}
+ would result in 
+{0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
+.
+
+4. The 
+dict.pop()
+ Method: It is used to remove and return an element from a dictionary for a given key. The syntax is 
+dict.pop(key[, default])
+. If the key is present in the dictionary, the method removes and returns the value for that key. If the key is not found, it returns the default value, or raises a 
+KeyError
+ if no default was given. For example, 
+fruit_counts = {"apple": 2, "banana": 5, "orange": 3}
+, 
+fruit_counts.pop("banana")
+ would return 
+5
+ and 
+fruit_counts
+ would now be 
+{"apple": 2, "orange": 3}
+ without the "banana" key-value pair.
+
+Hint
+remove_key
+1. You will need to use the 'del' keyword to remove the key-value pair from the dictionary.
+2. You can create a new dictionary to store the remaining key-value pairs.
+3. Remember to properly format your function definition, including specifying the parameter types and return type.
 """
 # My Code
 
         
 # Solution
-
+	def remove_key(d, key):
+		d.pop(key)
+		return d
 
 # IA's Solutions
+# Sure! Here are two alternative solutions in Python:
+# Solution 1: Using dict comprehension
+def remove_key(d, key):
+    return {k: v for k, v in d.items() if k != key}
+# In this solution, we create a new dictionary using dict comprehension.
+# We iterate over the items in the original dictionary and only include items where the key is not equal to the specified key.
+# Solution 2: Using copy and del
+def remove_key(d, key):
+    new_dict = d.copy()
+    del new_dict[key]
+    return new_dict
+# In this solution, we first make a shallow copy of the original dictionary using the copy() method.
+# Then we use the del statement to remove the specified key from the new dictionary.
 
 
 
 
 
-
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/237
 """
 
 """
