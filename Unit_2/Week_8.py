@@ -1053,54 +1053,193 @@ def remove_key(d, key):
 
 # https://www.codingdors.com/problem/237
 """
+dict_intersection
+Show Solution
+Given two dictionaries, return a new dictionary containing the key-value pairs that are present in both dictionaries.
 
+dict_intersection({'a': 1, 'b': 2, 'c': 3}, {'a': 1, 'b': 2, 'd': 4}) -> {'a': 1, 'b': 2}
+dict_intersection({'apple': 'fruit', 'carrot': 'vegetable'}, {'banana': 'fruit', 'apple': 'fruit'}) -> {'apple': 'fruit'}
+
+Theory
+dict_intersection
+1. Dictionaries: A dictionary is an unordered collection of key-value pairs, where each key must be unique. 
+{1: 'one', 2: 'two', 3: 'three'}
+2. Key-Value Pairs: A key-value pair is a set of two objects, one representing the key and the other representing the value. 
+{'name': 'John', 'age': 30, 'city': 'New York'}
+3. Intersection: The intersection of two sets is the set of elements which are common to both sets. In the context of dictionaries, the intersection of two dictionaries is the set of key-value pairs that are present in both dictionaries. 
+{1, 2, 3} ∩ {2, 3, 4} = {2, 3}
+4. New dictionary: A new dictionary is a dictionary that is created by taking elements from one or more existing dictionaries and adding or modifying elements as needed.
+new_dict = {}
+5. Iterating through a dictionary: To iterate through a dictionary means to loop over all the keys or key-value pairs of the dictionary and perform some operation on each one. 
+for key in my_dict:
+    value = my_dict[key]
+    print(key, value)
+
+Hint
+dict_intersection
+- You need to create a new empty dictionary to start.
+- You can use a loop to iterate over one of the dictionaries.
+- Use the 'in' keyword to check if the current key is present in both dictionaries.
+- If the key is present in both dictionaries, add the key-value pair to the new dictionary.
 """
 # My Code
 
         
 # Solution
-
+	def dict_intersection(d1, d2):
+		new_d = {}
+		for key in d1:
+		  if key in d2 and d1[key] == d2[key]:
+		    new_d[key] = d1[key]
+		return new_d
 
 # IA's Solutions
+# Certainly! Here's an alternative solution using dictionary comprehension:
+def dict_intersection(d1, d2):
+    return {key: d1[key] for key in d1 if key in d2 and d1[key] == d2[key]}
+# This solution is more concise as it uses dictionary comprehension to create the new dictionary in one line. The dictionary comprehension iterates over the keys in `d1`, checks if the key is present in `d2` and if the values associated with the keys are the same in both dictionaries. If both conditions are met, the key-value pair is added to the new dictionary.
 
 
 
 
 
-
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/238
 """
+count_values
+Show Solution
+Given a dictionary, return a new dictionary where the keys are the unique values from the input dictionary and the values are the number of occurrences of each unique value.
 
+count_values({'a': 1, 'b': 2, 'c': 1, 'd': 2, 'e': 3}) -> 1: 2, 2: 2, 3: 1}
+count_values({'apple': 'fruit', 'carrot': 'vegetable', 'banana': 'fruit'}) -> {'fruit': 2, 'vegetable': 1}
+
+Theory
+count_values
+1. Dictionary data structure - A dictionary is an unordered collection of key-value pairs. Each key-value pair is separated by a colon, and individual key-value pairs are separated by commas. 
+{'apple': 3, 'banana': 2, 'grape': 4}
+
+2. Looping through dictionaries - You can loop through all the key-value pairs in a dictionary by using a for loop. 
+for key, value in my_dict.items():
+
+3. If-else statements - If-else statements allow you to check if a condition is true or false, and execute different code depending on the result. 
+if n % 2 == 0: result = "even" else: result = "odd"
+
+4. Counting occurrences - You can count the number of occurrences of a value in a list by using the count() method. 
+fruits_list.count('apple')
+
+5. Creating a new dictionary - You can create a new dictionary by using a dictionary comprehension. 
+{key: value for key, value in my_list}
+
+Hint
+count_values
+- You will need to use a loop to iterate over the key-value pairs in the input dictionary
+- To check if a value is unique or not, you can use a conditional statement and a membership test to check if the value is already in the new dictionary as a key
+- If a value is not in the new dictionary, add it as a key with a value of 1
+- If a value is already in the new dictionary, increment the value of the key by 1 each time it is found in the input dictionary
+- Finally, return the new dictionary that you have created
 """
 # My Code
 
         
 # Solution
-
+	def count_values(d):
+		result = {}
+		for value in d.values():
+		  if value in result:
+		    result[value] += 1
+		  else:
+		    result[value] = 1
+		return result
 
 # IA's Solutions
+# Certainly! Here is an alternative solution to the problem in Python using the Counter class from the collections module:
+from collections import Counter
+def count_values(d):
+    return dict(Counter(d.values()))
+# Test the function with the provided examples
+print(count_values({'a': 1, 'b': 2, 'c': 1, 'd': 2, 'e': 3}))  # Output: {1: 2, 2: 2, 3: 1}
+print(count_values({'apple': 'fruit', 'carrot': 'vegetable', 'banana': 'fruit'}))  # Output: {'fruit': 2, 'vegetable': 1}
+# Explanation:
+# 1. We import the Counter class from the collections module, which provides a convenient way to count the occurrences of elements in a list (or in this case, values in a dictionary).
+# 2. Inside the `count_values` function, we create a Counter object using `Counter(d.values())`, which counts the occurrences of each unique value in the input dictionary `d`.
+# 3. The result of the Counter is then converted back to a regular dictionary using the dict() constructor, which gives us the desired output format where keys are unique values and values are the counts of their occurrences.
 
 
 
 
 
-
-
-
-
-# https://www.codingdors.com/problem/
+# https://www.codingdors.com/problem/239
 """
+nested_value
+Show Solution
+Given a nested dictionary and a list of keys, return the value at the specified depth in the nested dictionary. If any key is not present, return False.
 
+nested_value({'a': {'b': {'c': 1}}}, ['a', 'b', 'c']) -> 1
+nested_value({'key': 'value'}, ['key', 'missing']) -> False
+nested_value({'fruit': {'apple': {'color': 'red'}}}, ['fruit', 'apple', 'color']) -> 'red'
+
+Theory
+nested_value
+1. Recursion - A function calling itself during its execution. 
+Example: 
+def factorial(n):
+    if n == 1:
+        return 1
+    else:
+        return n * factorial(n-1)
+
+2. Dictionary - A collection of key:value pairs enclosed in curly braces {}.
+Example:
+my_dict = {'name': 'John', 'age': 25, 'city': 'New York'}
+
+3. Nested Dictionary - A dictionary within a dictionary.
+Example:
+my_dict = {'person':{'name': 'John', 'age': 25, 'city': 'New York'}, 'job':{'title': 'Software Engineer', 'experience': 2}}
+
+4. List - A collection of elements enclosed in square brackets [].
+Example:
+my_list = [1,2,3,4,5]
+
+5. Key - An identifier that is used to access the value in a dictionary.
+Example:
+my_dict = {'name': 'John', 'age': 25, 'city': 'New York'}
+print(my_dict['name']) #Output: John
+
+6. Value - Data associated with a key in a dictionary.
+Example:
+my_dict = {'name': 'John', 'age': 25, 'city': 'New York'}
+print(my_dict['age']) #Output: 25
+
+Hint
+nested_value
+1. Identify the depth of the required value in the nested dictionary.
+2. Traverse the dictionary using the list of keys provided.
+3. Check if each key exists in the dictionary at each level.
+4. If any key is not present, return None.
+5. If all keys are present, return the value at the specified depth in the nested dictionary.
 """
 # My Code
 
         
 # Solution
-
+	def nested_value(d, keys):
+		for key in keys:
+		  if key in d:
+		    d = d[key]
+		  else:
+		    return False
+		return d
 
 # IA's Solutions
-
-
+# Sure! Here is an alternative solution using recursion:
+def nested_value(d, keys):
+    if not keys:
+        return False
+    if len(keys) == 1:
+        return d.get(keys[0], False)
+    if keys[0] not in d:
+        return False
+    return nested_value(d[keys[0]], keys[1:])
+# In this alternative solution, the function `nested_value` recursively calls itself with the nested dictionary and the remaining keys in the list. This solution also handles cases where the list of keys is empty or has only one key. If the key is not present in the dictionary, it returns False. Otherwise, it continues to the next level of nesting until the specified depth is reached or a key is missing.
 
 
 
