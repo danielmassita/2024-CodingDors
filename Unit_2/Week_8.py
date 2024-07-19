@@ -19,9 +19,15 @@ create_dictionary('leo', 41) -> {'leo': 41}
 create_dictionary('rod', 12) -> {'rod': 12}
 """
 # My Code
-        def create_dictionary(name, age):
-            dicionario = {name: age}
-            return dicionario
+	def create_dictionary(name, age):
+	    dicionario_nome_idade = {name: age}
+	    return dicionario_nome_idade
+	def create_dictionary(name, age):
+	    return {name: age}
+	def create_dictionary(name, age):
+	    dicio = {}
+	    dicio.update({name: age})
+	    return dicio
         
 # Solution
         def create_dictionary(name, age):
