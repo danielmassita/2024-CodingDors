@@ -84,7 +84,15 @@ def add_element_dictionary(students, name, age):
     students.update({name: age})
     return students
 # In this solution, `update` method takes a dictionary with one key-value pair as an argument and updates the original `students` dictionary with the new key-value pair. Finally, it returns the updated dictionary.
-
+# 1. Using bracket notation to add the key-value pair to the dictionary:
+def add_element_dictionary(students, name, age):
+    students[name] = age
+    return students
+# Explanation: In this solution, we directly assign the value 'age' to the key 'name' in the 'students' dictionary using bracket notation. This modifies the dictionary in place and achieves the desired result.
+# 2. Using dictionary unpacking to create a new dictionary with the added key-value pair:
+def add_element_dictionary(students, name, age):
+    return {**students, name: age}
+# Explanation: In this solution, we use dictionary unpacking (**students) to create a new dictionary that includes all the key-value pairs from the 'students' dictionary. We then add the new key-value pair 'name: age' to this new dictionary and return the updated dictionary.
 
 
 
@@ -95,12 +103,18 @@ return_value
 Show Solution
 We have a dictionary 'd' that contains as key the fruit and the value its price. Given a string 'fruit', return the price of this fruit in the dictionary.
 
-return_value({'apple': 0.5, 'banana': 0.25, 'cherry': 0.75}, 'apple') -> 0.5
+return_value({'apple': 0.5, 'banana': 0.25, 'cherry': 0.75}, 'apple')e -> 0.5
 return_value({'apple': 0.5, 'banana': 0.25, 'cherry': 0.75}, 'cherry') -> 0.75
 """
 # My Code
         def return_value(d, fruit):
             return d[fruit]
+
+	
+	def return_value(d, fruit):
+		price = d[fruit]
+		return price
+		
 # ou então
         def return_value(d, fruit):
             try:
