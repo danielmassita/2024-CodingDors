@@ -451,17 +451,17 @@ square_values
 3. Return the new dictionary.
 """
 # My Code
-def square_values(d):
-    squared_dict = {}
-    for key, value in d.items():
-        squared_dict[key] = value ** 2
-    return squared_dict
+	def square_values(d):
+	    squared_dict = {}
+	    for key, value in d.items():
+	        squared_dict[key] = value ** 2
+	    return squared_dict
         
 # Solution
-def square_values(d):
-	for key in d:
-	  d[key] = d[key] ** 2
-	return d
+	def square_values(d):
+		for key in d:
+		  d[key] = d[key] ** 2
+		return d
 
 # IA's Solutions
 # Alternative Solution 1:
@@ -535,11 +535,11 @@ keys()
 
         
 # Solution
-def common_keys(d1, d2):
-	for key in d1:
-	  if key in d2:
-	    return True
-	return False
+	def common_keys(d1, d2):
+		for key in d1:
+		  if key in d2:
+		    return True
+		return False
 
 # IA's Solutions
 # Certainly! Here is an alternative solution using set intersection:
