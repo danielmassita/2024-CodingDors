@@ -666,6 +666,10 @@ capitalize_values
 3. You can use a dictionary comprehension to create the new dictionary with the capitalized values.
 """
 # My Code
+def capitalize_values(d):
+	for key in d:
+	  d[key] = d[key].title()
+	return d
 
         
 # Solution
