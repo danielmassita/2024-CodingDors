@@ -532,7 +532,11 @@ keys()
 - Think about how to compare the keys in both dictionaries.
 """
 # My Code
-
+def common_keys(d1, d2):
+	for chave in dic1:
+	    if chave in dic2:
+	        return True
+    return False
         
 # Solution
 	def common_keys(d1, d2):
