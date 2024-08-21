@@ -532,11 +532,11 @@ keys()
 - Think about how to compare the keys in both dictionaries.
 """
 # My Code
-def common_keys(d1, d2):
-	for chave in dic1:
-	    if chave in dic2:
-	        return True
-    return False
+	def common_keys(d1, d2):
+		for chave in dic1:
+		    if chave in dic2:
+		        return True
+	    return False
         
 # Solution
 	def common_keys(d1, d2):
@@ -604,7 +604,13 @@ capitalize_keys
 You can use a loop to iterate through the original dictionary and create a new dictionary with capitalized keys.
 """
 # My Code
-
+	def capitalize_keys(d):
+	    novo_dici = {}
+	    
+	    for key in d:
+	        novo_dici[key.title()] = d[key]
+	    
+	    return novo_dici
         
 # Solution
 	def capitalize_keys(d):
