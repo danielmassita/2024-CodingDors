@@ -608,7 +608,7 @@ You can use a loop to iterate through the original dictionary and create a new d
 	    novo_dici = {}
 	    
 	    for key in d:
-	        novo_dici[key.title()] = d[key]
+		novo_dici[key.title()] = d[key]
 	    
 	    return novo_dici
         
@@ -676,11 +676,11 @@ capitalize_values
 3. You can use a dictionary comprehension to create the new dictionary with the capitalized values.
 """
 # My Code
-def capitalize_values(d):
-	for key in d:
-	  d[key] = d[key].title()
-	return d
-
+	def capitalize_values(d):
+	    novo_dici = d	    
+	    for key in d:
+	        novo_dici[key] = novo_dici[key].capitalize()
+	    return novo_dici
         
 # Solution
 	def capitalize_values(d):
