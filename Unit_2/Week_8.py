@@ -817,7 +817,15 @@ invert_dictionary
 - You can use the dictionary method items()  to get the key-value pairs.
 """
 # My Code
-
+	def invert_dictionary(d):
+	    novo_dicio = {}
+	    
+	    for key in d:
+		    valor_antigo = d[key]
+		    novo_dicio[valor_antigo] = key
+	
+	    return novo_dicio
+		
         
 # Solution
 	def invert_dictionary(d):
