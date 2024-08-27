@@ -744,20 +744,20 @@ merge_dictionaries
 - Repeat the process for the keys in the other dictionary that haven't been checked yet
 """
 # My Code
-def merge_dictionaries(d1, d2):
-    novo_dicionario = {}
-    
-    for key in d1:
-        if key in d2:
-            novo_dicionario[key] = d1[key] + d2[key]
-        else:
-            novo_dicionario[key] = d1[key]
-
-    for key2 in d2:
-        if key2 not in novo_dicionario:
-            novo_dicionario[key2] = d2[key2]
-
-    return novo_dicionario
+	def merge_dictionaries(d1, d2):
+	    novo_dicionario = {}
+	    
+	    for key in d1:
+	        if key in d2:
+	            novo_dicionario[key] = d1[key] + d2[key]
+	        else:
+	            novo_dicionario[key] = d1[key]
+	
+	    for key2 in d2:
+	        if key2 not in novo_dicionario:
+	            novo_dicionario[key2] = d2[key2]
+	
+	    return novo_dicionario
 
 	
 # Solution
