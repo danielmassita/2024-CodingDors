@@ -887,7 +887,12 @@ filter_by_value
 Use dictionary comprehension to iterate through the original dictionary and filter based on the given value.
 """
 # My Code
-
+def filter_by_value(d, value):
+	novo_dicio = {}
+	for key in d:
+	  if d[key] == value:
+	    novo_dicio[key] = value
+	return novo_dicio
         
 # Solution
 	def filter_by_value(d, value):
