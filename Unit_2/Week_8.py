@@ -887,12 +887,12 @@ filter_by_value
 Use dictionary comprehension to iterate through the original dictionary and filter based on the given value.
 """
 # My Code
-def filter_by_value(d, value):
-	novo_dicio = {}
-	for key in d:
-	  if d[key] == value:
-	    novo_dicio[key] = value
-	return novo_dicio
+	def filter_by_value(d, value):
+		novo_dicio = {}
+		for key in d:
+		  if d[key] == value:
+		    novo_dicio[key] = value
+		return novo_dicio
         
 # Solution
 	def filter_by_value(d, value):
@@ -947,6 +947,15 @@ keys_of_max_value
 - Consider using a loop and conditionals to accomplish this task.
 """
 # My Code
+	...
+	...
+	def keys_of_max_value(d):
+		keys_list = []
+		max_value = max(d.values())
+		for key in d:
+		  if d[key] == max_value:
+		    keys_list.append(key)
+		return keys_list
 
         
 # Solution
