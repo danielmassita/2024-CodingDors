@@ -1021,7 +1021,10 @@ sorted_keys
 - Consider using the sorted() function to order the keys in ascending order.
 """
 # My Code
-
+	...
+	def sorted_keys(d):
+		lista_chaves = sorted(d.keys())
+		return lista_chaves
         
 # Solution
 	def sorted_keys(d):
