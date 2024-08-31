@@ -1098,6 +1098,10 @@ remove_key
 3. Remember to properly format your function definition, including specifying the parameter types and return type.
 """
 # My Code
+	...
+	def remove_key(d, key):
+		d.pop(key)
+		return d
 
         
 # Solution
