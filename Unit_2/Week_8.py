@@ -948,7 +948,6 @@ keys_of_max_value
 """
 # My Code
 	...
-	...
 	def keys_of_max_value(d):
 		keys_list = []
 		max_value = max(d.values())
@@ -1160,7 +1159,13 @@ dict_intersection
 - If the key is present in both dictionaries, add the key-value pair to the new dictionary.
 """
 # My Code
-
+	...
+	def dict_intersection(d1, d2):
+		novo_dicio = {}
+		for key in d1:
+			if key in d2 and d1[key] == d2[key]:
+				novo_dicio[key] = d1[key]
+		return novo_dicio
         
 # Solution
 	def dict_intersection(d1, d2):
@@ -1175,7 +1180,8 @@ dict_intersection
 def dict_intersection(d1, d2):
     return {key: d1[key] for key in d1 if key in d2 and d1[key] == d2[key]}
 # This solution is more concise as it uses dictionary comprehension to create the new dictionary in one line. The dictionary comprehension iterates over the keys in `d1`, checks if the key is present in `d2` and if the values associated with the keys are the same in both dictionaries. If both conditions are met, the key-value pair is added to the new dictionary.
-
+# In this solution, we use a dictionary comprehension to iterate through the keys of the first dictionary `d1`. We check if the key is present in the second dictionary `d2` and if the corresponding values in both dictionaries are equal. If these conditions are met, we add the key-value pair to the new dictionary.
+# This solution achieves the same result as your original solution but in a more concise way using dictionary comprehension.
 
 
 
@@ -1215,7 +1221,15 @@ count_values
 - Finally, return the new dictionary that you have created
 """
 # My Code
-
+	...
+	def count_values(d):
+		resultado = {}
+		for value in d.values():
+			if value in resultado:
+				resultado[value] += 1
+			else:
+				resultado[value] = 1
+		return resultado
         
 # Solution
 	def count_values(d):
@@ -1295,7 +1309,15 @@ nested_value
 5. If all keys are present, return the value at the specified depth in the nested dictionary.
 """
 # My Code
-
+	...
+	def nested_value(d, keys):
+		for key in keys:
+			if key in d:
+				d = d[key]
+			else:
+				return False
+		return d
+	
         
 # Solution
 	def nested_value(d, keys):
@@ -1317,6 +1339,23 @@ def nested_value(d, keys):
         return False
     return nested_value(d[keys[0]], keys[1:])
 # In this alternative solution, the function `nested_value` recursively calls itself with the nested dictionary and the remaining keys in the list. This solution also handles cases where the list of keys is empty or has only one key. If the key is not present in the dictionary, it returns False. Otherwise, it continues to the next level of nesting until the specified depth is reached or a key is missing.
+# 1. Using a try-except block:
+def nested_value(d, keys):
+    try:
+        for key in keys:
+            d = d[key]
+        return d
+    except KeyError:
+        return False
+# This solution uses a try-except block to catch the KeyError that occurs when a key is not present in the dictionary. It then returns False if any key is not found.
+# 2. Using get() method:
+def nested_value(d, keys):
+    for key in keys:
+        d = d.get(key, False)
+        if not d:
+            return False
+    return d
+# This solution uses the get() method of dictionaries to retrieve the value of a key without raising an error if the key is not found. If the key is not found, it returns False.
 
 
 
