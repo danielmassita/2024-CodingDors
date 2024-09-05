@@ -20,9 +20,14 @@ def add(num1, num2):
         raise ValueError("Invalid input. Please provide valid numbers.")
 
 def subtract(num1, num2):
+    try:
+        resultado_subtracao = float(num1) - float(num2)
+        return resultado_subtracao
+    except ValueError:
+        raise ValueError("Invalid input. Please provide valid numbers."
     # Similar to the add function.
     # TODO: Implement this function.
-    pass
+    # pass
 
 def multiply(num1, num2):
     # Similar to the add function.
